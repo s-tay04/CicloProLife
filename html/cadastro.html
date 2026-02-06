@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/cadastro.css">
 </head>
 <body>
-    <h1>Cadastre-se</h1>
+    <img src="../imagem/borda.png">
+    <form class="formulario">
 
-<form class="formulario">
+    <h1><strong>Cadastre-se</strong></h1>
+
     <div class="campo"></div>
-     <label for="text">Usuário: </label>
-      <input type="text" id="usuario" placeholder="Digite seu usuário"><br>
+     <label for="text"><strong>Usuário: </strong></label>
+      <input type="text" id="usuario" placeholder="Digite aqui...">
     </div>
 
     <div class="campo"></div>
-     <label placeholder="email" type="email">Email: </label>
-      <input type="email" id="email" placeholder="Digite seu email"><br>
+     <label placeholder="email" type="email"><strong>Email: </strong></label>
+      <input type="email" id="email" placeholder="Digite aqui...">
     </div>
 
     <div class="campo"></div>
-     <label placeholder="password" type="password">Senha: </label>
-      <input type="password" id="senha" placeholder="Digite sua senha"><br>
+     <label placeholder="password" type="password"><strong>Senha: </strong></label>
+      <input type="password" id="senha" placeholder="Digite aqui...">
     </div>
 
-    <button onclick="cadastro()">Cadastrar</button>
+    <button onclick="cadastro()"><strong>Cadastrar</strong></button>
 
 </form>
     <script src="../js/cadastro.js"></script>
