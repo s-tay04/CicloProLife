@@ -1,0 +1,18 @@
+body{
+    background-color: #E3C4A6 ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabeca{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px;
+}
+
+.pesquisa{
+    width:70%;
+    padding:15px 92px;
+    border-radius: 55px;
+    border: none;
+}
