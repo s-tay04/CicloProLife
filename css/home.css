@@ -12,7 +12,15 @@ body{
 
 .pesquisa{
     width:70%;
-    padding:15px 92px;
+    padding: 15px 150px;
+    padding-left: 18px;
     border-radius: 55px;
     border: none;
+    background-image: url(../imagem/lupa.png);
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 20px;
+    background-position-x: 99%;
+    font-size: medium;
+    
 }
