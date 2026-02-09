@@ -5,6 +5,8 @@ body{
     margin: 0%;
 }
 
+
+
 .cabeca{
     display: flex;
     align-items: center;
@@ -29,6 +31,22 @@ body{
     
 }
 
+.logo{
+    cursor: pointer;
+}
+
+.tema{
+    cursor: pointer;
+}
+
+.perfil{
+    cursor: pointer;
+}
+
+.tema{
+    cursor: pointer
+}
+
 .linha{
   border-bottom: 5px solid rgb(255, 255, 255);
   width: 100%;
@@ -39,20 +57,22 @@ body{
 
 .menu{
     display: flex;
-    gap: 45px;
-    padding: 15px 30px;
+    gap: 20%;
+    padding: 1% 10%;
+    
+    
 }
 
 .menu a {
     text-decoration: none;
-    color: black;
-    font-size: 160%;
+    color: #3F3F3F;
+    font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
     transition: color 0.2s ease,border-bottom 0.2 ease;
 }
 
-.menu a.hover{
-    color:#ff6b6b ;
-    border-bottom:3px solid #ff6b6b;
+.menu a:hover{
+    color:#FF8080 ;
+    border-bottom:3px solid #FF8080;
 }
