@@ -76,3 +76,30 @@ body{
     color:#FF8080 ;
     border-bottom:3px solid #FF8080;
 }
+
+
+
+
+
+.cards{
+    padding: 30px;
+}
+
+.destaques{
+    font-size: 220%;
+    font-weight: 600;
+    color: #3F3F3F;
+    margin-bottom: 2%;
+}
+
+.cards{
+    display: flex;
+    gap: 3%;
+}
+
+.card{
+    background-color: white;
+    border-radius: 5%;
+    width: 320px
+    
+}
