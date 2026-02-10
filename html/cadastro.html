@@ -7,29 +7,40 @@
     <link rel="stylesheet" href="../css/cadastro.css">
 </head>
 <body>
-    <img src="../imagem/borda.png">
-    <form class="formulario">
+    <div class="container-principal">
+    <div class="lado-esquerdo">
+    <img src="../imagem/borda.png" alt="Ilustração">
+    </div>
 
+    <div class="lado-direito">
+    <form class="formulario">
     <h1><strong>Cadastre-se</strong></h1>
 
-    <div class="campo"></div>
-     <label for="text"><strong>Usuário: </strong></label>
+    <div class="campo">
+     <label for="usuario"><strong>Usuário: </strong></label>
       <input type="text" id="usuario" placeholder="Digite aqui...">
     </div>
 
-    <div class="campo"></div>
-     <label placeholder="email" type="email"><strong>Email: </strong></label>
+    <div class="campo">
+     <label for="email"><strong>Email: </strong></label>
       <input type="email" id="email" placeholder="Digite aqui...">
     </div>
 
-    <div class="campo"></div>
-     <label placeholder="password" type="password"><strong>Senha: </strong></label>
+    <div class="campo">
+     <label for="senha" type="password"><strong>Senha: </strong></label>
       <input type="password" id="senha" placeholder="Digite aqui...">
     </div>
 
-    <button onclick="cadastro()"><strong>Cadastrar</strong></button>
+    <div class="campo-botao">
+      <button type="button" onclick="cadastro()">
+          <strong>Cadastrar</strong>
+      </button>
+  </div>
 
 </form>
+</div>
+</div>
+
     <script src="../js/cadastro.js"></script>
 </body>
 </html>
