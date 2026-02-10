@@ -77,59 +77,59 @@ body{
     border-bottom:3px solid #FF8080;
 }
 
-/* Cards */
+/* Card */
 
-button {
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.card-receita {
     background-color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 20px;
-    margin-left: 30px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #3F3F3F;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-
-}
-
-button:hover {
-    background-color: #f0f0f0;
-}
-
-.grid-receitas {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    gap: 40px; 
-    padding: 0 30px 40px 30px; 
-}
-
-.card {
-    background-color: white;
-    border-radius: 15px;
-    padding: 10px;
-    transition: transform 0.2s; /* animaçãozinha */
-    cursor: pointer;
-    text-align: center;
-}
-
-.card:hover {
-    transform: translateY(-5px); /* animaçãozinha */
-}
-
-.card img {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
+    max-height: 50%;
+    max-width: 50%;
+    border-radius: 20px;
+    padding: 30px;
 }
 
-.card h3, .card p {
-    margin: 10px 0 5px 0;
-    font-size: 1.1rem;
-    color: #333;
-    text-align: left;
-    padding-left: 5px;
+.card-topo {
+    display: flex;
+    gap: 30px; 
+    margin-bottom: 20px;
+}
+
+#imagem-receita {
+    width: 300px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-info {
+    flex: 1;
+}
+
+#titulo-receita {
+    background-color: #FF8080; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px; 
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 0;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h3 {
+    color: #444;
+    margin-bottom: 10px;
+}
+
+#lista-ingredientes {
+    padding-left: 20px;
+    line-height: 1.6; 
 }

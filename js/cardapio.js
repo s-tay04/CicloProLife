@@ -20,6 +20,9 @@ function exibirReceitas(lista) {
         link.href = `receita.html?id=${item.id}`;
         link.className = 'card-link';
 
+        link.style.textDecoration = 'none';
+        link.style.color = 'inherit';
+
         const card = document.createElement('div');
         card.className = 'card';
 

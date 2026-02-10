@@ -4,7 +4,7 @@ Projeto desenvolvido para a disciplina de tecnico em informaica no SENAI CETAF t
 
 ## Integrantes
 - eshilen
-- thayna
+- tayna
 - geovana
 - thiago
 
