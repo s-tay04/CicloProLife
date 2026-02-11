@@ -68,13 +68,13 @@ body{
     color: #3F3F3F;
     font-size: 230%;
     font-weight: 500;
-    padding-bottom: 6px;
+    padding-bottom: 1px;
     transition: color 0.2s ease,border-bottom 0.2 ease;
 }
 
 .menu a:hover{
     color:#FF8080 ;
-    border-bottom:3px solid #FF8080;
+    border-bottom: solid #FF8080;
 }
 
 
@@ -82,14 +82,14 @@ body{
 
 
 .cards{
-    padding: 30px;
+    padding: 100px;
 }
 
 .destaques{
-    font-size: 220%;
+    font-size: 30px;
     font-weight: 600;
     color: #3F3F3F;
-    margin-bottom: 2%;
+    margin-bottom: 2px;
 }
 
 .cards{
@@ -100,6 +100,20 @@ body{
 .card{
     background-color: white;
     border-radius: 5%;
-    width: 320px
-    
+    padding: 100px;
+    width: 310px;
+    margin-top: 10%;
+
+    transition: transform 0.2;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: translateY('-5px');
+}
+
+.card img{
+    width: 100%;
+    height: 80%;
+    border-radius: 62px;
 }
