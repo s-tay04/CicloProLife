@@ -75,6 +75,11 @@ body{
     color:#FF8080 ;
     border-bottom:3px solid #FF8080;
     }
+
+    .menu a.ativo{
+    color: #FF8080;
+    border-bottom: 3px solid #FF8080;
+}
     
     /* botão */
     
