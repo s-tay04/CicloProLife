@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar receitas</title>
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/novidades.css">
 </head>
 <body>
     <header class = "cabeca">
@@ -14,27 +14,29 @@
      <div class="perfil">     <img src="../imagem/perfil.png" alt="perfil"></div>
     </header>
 
+    <div class="linha"></div>
+
     <nav class="menu">
       <a href="#">Início</a>
       <a href="#">Cardápio</a>
-      <a href="#">Novas Receitas</a>
+      <a href="#">Adicionar</a>
       <a href="#">Relatórios</a>
     </nav>
 
     <form class="formulario">
         <div class="campo"></div>
           <label for="text">Digite a sua receita: </label><br>
-          <input id="receita" for="text"><br><br>
+          <input class="resposta" id="receita" for="text"><br><br>
         </div>
 
         <div class="campo"></div>
           <label for="text">Quanto custa para produzir esta receita? </label><br>
-          <input id="custo" for="text"><br><br>
+          <input class="resposta" id="custo" for="text"><br><br>
         </div>
 
         <div class="campo"></div>
           <label for="text">Quantas porções rendem? </label><br>
-          <input id="porcoes" for="text"><br><br>
+          <input class="resposta" id="porcoes" for="text"><br><br>
         </div>
 
         <button onclick="enviar()">Enviar receita</button>

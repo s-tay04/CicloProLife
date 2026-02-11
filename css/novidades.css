@@ -1,0 +1,127 @@
+body{
+    background-color: #E3C4A6 ;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    margin: 0%;
+    }
+    
+    .cabeca{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px;
+    }
+    
+    .pesquisa{
+    width:70%;
+    padding: 15px 10%;
+    padding-left: 18px;
+    border-radius: 55px;
+    border: none;
+    background-image: url(../imagem/lupa.png);
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 20px;
+    background-position-x: 99%;
+    font-size: medium;
+    
+    cursor: pointer;
+    
+    }
+    
+    .logo{
+    cursor: pointer;
+    }
+    
+    .tema{
+    cursor: pointer;
+    }
+    
+    .perfil{
+    cursor: pointer;
+    }
+    
+    .tema{
+    cursor: pointer
+    }
+    
+    .linha{
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 20px 0px;
+    border-radius: 30px;
+    
+    }
+    
+    .menu{
+    display: flex;
+    gap: 20%;
+    padding: 1% 10%;
+    margin-bottom: 15px;
+    
+    
+    }
+    
+    .menu a {
+    text-decoration: none;
+    color: #3F3F3F;
+    font-size: 230%;
+    font-weight: 500;
+    padding-bottom: 6px;
+    transition: color 0.2s ease,border-bottom 0.2 ease;
+    }
+    
+    .menu a:hover{
+    color:#FF8080 ;
+    border-bottom:3px solid #FF8080;
+    }
+    
+    /* botão */
+    
+    button {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 30px;
+        border: none;
+        background-color: #ff8c8c;
+        color: #f0f0f0;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        align-content: center;
+        display: block;
+        margin: 20px auto;
+        
+    }
+    
+    button:hover {
+        background-color: #FFA6A6;
+    }
+    
+    
+    label {
+        color: #3F3F3F;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 32px;
+        background-color: #ffd1a3;
+        padding: 8px 25px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-left: 8.5%;
+        margin-bottom: 5px;
+    }
+    
+    .resposta{
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: #fce0c4;
+        border-color: #f8b97b;
+        border-radius: 20px;
+        width: 80%;
+        padding: 30px;
+        display: block;
+        margin: 20px auto;
+    
+    }
