@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório</title>
+    <link rel="stylesheet" href="../css/relatorio.css">
+</head>
+<body>
+    <header class = "cabeca">
+        <div class="logo">       <img src="../imagem/logo.png" alt="logo"></div>
+        <input class="pesquisa"   type="text" placeholder="Digite aqui...">
+        <div class="tema">       <img src="../imagem/lua.png" alt=""></div>
+        <div class="perfil">     <img src="../imagem/perfil.png" alt="perfil"></div>
+  </header>
+
+  <div class="linha"></div>
+
+     <nav class="menu">
+        <a href="#">Início</a> 
+        <a href="#">Cardápio</a>
+        <a href="#">Adicionar</a>
+        <a href="#">Relatórios</a>
+     </nav>
+     <main class="relatorio-container">
+    
+        <div id="tela-grafico" class="sessao-relatorio">
+            <div class="card-mais-consumidos">
+                <span class="badge">Mais consumidos</span>
+                <div class="conteudo-flex">
+                    <ul class="legenda">
+                        <li><span class="circulo coxinha"></span><span class="nome">Coxinha</span></li>
+                        <li><span class="circulo joelho"></span><span class="nome">Joelho</span></li>
+                        <li><span class="circulo brownie"></span><span class="nome">Brownie de sorvete</span></li>
+                    </ul>
+                    <div class="grafico-pizza"></div>
+                </div>
+            </div>
+            <button class="btn-adicionar" onclick="mudarTela()">Adicionar relatório</button>
+        </div>
+    
+        <div id="tela-upload" class="sessao-relatorio" style="display: none;">
+            <h2 class="titulo-upload">Adicione os relatórios em Word ou Excel:</h2>
+            <div class="caixa-upload">
+                <div class="icone-mais">+</div>
+            </div>
+            <button class="btn-adicionar">Adicionar relatório</button>
+        </div>
+    
+    </main>
+    <script src="../js/relatorio.js"></script>
+</body>
+</html>

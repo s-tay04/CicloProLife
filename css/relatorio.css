@@ -1,0 +1,204 @@
+body{
+    background-color: #E3C4A6 ;
+    font-family: Arial, Helvetica, sans-serif;
+
+    margin: 0%;
+}
+
+
+
+.cabeca{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px;
+}
+
+.pesquisa{
+    width:70%;
+    padding: 15px 10%;
+    padding-left: 18px;
+    border-radius: 55px;
+    border: none;
+    background-image: url(../imagem/lupa.png);
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: 20px;
+    background-position-x: 99%;
+    font-size: medium;
+
+    cursor: pointer;
+    
+}
+
+.logo{
+    cursor: pointer;
+}
+
+.tema{
+    cursor: pointer;
+}
+
+.perfil{
+    cursor: pointer;
+}
+
+.tema{
+    cursor: pointer
+}
+
+.linha{
+  border-bottom: 5px solid rgb(255, 255, 255);
+  width: 100%;
+  margin: 20px 0px;
+  border-radius: 30px;
+ 
+}
+
+.menu{
+    display: flex;
+    gap: 20%;
+    padding: 1% 10%;
+    
+    
+}
+
+.menu a {
+    text-decoration: none;
+    color: #3F3F3F;
+    font-size: 230%;
+    font-weight: 500;
+    padding-bottom: 6px;
+    transition: color 0.2s ease,border-bottom 0.2 ease;
+}
+
+.menu a:hover{
+    color:#FF8080 ;
+    border-bottom:3px solid #FF8080;
+}
+
+/* Container Principal */
+.relatorio-container {
+    padding: 40px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-mais-consumidos {
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+}
+
+.badge {
+    background-color: #FF8080;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.conteudo-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Legenda com círculos coloridos */
+.legenda {
+    list-style: none;
+    padding: 0;
+}
+
+.legenda li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.circulo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.nome {
+    font-size: 2rem;
+    color: #3F3F3F;
+    font-weight: 500;
+}
+
+/* Cores específicas conforme a imagem */
+.coxinha { background-color: #FF6600; }
+.joelho { background-color: #FFA674; }
+.brownie { background-color: #FFD9C4; }
+
+/* O Gráfico de Pizza (Usando conic-gradient) */
+.grafico-pizza {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    /* Aqui definimos as fatias: Coxinha (60%), Joelho (25%), Brownie (15%) */
+    background: conic-gradient(
+        #FF6600 0% 60%, 
+        #FFA674 60% 85%, 
+        #FFD9C4 85% 100%
+    );
+}
+
+/* Botão Inferior */
+.btn-adicionar {
+    background-color: #FF8080;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 50px;
+    transition: transform 0.2s;
+}
+
+.btn-adicionar:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para a nova tela de upload */
+.titulo-upload {
+    color: #3F3F3F;
+    align-self: flex-start; /* Alinha o texto à esquerda */
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.caixa-upload {
+    width: 100%;
+    max-width: 1100px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.3); /* Cor clarinha e transparente */
+    border-radius: 30px;
+    display: flex;
+    justify-content: flex-end; /* Coloca o ícone na direita */
+    align-items: flex-end;    /* Coloca o ícone embaixo */
+    padding: 20px;
+    position: relative;
+}
+
+.icone-mais {
+    background-color: white;
+    color: #E3C4A6;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
