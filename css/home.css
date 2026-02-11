@@ -55,65 +55,92 @@ body{
  
 }
 
+/* MENU */
 .menu{
     display: flex;
-    gap: 20%;
-    padding: 1% 10%;
-    
-    
+    justify-content: center;
+    gap: 120px;
+    padding: 20px 0;
 }
 
 .menu a {
     text-decoration: none;
     color: #3F3F3F;
-    font-size: 230%;
+    font-size: 26px;
     font-weight: 500;
-    padding-bottom: 1px;
-    transition: color 0.2s ease,border-bottom 0.2 ease;
+    padding-bottom: 5px;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
 }
 
 .menu a:hover{
     color:#FF8080 ;
-    border-bottom: solid #FF8080;
+    border-bottom: 3px solid #FF8080;
+}
+
+.menu a.ativo{
+    color: #FF8080;
+    border-bottom: 3px solid #FF8080;
 }
 
 
-
-
-
+/* CONTAINER GERAL (FAZ TUDO FICAR EM COLUNA) */
 .cards{
-    padding: 100px;
+    display: flex;
+    flex-direction: column;   /* 👈 empilha título + cards */
+    align-items: center;      /* 👈 centraliza tudo */
+    padding: 40px 0 80px 0;
 }
 
+
+/* TÍTULO */
 .destaques{
     font-size: 30px;
     font-weight: 600;
     color: #3F3F3F;
-    margin-bottom: 2px;
+    margin-bottom: 30px;
+    align-self: flex-start;   /* 👈 fica alinhado à esquerda */
+    margin-left: 12%;
 }
 
-.cards{
+
+/* LINHA DOS CARDS */
+.cards-container{
     display: flex;
-    gap: 3%;
+    gap: 60px;
+    justify-content: center;
+    flex-wrap: wrap; /* evita quebrar layout em telas menores */
 }
 
-.card{
-    background-color: white;
-    border-radius: 5%;
-    padding: 100px;
-    width: 310px;
-    margin-top: 10%;
 
-    transition: transform 0.2;
+/* CARD */
+.card{
+    background-color: #EDEDED;
+    border-radius: 18px;
+    padding: 20px;
+    width: 340px;         /* 👈 aumentei */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
 }
 
 .card:hover{
-    transform: translateY('-5px');
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.10);
 }
 
+
+/* IMAGEM */
 .card img{
     width: 100%;
-    height: 80%;
-    border-radius: 62px;
+    height: 220px;        /* 👈 altura correta */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+/* TEXTO */
+.card h3{
+    margin-top: 15px;
+    font-size: 20px;
+    color: #3F3F3F;
+    font-weight: 500;
 }
