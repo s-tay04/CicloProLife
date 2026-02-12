@@ -55,26 +55,27 @@ body{
  
 }
 
-/* MENU */
+
 .menu{
     display: flex;
-    justify-content: center;
-    gap: 120px;
-    padding: 20px 0;
+    gap: 20%;
+    padding: 1% 10%;
+    
+    
 }
 
 .menu a {
     text-decoration: none;
     color: #3F3F3F;
-    font-size: 26px;
+    font-size: 230%;
     font-weight: 500;
-    padding-bottom: 5px;
-    transition: color 0.2s ease, border-bottom 0.2s ease;
+    padding-bottom: 6px;
+    transition: color 0.2s ease,border-bottom 0.2 ease;
 }
 
 .menu a:hover{
     color:#FF8080 ;
-    border-bottom: 3px solid #FF8080;
+    border-bottom:3px solid #FF8080;
 }
 
 .menu a.ativo{
