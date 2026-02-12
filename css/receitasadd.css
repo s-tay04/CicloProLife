@@ -79,7 +79,7 @@ body{
 
 /* fases */
 
-.fase {
+.faseon {
     background-color: #ff8c8c;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
@@ -90,9 +90,35 @@ body{
     display: inline-block; /* lado a lado */
     text-align: center;    /* centraliza o texto do botão */
     margin: 20px;  
-    margin-left: 13%;
+    margin-left: 10%;
+    margin-right: 10%;
     vertical-align: middle;
 
+}
+
+.faseon:hover {
+    background-color: #FFA6A6;
+}
+
+.faseoff {
+    background-color: #fccea0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 238px;
+    padding: 15px;
+    display: inline-block; /* lado a lado */
+    text-align: center;    /* centraliza o texto do botão */
+    margin: 20px;  
+    margin-left: 10%;
+    margin-right: 10%;
+    vertical-align: middle;
+
+}
+
+.faseoff:hover {
+    background-color: #ffe3c7;
 }
 
 .cadeado{
@@ -104,6 +130,56 @@ body{
 }
 
 a {
-    color: #f0f0f0;
+    color: #ffffff;
     text-decoration: none;
+
+}
+
+
+/* card */
+#lista-receitas {
+    display: flex;           /* Isso coloca os itens lado a lado */
+    flex-wrap: wrap;         /* Se faltar espaço, joga para a linha de baixo */
+    gap: 80px;               /* Espaço entre um card e outro */
+    justify-content: center; /* Centraliza o grupo de cards na tela */
+    padding: 50px;
+}
+
+.cards-container{
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    flex-wrap: wrap; /* evita quebrar layout em telas menores */
+}
+
+.card{
+    background-color: #EDEDED;
+    border-radius: 18px;
+    padding: 20px;
+    height: 360px;
+    width: 400px;         /* 👈 aumentei */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.10);
+}
+
+.card img{
+    width: 100%;
+    height: 260px;        /* 👈 altura correta */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* animaçãozinha */
+}
+
+.card h3 {
+    font-size: 24px;    
+    font-weight: bold;   
+    color: #3F3F3F;        
 }

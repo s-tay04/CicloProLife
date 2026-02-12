@@ -1,5 +1,5 @@
 const receitas = [
-    { id: 'brownie', nome: 'Brownie de sorvete', img: '../imagem/browinie.png' },
+    { id: 'brownie', nome: 'Brownie de sorvete', img: '../imagem/brownie.png' },
     { id: 'coxinha', nome: 'Coxinha de jaca', img: '../imagem/coxinhanormal.png' },
     { id: 'cookie', nome: 'Cookie de pistache', img: '../imagem/cookie.png' },
 ];
@@ -35,5 +35,7 @@ function exibirReceitas(lista) {
         container.appendChild(link);
     });
 
-    
+
 }
+
+exibirReceitas(receitas);
