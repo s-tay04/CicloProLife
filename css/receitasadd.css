@@ -79,16 +79,31 @@ body{
 
 /* fases */
 
-.fase{
-    background-color: #FF8080;
+.fase {
+    background-color: #ff8c8c;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
-    border-radius: 5px;
-    display: inline-block;
+    border-radius: 30px;
     cursor: pointer;
-    margin-left: 15%;
+    width: 238px;
+    padding: 15px;
+    display: inline-block; /* lado a lado */
+    text-align: center;    /* centraliza o texto do botão */
+    margin: 20px;  
+    margin-left: 13%;
+    vertical-align: middle;
+
 }
 
-a{
+.cadeado{
+    background-image: url(../imagem/cadeado.png);
+    background-repeat: no-repeat;
+    background-position: right -1px center;
+    background-size: 30px 30px; 
+    padding-right: 50px !important;
+}
+
+a {
     color: #f0f0f0;
+    text-decoration: none;
 }
