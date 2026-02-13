@@ -101,7 +101,7 @@ const bancoDeReceitas = {
     
     'coxinha_jaca': {
         titulo: 'Coxinha de Jaca (Vegana)',
-        imagem: '../imagem/coxinhajaca.png',
+        imagem: '../imagem/coxinhanormal.png',
         ingredientes: [
                 '2 xícaras de carne de jaca verde desfiada',
                 '2 xícaras de farinha de trigo',
@@ -125,7 +125,7 @@ const bancoDeReceitas = {
         },
         'cookie_pistache': {
             titulo: 'Cookie de Pistache',
-            imagem: '../imagem/cookie_pistache.png',
+            imagem: '../imagem/cookie.png',
             ingredientes: [
                 '100g de manteiga gelada em cubos',
                 '1/2 xícara de açúcar mascavo + 1/3 de branco',
@@ -164,5 +164,4 @@ if (bancoDeReceitas[idReceita]) {
 } else {
     tituloElemento.innerText = "Receita não encontrada";
     listaIngredientes.innerHTML = "";
-    preparoElemento.innerHTML = "<a href='index.html'>Voltar para o início</a>";
 }

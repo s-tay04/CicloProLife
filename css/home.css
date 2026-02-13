@@ -84,27 +84,43 @@ body{
 }
 
 
-/* CONTAINER GERAL (FAZ TUDO FICAR EM COLUNA) */
+/* CONTAINER */
 .cards{
     display: flex;
-    flex-direction: column;   /* 👈 empilha título + cards */
-    align-items: center;      /* 👈 centraliza tudo */
+    flex-direction: column;
+    align-items: center;
     padding: 40px 0 80px 0;
 }
 
 
-/* TÍTULO */
+
 .destaques{
     font-size: 35px;
     font-weight: 600;
     color: #3F3F3F;
     margin-bottom: 30px;
-    align-self: flex-start;   /* 👈 fica alinhado à esquerda */
+    align-self: flex-start;
     margin-left: 10%;
 }
 
 
-/* LINHA DOS CARDS */
+
+.grid-receitas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto; 
+}
+
+@media (max-width: 768px) {
+    .grid-receitas {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 .cards-container{
     display: flex;
     gap: 60px;
@@ -117,7 +133,7 @@ body{
     display: flex;
     gap: 60px;
     justify-content: center;
-    flex-wrap: wrap; /* evita quebrar layout em telas menores */
+    flex-wrap: wrap; 
 }
 
 .card{
