@@ -8,38 +8,40 @@
 </head>
 <body>
     <div class="container-principal">
-    <div class="lado-esquerdo">
-    <img src="../imagem/borda.png" alt="Ilustração">
+        <div class="lado-esquerdo">
+            <img src="../imagem/borda.png" alt="Ilustração">
+        </div>
+
+        <div class="lado-direito">
+            <form class="formulario">
+                <h1><strong>Cadastre-se</strong></h1>
+
+                <div class="campo">
+                    <label for="usuario"><strong>Usuário: </strong></label>
+                    <input type="text" id="usuario" placeholder="Digite aqui...">
+                </div>
+
+                <div class="campo">
+                    <label for="email"><strong>Email: </strong></label>
+                    <input type="email" id="email" placeholder="Digite aqui...">
+                </div>
+
+                <div class="campo">
+                    <label for="senha"><strong>Senha: </strong></label>
+                    <input type="password" id="senha" placeholder="Digite aqui...">
+                </div>
+
+                <div class="campo-botao">
+                    <button type="button" onclick="cadastro(event)">
+                        <strong>Cadastrar</strong>
+                    </button>
+                </div>
+
+                <a href="../html/home.html" class="link-sem-cadastro">Entrar sem cadastro</a>
+
+            </form>
+        </div>
     </div>
-
-    <div class="lado-direito">
-    <form class="formulario">
-    <h1><strong>Cadastre-se</strong></h1>
-
-    <div class="campo">
-     <label for="usuario"><strong>Usuário: </strong></label>
-      <input type="text" id="usuario" placeholder="Digite aqui...">
-    </div>
-
-    <div class="campo">
-     <label for="email"><strong>Email: </strong></label>
-      <input type="email" id="email" placeholder="Digite aqui...">
-    </div>
-
-    <div class="campo">
-     <label for="senha" type="password"><strong>Senha: </strong></label>
-      <input type="password" id="senha" placeholder="Digite aqui...">
-    </div>
-
-    <div class="campo-botao">
-      <button type="button" onclick="cadastro()">
-          <strong>Cadastrar</strong>
-      </button>
-  </div>
-
-</form>
-</div>
-</div>
 
     <script src="../js/cadastro.js"></script>
 </body>

@@ -1,53 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório</title>
+    <title>Relatórios</title>
     <link rel="stylesheet" href="../css/relatorio.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header class = "cabeca">
         <div class="logo">       <img src="../imagem/logo.png" alt="logo"></div>
         <input class="pesquisa"   type="text" placeholder="Digite aqui...">
         <div class="tema">       <img src="../imagem/lua.png" alt=""></div>
         <div class="perfil">     <img src="../imagem/perfil.png" alt="perfil"></div>
-  </header>
+    </header>
 
-  <div class="linha"></div>
+    <div class="linha"></div>
 
-     <nav class="menu">
-        <a href="../html/home.html">Início</a> 
-        <a href="../html/cardapio.html">Cardápio</a>
-        <a href="../html/receitasadd.html">Adicionar</a>
-        <a href="#" class="ativo">Relatórios</a>
-     </nav>
-     <main class="relatorio-container">
-    
-        <div id="tela-grafico" class="sessao-relatorio">
-            <div class="card-mais-consumidos">
-                <span class="badge">Mais consumidos</span>
-                <div class="conteudo-flex">
-                    <ul class="legenda">
-                        <li><span class="circulo coxinha"></span><span class="nome">Coxinha</span></li>
-                        <li><span class="circulo joelho"></span><span class="nome">Joelho</span></li>
-                        <li><span class="circulo brownie"></span><span class="nome">Brownie de sorvete</span></li>
-                    </ul>
-                    <div class="grafico-pizza"></div>
-                </div>
+    <nav class="menu">
+        <a href="home.html">Início</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="receitasadd.html">Novas receitas</a>
+        <a href="../html/relatorio.html" class="ativo">Relatórios</a>
+    </nav>
+
+    <div class="container-principal">
+        
+        <div class="painel-grafico">
+            <div class="legenda-container">
+                <span class="badge-titulo">Mais consumidos</span>
+                
+                <ul class="lista-legenda">
+                    <li>
+                        <span class="bolinha cor-1"></span> Coxinha
+                    </li>
+                    <li>
+                        <span class="bolinha cor-2"></span> Joelho
+                    </li>
+                    <li>
+                        <span class="bolinha cor-3"></span> Brownie de sorvete
+                    </li>
+                </ul>
             </div>
-            <button class="btn-adicionar" onclick="mudarTela()">Adicionar relatório</button>
+
+            <div class="area-chart">
+                <canvas id="graficoConsumo"></canvas>
+            </div>
         </div>
-    
-        <div id="tela-upload" class="sessao-relatorio" style="display: none;">
-            <h2 class="titulo-upload">Adicione os relatórios em Word ou Excel:</h2>
-            <div class="caixa-upload">
+
+        <div class="area-upload">
+            <h3>Adicione os relatórios em Word ou Excel:</h3>
+            
+            <div class="caixa-upload" id="drop-zone">
+                <p id="texto-arquivo">Clique aqui para selecionar o arquivo</p>
                 <div class="icone-mais">+</div>
+                <input type="file" id="input-arquivo" accept=".doc,.docx,.xls,.xlsx" hidden>
             </div>
-            <button class="btn-adicionar">Adicionar relatório</button>
+
+            <button class="btn-adicionar" onclick="enviarRelatorio()">Adicionar relatório</button>
         </div>
-    
-    </main>
+
+    </div>
+
     <script src="../js/relatorio.js"></script>
 </body>
 </html>
