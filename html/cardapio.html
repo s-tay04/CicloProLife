@@ -18,13 +18,17 @@
     <div class="linha"></div>
 
      <nav class="menu">
-                            <a href="../html/home.html">Início</a>
-                            <a href="#" class="ativo">Cardápio</a>
-                            <a href="../html/receitasadd.html">Adicionar</a>
-                            <a href="../html/relatorio.html">Relatórios</a>
-                        </nav>
+        <a href="../html/home.html">Início</a>
+        <a href="../html/cardapio.html" class="ativo">Cardápio</a>
+        <a href="../html/receitasadd.html">Adicionar</a>
+        <a href="../html/relatorio.html">Relatórios</a>
+    </nav>
 
-    <button onclick="ordenarReceitas()">Ordenar A-Z ▾</button>
+    <div class="filtros">
+        <button id="btn-ordenar" class="btn-controle" onclick="ordenarReceitas()">Ordenar A-Z</button>
+                        
+        <button id="btn-limpar" class="btn-controle ativo" onclick="limparFiltro()">Ordem padrão</button>
+    </div>
 
     <div id="lista-receitas" class="grid-receitas"></div>
 

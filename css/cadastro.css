@@ -91,6 +91,7 @@ button {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+
     
 }
 
@@ -98,3 +99,19 @@ button:hover {
     background-color: #ff8c8c;
 }
 
+.link-sem-cadastro {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #3F3F3F;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.link-sem-cadastro:hover {
+    color: #714C27;
+    text-decoration: underline;
+}

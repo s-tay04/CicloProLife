@@ -41,9 +41,26 @@ function exibirReceitas(lista) {
     });
 }
 
+const botaoOrdenar = document.getElementById('btn-ordenar');
+const botaoLimpar = document.getElementById('btn-limpar');
+
 function ordenarReceitas() {
-    receitas.sort((a, b) => a.nome.localeCompare(b.nome));
+    const listaOrdenada = [...receitas].sort((a, b) => a.nome.localeCompare(b.nome));
+    exibirReceitas(listaOrdenada);
+
+    botaoOrdenar.classList.add('ativo');
+    botaoLimpar.classList.remove('ativo');
+}
+
+function restaurarOrdem() {
     exibirReceitas(receitas);
 }
 
 exibirReceitas(receitas);
+
+function limparFiltro() {
+    exibirReceitas(receitas);
+
+    botaoLimpar.classList.add('ativo');
+    botaoOrdenar.classList.remove('ativo');
+}
