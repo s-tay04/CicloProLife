@@ -80,3 +80,101 @@ body{
     color: #FF8080;
     border-bottom: 3px solid #FF8080;
 }
+.faseon {
+    background-color: #ff8c8c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 238px;
+    padding: 15px;
+    display: inline-block; /* lado a lado */
+    text-align: center;    /* centraliza o texto do botão */
+    margin: 20px;  
+    margin-left: 9%;
+    margin-right: 9%;
+    vertical-align: middle;
+
+}
+
+.faseon:hover {
+    background-color: #FFA6A6;
+}
+
+.faseoff {
+    background-color: #fccea0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 238px;
+    padding: 15px;
+    display: inline-block; /* lado a lado */
+    text-align: center;    /* centraliza o texto do botão */
+    margin: 20px;  
+    margin-left: 9%;
+    margin-right: 9%;
+    vertical-align: middle;
+
+}
+
+.faseoff:hover {
+    background-color: #ffe3c7;
+}
+
+.cadeado{
+    background-image: url(../imagem/cadeado.png);
+    background-repeat: no-repeat;
+    background-position: right -1px center;
+    background-size: 30px 30px; 
+    padding-right: 50px !important;
+}
+a{
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+
+
+.cards-container{
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    flex-wrap: wrap; /* evita quebrar layout em telas menores */
+}
+
+.card{
+    background-color: #EDEDED;
+    border-radius: 18px;
+    padding: 20px;
+    width: 340px;         /* 👈 aumentei */
+    margin-top: 30px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+}
+
+.card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.10);
+}
+
+.card img{
+    width: 100%;
+    height: 220px;      
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.concluir{
+    display: block;   
+    margin: 0 auto;
+    background-color: #FF8080; 
+    color: white;
+    border-radius: 30px;
+    padding: 15px 70px;
+    cursor: pointer;
+    font-family:  sans-serif;
+    border:#FF8080;
+    font-size: 18px;
+    
+}
