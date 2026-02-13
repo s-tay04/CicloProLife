@@ -101,7 +101,7 @@ const bancoDeReceitas = {
     
     'coxinha_jaca': {
         titulo: 'Coxinha de Jaca (Vegana)',
-        imagem: '../imagem/coxinhanormal.png',
+        imagem: '../imagem/coxinhajaca.png',
         ingredientes: [
                 '2 xícaras de carne de jaca verde desfiada',
                 '2 xícaras de farinha de trigo',

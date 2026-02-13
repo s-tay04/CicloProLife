@@ -1,6 +1,6 @@
 const receitas = [
     { id: 'brownie', nome: 'Brownie de sorvete', img: '../imagem/brownie.png' },
-    { id: 'coxinha_jaca', nome: 'Coxinha de jaca', img: '../imagem/coxinhanormal.png' },
+    { id: 'coxinha_jaca', nome: 'Coxinha de jaca', img: '../imagem/coxinhajaca.png' },
     { id: 'cookie_pistache', nome: 'Cookie de pistache', img: '../imagem/cookie.png' },
 ];
 
