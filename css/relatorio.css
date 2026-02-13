@@ -82,128 +82,134 @@ body{
     border-bottom: 3px solid #FF8080;
 }
 
-/* Container Principal */
-.relatorio-container {
-    padding: 40px 10%;
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.card-mais-consumidos {
-    width: 100%;
+.container-principal {
     max-width: 900px;
-    position: relative;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.badge {
-    background-color: #FF8080;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    display: inline-block;
-    margin-bottom: 40px;
-}
-
-.conteudo-flex {
+/* grafico */
+.painel-grafico {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    margin-bottom: 50px;
 }
 
-/* Legenda com círculos coloridos */
-.legenda {
+.legenda-container {
+    flex: 1;
+}
+
+.badge-titulo {
+    background-color: #FF8080;
+    color: #ffff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.lista-legenda {
     list-style: none;
     padding: 0;
 }
 
-.legenda li {
+.lista-legenda li {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
-}
-
-.circulo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
-
-.nome {
-    font-size: 2rem;
-    color: #3F3F3F;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
     font-weight: 500;
 }
 
-/* Cores específicas conforme a imagem */
-.coxinha { background-color: #FF6600; }
-.joelho { background-color: #FFA674; }
-.brownie { background-color: #FFD9C4; }
-
-/* O Gráfico de Pizza (Usando conic-gradient) */
-.grafico-pizza {
-    width: 350px;
-    height: 350px;
+.bolinha {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    /* Aqui definimos as fatias: Coxinha (60%), Joelho (25%), Brownie (15%) */
-    background: conic-gradient(
-        #FF6600 0% 60%, 
-        #FFA674 60% 85%, 
-        #FFD9C4 85% 100%
-    );
+    margin-right: 15px;
+    display: inline-block;
 }
 
-/* Botão Inferior */
+.cor-1 { background-color: #E85D04; }
+.cor-2 { background-color: #FAA307; }
+.cor-3 { background-color: #FFD2B6; }
+
+.area-chart {
+    width: 350px; 
+    height: 350px;
+}
+
+/* upload */
+.area-upload h3 {
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.caixa-upload {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    border: 2px dashed rgba(255,255,255,0.5);
+    transition: background 0.3s;
+}
+
+.caixa-upload:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.icone-mais {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#texto-arquivo {
+    color: #555;
+    font-style: italic;
+}
+
 .btn-adicionar {
     background-color: #FF8080;
     color: white;
     border: none;
     padding: 12px 30px;
     border-radius: 25px;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: block;
+    margin: 30px auto;
     cursor: pointer;
-    margin-top: 50px;
-    transition: transform 0.2s;
 }
 
 .btn-adicionar:hover {
-    transform: scale(1.05);
+    background-color: #FFA6A6;
 }
 
-/* Estilos para a nova tela de upload */
-.titulo-upload {
-    color: #3F3F3F;
-    align-self: flex-start; /* Alinha o texto à esquerda */
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-}
-
-.caixa-upload {
-    width: 100%;
-    max-width: 1100px;
-    height: 300px;
-    background-color: rgba(255, 255, 255, 0.3); /* Cor clarinha e transparente */
-    border-radius: 30px;
-    display: flex;
-    justify-content: flex-end; /* Coloca o ícone na direita */
-    align-items: flex-end;    /* Coloca o ícone embaixo */
-    padding: 20px;
-    position: relative;
-}
-
-.icone-mais {
-    background-color: white;
-    color: #E3C4A6;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
+/* responsividade pra celular */
+@media (max-width: 768px) {
+    .painel-grafico {
+        flex-direction: column;
+    }
+    .area-chart {
+        margin-top: 30px;
+    }
 }
