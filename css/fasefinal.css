@@ -147,7 +147,7 @@ a{
     background-color: #EDEDED;
     border-radius: 18px;
     padding: 20px;
-    width: 340px;         /* 👈 aumentei */
+    width: 340px;        
     margin-top: 30px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     
