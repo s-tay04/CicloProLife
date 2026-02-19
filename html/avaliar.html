@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar</title>
+    <link rel="stylesheet" href="../css/avaliar.css">
+</head>
+<body></body>
+        <!-- cabeçalho do site-->
+    <header class = "cabeca">
+        <div class="logo">       <img src="../imagem/logo.png" alt="logo"></div>
+        <input class="pesquisa"   type="text" placeholder="Digite aqui...">
+        <div class="tema">       <img src="../imagem/lua.png" alt=""></div>
+        <div class="perfil">     <img src="../imagem/perfil.png" alt="perfil"></div>
+    </header>
+
+    <div class="linha"></div>
+
+    <nav class="menu">
+        <a href="../html/home.html">Início</a>
+        <a href="../html/cardapio.html" >Cardápio</a>
+        <a href="../html/receitasadd.html" class="ativo">Adicionar</a>
+        <a href="../html/relatorio.html">Relatórios</a>
+    </nav> 
+        <form class="formulario">
+            <div class="campo"></div>
+              <label for="text">Digite a sua avaliação: </label><br>
+              <input class="resposta" id="receita" for="text"><br><br>
+            </div>
+
+            <button onclick="enviar()">Enviar avaliação</button>
+
+        </form>
+
+    <script>
+        function enviar(){
+    alert ("Receita enviada com sucesso!")
+}
+    </script>
+        

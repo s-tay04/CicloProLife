@@ -134,48 +134,68 @@ body{
     padding-right: 50px !important;
 }
 
-label {
-    color: #3F3F3F;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    padding: 8px 25px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-left: 8.5%;
-    margin-bottom: 5px;
-}
-.resposta{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #fce0c4;
-    border-color: #f8b97b;
-    border-radius: 20px;
-    width: 80%;
-    padding: 200px 5px;
-    display: block;
-    margin: 20px auto;
+a {
+    color: #ffffff;
+    text-decoration: none;
 
 }
 
-button {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 30px;
-    border: none;
-    background-color: #ff8c8c;
-    color: #f0f0f0;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    align-content: center;
-    display: block;
-    margin: 20px auto;
+.cards-container{
+    display: flex;
+    justify-content: center;  
+    margin-top: 60px;
+}
+
+.card{
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 80px;
+    width: 75%;  
+    max-width: 900px; 
+    display:flex;   
+    align-items: center;
+    gap: 40px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     
 }
+.card img {
+    width:550px;       
+    height: auto; 
+    border-radius: 12px;
+  
+}
+    
+.card-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
 
-button:hover {
-    background-color: #FFA6A6;
+.card-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avaliacao {
+    color: #FFC107;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.titulo {
+    background-color: #FF8080;
+    color: #ffff;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.descricao {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #000;
+    font-weight: 600;
+    margin: 0;
 }
