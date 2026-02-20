@@ -184,7 +184,7 @@ button:hover:not(.ativo) {
 }
 
 .botao-novo {
-    background-color: #FF8080;
+    background-color: #FF8080 !important;
     color: white;
     border: none;
     padding: 12px 30px;
@@ -198,5 +198,9 @@ button:hover:not(.ativo) {
 }
 
 .botao-novo:hover {
-    background-color: #FFA6A6;
+    background-color: #FFA6A6 !important;
+}
+
+a {
+    text-decoration: none;
 }

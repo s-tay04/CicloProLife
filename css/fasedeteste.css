@@ -83,76 +83,76 @@ body{
 }
 
 
-/* fases */
+/* botoes */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    margin-top: 1%;
+    flex-wrap: wrap;
+    gap: 16%;
+}
 
-.faseon {
+button {
+    background-color: #fccea0; 
+    color: #ffff;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    font-size: 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 255px;
+    padding: 16px;
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+    margin-left: 5%;
+    transition: all 0.3s ease;
+    flex-wrap: wrap;
+}
+
+button.ativo {
     background-color: #ff8c8c;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    width: 238px;
-    padding: 15px;
-    display: inline-block; /* lado a lado */
-    text-align: center;    /* centraliza o texto do botão */
-    margin: 20px;  
-    margin-left: 9%;
-    margin-right: 9%;
-    vertical-align: middle;
-
+    color: white;
 }
 
-.faseon:hover {
-    background-color: #FFA6A6;
-}
-
-.faseoff {
-    background-color: #fccea0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    width: 238px;
-    padding: 15px;
-    display: inline-block; /* lado a lado */
-    text-align: center;    /* centraliza o texto do botão */
-    margin: 20px;  
-    margin-left: 9%;
-    margin-right: 9%;
-    vertical-align: middle;
-
-}
-
-.faseoff:hover {
+button:hover:not(.ativo) {
     background-color: #ffe3c7;
 }
 
-.cadeado{
-    background-image: url(../imagem/cadeado.png);
-    background-repeat: no-repeat;
-    background-position: right -1px center;
-    background-size: 30px 30px; 
-    padding-right: 50px !important;
+.ativo button:hover {
+    background-color: #FFA6A6;
 }
+
+.cadeado{
+    background-image: url('../imagem/cadeado.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) center; 
+    background-size: 15px;
+    padding-right: 20px;
+    background-origin: content-box;
+}
+
 a{
     color: #f0f0f0;
     text-decoration: none;
 }
 
 
-
+/* cards */
 .cards-container{
     display: flex;
     gap: 60px;
     justify-content: center;
-    flex-wrap: wrap; /* evita quebrar layout em telas menores */
+    flex-wrap: wrap;
 }
 
 .card{
     background-color: #EDEDED;
     border-radius: 18px;
     padding: 20px;
-    width: 340px;         /* 👈 aumentei */
+    width: 340px;   
     margin-top: 30px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     
@@ -185,5 +185,5 @@ a{
 }
 
 .avaliar:hover{
-    background-color: #FFA6A6;
+    background-color: #FFA6A6 !important;
 }
