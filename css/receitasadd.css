@@ -187,8 +187,9 @@ button:hover:not(.ativo) {
     background-color: #FF8080 !important;
     color: white;
     border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
+    width: 255px;
+    padding: 16px;
+    border-radius: 30px;
     font-size: 1.4rem;
     font-weight: bold;
     display: block;
