@@ -181,3 +181,16 @@ button:hover:not(.ativo) {
 .concluir:hover{
     background-color: #FFA6A6 !important;
 }
+
+.requer{
+    display: block;   
+    margin: 0 auto;
+    background-color: #9D9696; 
+    color: white;
+    border-radius: 30px;
+    padding: 15px 70px;
+    cursor: pointer;
+    font-family:  sans-serif;
+    border:#9D9696;
+    font-size: 18px;
+}

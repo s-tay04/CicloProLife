@@ -6,7 +6,7 @@
     <title>Avaliar</title>
     <link rel="stylesheet" href="../css/avaliar.css">
 </head>
-<body></body>
+<body>
         <!-- cabeçalho do site-->
     <header class = "cabeca">
         <div class="logo">       <img src="../imagem/logo.png" alt="logo"></div>
@@ -24,9 +24,9 @@
         <a href="../html/relatorio.html">Relatórios</a>
     </nav> 
         <form class="formulario">
-            <div class="campo"></div>
+            <div class="campo">
               <label for="text">Digite a sua avaliação: </label><br>
-              <input class="resposta" id="receita" for="text"><br><br>
+              <textarea class="resposta" id="receita" placeholder="Digite aqui..."></textarea>
             </div>
 
             <button onclick="enviar()">Enviar avaliação</button>
@@ -34,8 +34,16 @@
         </form>
 
     <script>
-        function enviar(){
-    alert ("Receita enviada com sucesso!")
-}
+        function enviar() {
+            let textoAvaliacao = document.getElementById("receita").value;
+            if (textoAvaliacao.trim() === "") {
+                alert("Escreva a avaliação primeiro!");
+            } else {
+                alert("Avaliação enviada com sucesso!");
+                document.getElementById("receita").value = "";
+            }
+        }
     </script>
+</body>
+</html>
         
