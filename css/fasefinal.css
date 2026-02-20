@@ -170,7 +170,7 @@ button:hover:not(.ativo) {
     background-color: #FF8080; 
     color: white;
     border-radius: 30px;
-    padding: 15px 70px;
+    padding: 15px 20px;
     cursor: pointer;
     font-family:  sans-serif;
     border:#FF8080;
@@ -188,9 +188,14 @@ button:hover:not(.ativo) {
     background-color: #9D9696; 
     color: white;
     border-radius: 30px;
-    padding: 15px 70px;
+    padding: 15px 20px;
     cursor: pointer;
     font-family:  sans-serif;
-    border:#9D9696;
+    border:none;
     font-size: 18px;
+    white-space: nowrap;
+}
+
+.requer:hover{
+background-color: #9D9696 !important;
 }
