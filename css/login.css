@@ -1,70 +1,76 @@
-* {
+/* Reset básico */
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Igual ao cadastro */
 body {
     height: 100vh;
 }
 
-
-.container-principal {
+/* Container principal (invertido) */
+.container-principal{
     display: flex;
+    flex-direction: row-reverse; /* mantém o lado trocado */
     height: 100vh;
-    width: 100%
+    width: 100%;
 }
 
-
-.lado-esquerdo {
+/* Lado da imagem */
+.lado-esquerdo{
     width: 50%;
-    background-color: #714C27; 
+    background-color: #714C27;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.lado-esquerdo img {
+/* Imagem igual ao cadastro */
+.lado-esquerdo img{
     width: 80%;
     max-width: 600px;
 }
 
-
-.lado-direito {
+/* Lado do formulário */
+.lado-direito{
     width: 50%;
-    background-color: #E3C4A6;
+    background-color: #E3C4A6; /* mesma cor do cadastro */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.formulario {
+/* 🔥 MESMAS MEDIDAS DO CADASTRO */
+.formulario{
     width: 60%;
     max-width: 400px;
 }
 
-h1 {
+/* Título */
+h1{
     color: #3F3F3F;
     margin-bottom: 30px;
     font-size: 36px;
     text-align: center;
 }
 
-
-.campo {
+/* Campos */
+.campo{
     margin-bottom: 20px;
 }
 
-label {
+label{
     color: #3F3F3F;
     margin-bottom: 5px;
     display: block;
     font-size: 14px;
 }
 
-input {
+input{
     width: 100%;
     background-color: #ffffff;
     border: 2px solid #9D9696;
@@ -73,14 +79,15 @@ input {
     font-size: 14px;
 }
 
-.campo-botao {
+/* Botão */
+.campo-botao{
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    width: 100%
+    width: 100%;
 }
 
-button {
+button{
     width: 100%;
     max-width: 250px;
     border-radius: 30px;
@@ -91,15 +98,14 @@ button {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-
-    
 }
 
-button:hover {
+button:hover{
     background-color: #ff8c8c;
 }
 
-.link-sem-cadastro {
+/* Links */
+.link-sem-cadastro{
     display: block;
     text-align: center;
     margin-top: 20px;
@@ -111,7 +117,7 @@ button:hover {
     transition: color 0.3s;
 }
 
-.link-sem-cadastro:hover {
+.link-sem-cadastro:hover{
     color: #714C27;
     text-decoration: underline;
 }

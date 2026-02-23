@@ -1,42 +1,40 @@
-async function cadastro(event) {
-    if (event) event.preventDefault();
+function cadastro() {
 
-    const usuario = document.getElementById('usuario').value;
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value;
+    const usuario = document.getElementById("usuario").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
 
-    if (usuario === "" || email === "" || senha === "") {
-        alert("Por favor, preencha todos os campos!");
+    if (!usuario || !email || !senha) {
+        alert("Preencha todos os campos!");
         return;
     }
 
-    const dadosUsuario = {
-        name: usuario,
+    // cria objeto usuário
+    const novoUsuario = {
+        usuario: usuario,
         email: email,
-        password: senha,
-        job: "Programador"
+        senha: senha
     };
 
-    try {
-        const resposta = await fetch('https://reqres.in/api/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dadosUsuario)
-        });
+    // pega lista já existente (ou cria uma vazia)
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-        const resultado = await resposta.json();
+    // verifica se email já existe
+    const existe = usuarios.find(u => u.email === email);
 
-        if (resposta.status === 201) {
-            alert(`Cadastro realizado com sucesso! ID: ${resultado.id}`);
-            document.querySelector('.formulario').reset();
-        } else {
-            alert("Erro ao cadastrar. Tente novamente.");
-        }
-
-    } catch (erro) {
-        console.error(erro);
-        alert("Erro de conexão com o servidor.");
+    if (existe) {
+        alert("Esse email já está cadastrado!");
+        return;
     }
+
+    // adiciona novo usuário
+    usuarios.push(novoUsuario);
+
+    // salva de volta no localStorage
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+    alert("Cadastro realizado com sucesso!");
+
+    // redireciona pro login
+    window.location.href = "../html/login.html";
 }
