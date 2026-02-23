@@ -138,3 +138,82 @@ a{
     color: #f0f0f0;
     text-decoration: none;
 }
+
+/* CARD */
+/* CARD */
+.card{
+    display:flex;
+    justify-content:space-between;
+    background:#f3f3f3;
+    border-radius:18px;
+    padding:20px;
+    width:720px;
+}
+
+/* LADO ESQUERDO */
+.card-left{
+    display:flex;
+    gap:18px;
+}
+
+.card-left img{
+    width:150px;
+    height:110px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+/* TEXTO */
+.card-info{
+    max-width:360px;
+}
+
+.card-info h2{
+    background:#f27d7d;
+    color:white;
+    padding:6px 16px;
+    border-radius:20px;
+    font-size:16px;
+    display:inline-block;
+    margin-bottom:8px;
+}
+
+.card-info p{
+    font-size:14px;
+    color:#333;
+    margin:4px 0;
+}
+
+/* LADO DIREITO */
+.card-right{
+    background:#e7e7e7;
+    border-radius:18px;
+    padding:16px;
+    width:180px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.card-right img{
+    width:60px;
+}
+
+/* BOTÕES */
+.botoes{
+    display:flex;
+    gap:8px;
+}
+
+.botoes button{
+    border:none;
+    padding:6px 12px;
+    border-radius:20px;
+    color:white;
+    cursor:pointer;
+}
+
+.btn-sim{ background:#63c38d; }
+.btn-nao{ background:#e05858; }
