@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login</title>
 </head>
 <body>
     
+    <div class="container-principal">
+        <div class="lado-esquerdo">
+            <img src="../imagem/cadastro.png" alt="Ilustração">
+        </div>
+
+        <div class="lado-direito">
+            <form id="loginForm" class="formulario">
+                <h1><strong>Login</strong></h1>
+
+                <div class="campo">
+                    <label for="usuario"><strong>Usuário: </strong></label>
+                    <input type="text" id="usuario" placeholder="Digite aqui...">
+                </div>
+
+                <div class="campo">
+                    <label for="email"><strong>Email: </strong></label>
+                    <input type="email" id="email" placeholder="Digite aqui...">
+                </div>
+
+                <div class="campo">
+                    <label for="senha"><strong>Senha: </strong></label>
+                    <input type="password" id="senha" placeholder="Digite aqui...">
+                </div>
+
+                <div class="campo-botao">
+                    <button type="button" onclick="cadastro(event)">
+                        <strong>Login</strong>
+                    </button>
+                </div>
+                
+                                <a href="../html/cadastro.html" class="link-sem-cadastro">Cadastrar-se</a>
+
+
+                <a href="../html/home.html" class="link-sem-cadastro">Entrar sem cadastro</a>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/login.js"></script>
 </body>
 </html>

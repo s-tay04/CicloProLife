@@ -1,0 +1,108 @@
+/* Reset básico */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Container principal */
+.container-principal{
+    display: flex;
+    flex-direction: row-reverse; /* INVERTE OS LADOS */
+    height: 100vh;
+}
+
+/* Lado da imagem */
+.lado-esquerdo{
+    width: 50%;
+    background-color: #714C27; /* marrom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajuste da imagem */
+.lado-esquerdo img{
+    max-width: 70%;
+    height: auto;
+}
+
+/* Lado do formulário */
+.lado-direito{
+    width: 50%;
+    background-color: #D2B89C; /* bege */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Formulário */
+.formulario{
+    width: 60%;
+}
+
+/* Título */
+.formulario h1{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #3F3F3F;
+}
+
+/* Campos */
+.campo{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.campo label{
+    margin-bottom: 5px;
+    color: #3F3F3F;
+}
+
+/* Inputs */
+.campo input{
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #999;
+    background-color: #ffffff;
+}
+
+/* Botão */
+.campo-botao{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.campo-botao button{
+    background-color: #F29C9C;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Hover do botão */
+.campo-botao button:hover{
+    background-color: #e07f7f;
+}
+
+/* Links */
+.link-sem-cadastro{
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #3F3F3F;
+    font-size: 14px;
+}
+
+.link-sem-cadastro:hover{
+    text-decoration: underline;
+}
