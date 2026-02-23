@@ -6,103 +6,118 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Container principal */
+/* Igual ao cadastro */
+body {
+    height: 100vh;
+}
+
+/* Container principal (invertido) */
 .container-principal{
     display: flex;
-    flex-direction: row-reverse; /* INVERTE OS LADOS */
+    flex-direction: row-reverse; /* mantém o lado trocado */
     height: 100vh;
+    width: 100%;
 }
 
 /* Lado da imagem */
 .lado-esquerdo{
     width: 50%;
-    background-color: #714C27; /* marrom */
+    background-color: #714C27;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-/* Ajuste da imagem */
+/* Imagem igual ao cadastro */
 .lado-esquerdo img{
-    max-width: 70%;
-    height: auto;
+    width: 80%;
+    max-width: 600px;
 }
 
 /* Lado do formulário */
 .lado-direito{
     width: 50%;
-    background-color: #D2B89C; /* bege */
+    background-color: #E3C4A6; /* mesma cor do cadastro */
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-/* Formulário */
+/* 🔥 MESMAS MEDIDAS DO CADASTRO */
 .formulario{
     width: 60%;
+    max-width: 400px;
 }
 
 /* Título */
-.formulario h1{
-    text-align: center;
-    margin-bottom: 30px;
+h1{
     color: #3F3F3F;
+    margin-bottom: 30px;
+    font-size: 36px;
+    text-align: center;
 }
 
 /* Campos */
 .campo{
-    display: flex;
-    flex-direction: column;
     margin-bottom: 20px;
 }
 
-/* Labels */
-.campo label{
-    margin-bottom: 5px;
+label{
     color: #3F3F3F;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 14px;
 }
 
-/* Inputs */
-.campo input{
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #999;
+input{
+    width: 100%;
     background-color: #ffffff;
+    border: 2px solid #9D9696;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
 }
 
 /* Botão */
 .campo-botao{
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    width: 100%;
 }
 
-.campo-botao button{
-    background-color: #F29C9C;
+button{
+    width: 100%;
+    max-width: 250px;
+    border-radius: 30px;
     border: none;
-    padding: 12px 40px;
-    border-radius: 25px;
+    background-color: #FFA6A6;
+    color: #FFFFFF;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    color: white;
-    font-size: 16px;
-    transition: 0.3s;
 }
 
-/* Hover do botão */
-.campo-botao button:hover{
-    background-color: #e07f7f;
+button:hover{
+    background-color: #ff8c8c;
 }
 
 /* Links */
 .link-sem-cadastro{
     display: block;
     text-align: center;
-    margin-top: 15px;
-    text-decoration: none;
+    margin-top: 20px;
     color: #3F3F3F;
+    text-decoration: none;
     font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .link-sem-cadastro:hover{
+    color: #714C27;
     text-decoration: underline;
 }
