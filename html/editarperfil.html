@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/editarperfil.css">
+    <title>Editar Perfil</title>
+</head>
+<body>
+
+    <header class = "cabeca">
+        <div class="logo">       <img src="../imagem/logo.png" alt="logo"></div>
+        <div class="tema">       <img src="../imagem/lua.png" alt=""></div>
+    </header>
+
+    <div class="linha"></div>
+
+    <div class="container-principal">
+        <div class="form-card">
+            <h1>Editar Perfil</h1>
+            
+            <form id="form-perfil">
+                <label for="input-nome">Nome</label>
+                <input type="text" id="input-nome" placeholder="Fulano" required>
+                
+                <label for="input-email">Email</label>
+                <input type="email" id="input-email" placeholder="fulano@gmail.com" required>
+                
+                <label for="input-cargo">Cargo</label>
+                <input type="text" id="input-cargo" placeholder="Auxiliar de padeiro" required>
+                
+                <div class="botoes-group">
+                    <button type="submit" class="salvar">Salvar</button>
+                    <a href="perfil.html" class="cancelar">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="linha-bottom"></div>
+
+    <footer><strong>Contato: 4002-8922 ou cicloprolife@gmail.com</strong></footer>
+
+    <script src="../js/perfil.js"></script>
+</body>
+</html>

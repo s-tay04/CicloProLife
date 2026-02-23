@@ -1,19 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/perfil.css">
-    <title>Perfil do usuário</title>
+    <title>Perfil do Usuário</title>
 </head>
 <body>
-    <img src="../imagem/perfil.png">
-    <a>Alterar dados</a>
-    <h1>Nome</h1>
-    <h2>Fulano</h2>
-    <h1>Email</h1>
-    <h2>fulano@gmail.com</h2>
-    <h1>Cargo</h1>
-    <h2>Auxiliar de padeiro</h2>
+    <header class = "cabeca">
+        <div class="logo">       <img src="../imagem/logo.png" alt="logo"></div>
+        <div class="tema">       <img src="../imagem/lua.png" alt=""></div>
+    </header>
+
+    <div class="linha"></div>
+
+    <div class="container">
+        <div class="perfil-header">
+            <div class="perfil">
+                <img src="../imagem/perfil2.jpg" alt="Foto de Perfil" id="foto-exibicao">
+            </div>
+        </div>
+
+        <div class="info-group">
+            <h1>Nome</h1>
+            <h2 id="nome-exibicao">Fulano</h2>
+            
+            <h1>Email</h1>
+            <h2 id="email-exibicao">fulano@gmail.com</h2>
+            
+            <h1>Cargo</h1>
+            <h2 id="cargo-exibicao">Auxiliar de padeiro</h2>
+        </div>
+    </div>
+
+    <a href="editarperfil.html" class="btn-edit">Alterar dados</a>
+
+    <div class="linha-bottom"></div>
+
+    <footer><strong>Contato: 4002-8922 ou cicloprolife@gmail.com</strong></footer>
+
+    <script src="../js/perfil.js"></script>
 </body>
 </html>

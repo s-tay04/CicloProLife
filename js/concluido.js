@@ -40,7 +40,7 @@ function exibirReceitas(lista){
         pergunta.textContent = "Receita Aprovada?";
 
         const chef = document.createElement('img');
-        chef.src = "../imagem/chef.png"; // sua imagem da moça
+        chef.src = "../imagem/chef.png"; 
 
         const botoes = document.createElement('div');
         botoes.className = 'botoes';

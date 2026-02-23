@@ -1,0 +1,120 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #E3C4A6;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabeca{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px;
+}
+
+.linha{
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    border-radius: 30px;
+}
+
+.container-principal{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-card{
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+label{
+    font-weight: bold;
+    color: #5d4037;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+input{
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 2px solid #9D9696;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    outline: none;
+}
+
+.botoes-group{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.salvar, .cancelar{
+    flex: 1;
+    border-radius: 30px;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.salvar{
+    background-color: #ff8c8c;
+    color: white;
+}
+
+.cancelar{
+    background-color: #8f8f8f;
+    color: white;
+}
+
+.salvar:hover{
+    background-color: #FFA6A6;
+    color: white;
+}
+
+.cancelar:hover{
+    background-color: #aaaaaa;
+    color: white;
+}
+
+.linha-bottom{
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 20px 0px;
+    border-radius: 30px;
+    margin-top: 80px;
+   
+  }
+
+footer{
+    color: #8d6e63;
+    margin-left: 40%;
+    margin-right: 30%;
+    margin-bottom: 1%;
+    align-items: center;
+}
