@@ -73,16 +73,16 @@ const campoPesquisa = document.getElementById("pesquisar");
 campoPesquisa.addEventListener("input", function () {
     const textoDigitado = campoPesquisa.value.toLowerCase();
 
-    // pega todos os cards que já existem dentro da lista
+    // pesquisar
     const receitas = document.querySelectorAll("#lista-receitas > *");
 
     receitas.forEach(function(receita) {
         const conteudo = receita.innerText.toLowerCase();
 
         if (conteudo.includes(textoDigitado)) {
-            receita.style.display = ""; // mostra normal (mantém seu CSS)
+            receita.style.display = ""; 
         } else {
-            receita.style.display = "none"; // esconde
+            receita.style.display = "none"; 
         }
     });
 });
