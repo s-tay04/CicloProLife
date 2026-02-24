@@ -1,8 +1,10 @@
-body{
-    background-color: #E3C4A6 ;
+body {
+    background-color: #E3C4A6;
     font-family: Arial, Helvetica, sans-serif;
-
-    margin: 0%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
 }
 
 
@@ -85,13 +87,12 @@ body{
 
 
 /* CONTAINER */
-.cards{
+.cards {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0 80px 0;
+    padding: 40px 0 20px 0;
 }
-
 
 
 .destaques{
@@ -125,7 +126,7 @@ body{
     display: flex;
     gap: 60px;
     justify-content: center;
-    flex-wrap: wrap; /* evita quebrar layout em telas menores */
+    flex-wrap: wrap;
 }
 
 /* cards */
@@ -164,4 +165,21 @@ body{
     font-size: 24px;    
     font-weight: bold;   
     color: #3F3F3F;        
+}
+
+.linha-bottom {
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    border-radius: 30px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+footer {
+    color: #8d6e63;
+    text-align: center;
+    padding-bottom: 20px;
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 1px;
 }

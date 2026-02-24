@@ -139,7 +139,7 @@ button:hover:not(.ativo) {
     display: flex;
     gap: 60px;
     justify-content: center;
-    flex-wrap: wrap; /* evita quebrar layout em telas menores */
+    flex-wrap: wrap;
 }
 
 .card{
@@ -178,6 +178,10 @@ button:hover:not(.ativo) {
     
 }
 
+a{
+    text-decoration: none;
+}
+
 .concluir:hover{
     background-color: #FFA6A6 !important;
 }
@@ -189,7 +193,6 @@ button:hover:not(.ativo) {
     color: white;
     border-radius: 30px;
     padding: 15px 20px;
-    cursor: pointer;
     font-family:  sans-serif;
     border:none;
     font-size: 18px;
@@ -198,4 +201,21 @@ button:hover:not(.ativo) {
 
 .requer:hover{
 background-color: #9D9696 !important;
+}
+
+.linha-bottom{
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 20px 0px;
+    border-radius: 30px;
+    margin-top: 80px;
+   
+  }
+
+footer{
+    color: #8d6e63;
+    margin-left: 40%;
+    margin-right: 30%;
+    margin-bottom: 1%;
+    align-items: center;
 }

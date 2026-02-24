@@ -67,3 +67,11 @@ function exibirReceitas(lista){
         container.appendChild(card);
     });
 }
+
+function sim(){
+    alert ('A receita será adicionada ao cardápio.')
+}
+
+function nao(){
+    alert ('A receita será excluída.')
+}

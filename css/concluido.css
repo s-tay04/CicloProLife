@@ -146,18 +146,18 @@ a{
     justify-content: space-between;
     background: #f3f3f3;
     border-radius: 18px;
-    padding: 40px; /* Aumentado para dar mais respiro */
-    width: 1000px; /* Largura do card aumentada */
-    max-width: 90%; /* Evita que quebre em telas pequenas */
-    margin: 50px auto; /* O 'auto' nas laterais é o que centraliza o card na tela */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombrinha leve para destacar do fundo */
+    padding: 40px;
+    width: 1000px;
+    max-width: 90%;
+    margin: 50px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* LADO ESQUERDO */
 .card-left {
     display: flex;
-    gap: 40px; /* Aumentei o espaço entre a imagem e o texto */
-    align-items: center; /* Isso centraliza a imagem verticalmente com o bloco de texto (joga ela para baixo) */
+    gap: 40px;
+    align-items: center;
 }
 
 .card-left img {
@@ -165,12 +165,12 @@ a{
     height: 180px;
     object-fit: cover;
     border-radius: 12px;
-    margin-left: 20px; /* Isso empurra a imagem um pouco mais para a direita, em direção ao centro */
+    margin-left: 20px; 
 }
 
 /* TEXTO */
 .card-info {
-    max-width: 500px; /* Área de texto mais larga */
+    max-width: 500px;
 }
 
 .card-info h2 {
@@ -178,13 +178,13 @@ a{
     color: white;
     padding: 8px 20px;
     border-radius: 20px;
-    font-size: 22px; /* Título maior */
+    font-size: 22px;
     display: inline-block;
     margin-bottom: 12px;
 }
 
 .card-info p {
-    font-size: 18px; /* Texto maior */
+    font-size: 18px;
     color: #333;
     margin: 8px 0;
     line-height: 1.4;
@@ -195,7 +195,7 @@ a{
     background: #e7e7e7;
     border-radius: 18px;
     padding: 20px;
-    width: 220px; /* Área da direita maior */
+    width: 220px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,4 +245,21 @@ a{
 
 .btn-nao:hover {
     background: #f76666 !important;
+}
+
+.linha-bottom{
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 20px 0px;
+    border-radius: 30px;
+    margin-top: 80px;
+   
+  }
+
+footer{
+    color: #8d6e63;
+    margin-left: 40%;
+    margin-right: 30%;
+    margin-bottom: 1%;
+    align-items: center;
 }
