@@ -64,3 +64,25 @@ function limparFiltro() {
     botaoLimpar.classList.add('ativo');
     botaoOrdenar.classList.remove('ativo');
 }
+
+const input = document.getElementById("pesquisa");
+const cards = document.querySelectorAll("grid-receitas");
+
+const campoPesquisa = document.getElementById("pesquisar");
+
+campoPesquisa.addEventListener("input", function () {
+    const textoDigitado = campoPesquisa.value.toLowerCase();
+
+    // pega todos os cards que já existem dentro da lista
+    const receitas = document.querySelectorAll("#lista-receitas > *");
+
+    receitas.forEach(function(receita) {
+        const conteudo = receita.innerText.toLowerCase();
+
+        if (conteudo.includes(textoDigitado)) {
+            receita.style.display = ""; // mostra normal (mantém seu CSS)
+        } else {
+            receita.style.display = "none"; // esconde
+        }
+    });
+});
