@@ -168,13 +168,13 @@ button:hover:not(.ativo) {
 
 .card img{
     width: 100%;
-    height: 220px;        /* 👈 altura correta */
+    height: 220px;
     object-fit: cover;
     border-radius: 12px;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* animaçãozinha */
+    transform: translateY(-5px);
 }
 
 .card h3 {

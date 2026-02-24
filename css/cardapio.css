@@ -118,7 +118,7 @@ body{
     background-color: white;
     border-radius: 15px;
     padding: 10px;
-    transition: transform 0.2s; /* animaçãozinha */
+    transition: transform 0.2s;
     cursor: pointer;
     text-align: center;
 }
