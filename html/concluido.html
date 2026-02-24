@@ -7,8 +7,6 @@
     <title>Coxinha de jaca</title>
 </head>
 <body>
-
-            <!-- cabeçalho do site-->
         <header class = "cabeca">
             <div class="logo">       <img src="../imagem/logo.png" alt="logo"></div>
             <input class="pesquisa"   type="text" placeholder="Digite aqui...">
@@ -28,21 +26,29 @@
             <a href="../html/receitasadd.html" class="ativo">Adicionar</a>
             <a href="../html/relatorio.html">Relatórios</a>
         </nav> 
-        <nav>
-            <div class="faseoff">
-                <a href="../html/receitasadd.html">Receitas adicionadas</a>
+
+        <div class="container">
+            <div>
+                <a href="../html/receitasadd.html">
+                    <button>Receitas adicionadas</button>
+                </a>
             </div>
-            <div class="faseon">
-                <a href="../html/fasedeteste.html" class="cadeado">Fase de teste</a>
+            
+            <div>
+                <a href="../html/fasedeteste.html">
+                    <button class="cadeado">Fase de teste</button>
+                </a>
             </div>
-            <div class="faseoff">
-                <a href="../html/fasefinal.html" class="cadeado">Fase final</a>
+            
+            <div class="ativo">
+                <a href="../html/concluido.html">
+                    <button class="cadeado ativo">Fase final</button>
+                </a>
             </div>
-            </nav>
+        </div>
 
             <div class="card">
 
-    <!-- LADO ESQUERDO -->
     <div class="card-left">
         <img src="../imagem/coxinhanormal.png" alt="Imagem do produto">
 
@@ -65,7 +71,6 @@
         </div>
     </div>
 
-    <!-- LADO DIREITO -->
     <div class="card-right">
         <p>Receita Aprovada?</p>
 
