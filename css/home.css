@@ -1,14 +1,33 @@
-body {
-    background-color: #E3C4A6;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
+/* ===== VARIÁVEIS DE TEMA ===== */
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
 }
 
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   /* fundo escuro */
+    --texto: #FFFFFF;   /* texto branco */
+    --card: #7e5f44;    /* card levemente mais claro */
+    --linha: #ffffff;
+}
 
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
 
+/* ===== BODY ===== */
+body{
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0%;
+}
+
+/* ===== CABEÇALHO ===== */
 .cabeca{
     display: flex;
     align-items: center;
@@ -28,51 +47,37 @@ body {
     background-size: 20px;
     background-position-x: 99%;
     font-size: medium;
-
-    cursor: pointer;
-    
-}
-
-.logo{
     cursor: pointer;
 }
 
-.tema{
-    cursor: pointer;
-}
-
+.logo,
+.tema,
 .perfil{
     cursor: pointer;
 }
 
-.tema{
-    cursor: pointer
-}
-
+/* ===== LINHA ===== */
 .linha{
-  border-bottom: 5px solid rgb(255, 255, 255);
+  border-bottom: 5px solid var(--linha);
   width: 100%;
   margin: 20px 0px;
   border-radius: 30px;
- 
 }
 
-
+/* ===== MENU ===== */
 .menu{
     display: flex;
     gap: 20%;
     padding: 1% 10%;
-    
-    
 }
 
 .menu a {
     text-decoration: none;
-    color: #3F3F3F;
+    color: var(--texto);
     font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
-    transition: color 0.2s ease,border-bottom 0.2 ease;
+    transition: color 0.2s ease,border-bottom 0.2s ease;
 }
 
 .menu a:hover{
@@ -85,27 +90,24 @@ body {
     border-bottom: 3px solid #FF8080;
 }
 
-
-/* CONTAINER */
-.cards {
+/* ===== CONTAINER ===== */
+.cards{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0 20px 0;
+    padding: 40px 0 80px 0;
 }
-
 
 .destaques{
     font-size: 35px;
     font-weight: 600;
-    color: #3F3F3F;
+    color: var(--texto);
     margin-bottom: 30px;
     align-self: flex-start;
     margin-left: 10%;
 }
 
-
-
+/* ===== GRID ===== */
 .grid-receitas {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -121,7 +123,7 @@ body {
     }
 }
 
-
+/* ===== CARDS ===== */
 .cards-container{
     display: flex;
     gap: 60px;
@@ -129,23 +131,15 @@ body {
     flex-wrap: wrap;
 }
 
-/* cards */
-.cards-container{
-    display: flex;
-    gap: 60px;
-    justify-content: center;
-    flex-wrap: wrap; 
-}
-
 .card{
-    background-color: #EDEDED;
+    background-color: var(--card);
     border-radius: 18px;
     padding: 20px;
     height: 360px;
     width: 400px;       
     margin-bottom: 50px;
     margin-right: 50px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.35s ease;
     cursor: pointer;
 }
 
@@ -164,22 +158,5 @@ body {
 .card h3 {
     font-size: 24px;    
     font-weight: bold;   
-    color: #3F3F3F;        
-}
-
-.linha-bottom {
-    border-bottom: 5px solid rgb(255, 255, 255);
-    width: 100%;
-    border-radius: 30px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-}
-
-footer {
-    color: #8d6e63;
-    text-align: center;
-    padding-bottom: 20px;
-    width: 100%;
-    margin-top: 10px;
-    padding-bottom: 1px;
+    color: var(--texto);        
 }
