@@ -20,12 +20,15 @@ body, .card, .menu a, .destaques, .linha {
 }
 
 /* ===== BODY ===== */
-body{
-    background-color: var(--fundo);
-    color: var(--texto);
+body {
+    background-color: #E3C4A6;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
 
 /* ===== CABEÇALHO ===== */
 .cabeca{
@@ -159,4 +162,21 @@ body{
     font-size: 24px;    
     font-weight: bold;   
     color: var(--texto);        
+}
+
+.linha-bottom{
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 20px 0px;
+    border-radius: 30px;
+    margin-top: 80px;
+   
+  }
+
+footer{
+    color: #8d6e63;
+    margin-left: 40%;
+    margin-right: 30%;
+    margin-bottom: 1%;
+    align-items: center;
 }

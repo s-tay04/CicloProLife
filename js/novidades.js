@@ -4,14 +4,26 @@ function enviar() {
     let textoPorcoes = document.getElementById("porcoes").value;
 
     if (textoReceita.trim() === "" || textoCusto.trim() === "" || textoPorcoes.trim() === "") {
-        
         alert("Preencha todos os campos antes de enviar a receita!");
-        
-    } else {
-        alert("Receita enviada com sucesso!");
-        
-        document.getElementById("receita").value = "";
-        document.getElementById("custo").value = "";
-        document.getElementById("porcoes").value = "";
+        return; 
     }
+
+    const novaReceita = {
+        receita: textoReceita,
+        custo: textoCusto,
+        porcoes: textoPorcoes,
+        data: new Date().toLocaleDateString()
+    };
+
+    let receitasSalvas = JSON.parse(localStorage.getItem("listaReceitas")) || [];
+
+    receitasSalvas.push(novaReceita);
+
+    localStorage.setItem("listaReceitas", JSON.stringify(receitasSalvas));
+
+    alert("Receita salva no protótipo com sucesso!");
+    
+    document.getElementById("receita").value = "";
+    document.getElementById("custo").value = "";
+    document.getElementById("porcoes").value = "";
 }
