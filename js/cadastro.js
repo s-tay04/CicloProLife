@@ -1,6 +1,6 @@
-function cadastro() {
+function cadastro(event) {
+    if (event) event.preventDefault();
 
-    const usuario = document.getElementById("usuario").value;
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
@@ -9,32 +9,50 @@ function cadastro() {
         return;
     }
 
-    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Por favor, insira um e-mail válido (ex: seuemail@gmail.com).");
+        return;
+    }
+
     const novoUsuario = {
-        usuario: usuario,
         email: email,
         senha: senha
     };
 
-
     let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-
     const existe = usuarios.find(u => u.email === email);
 
     if (existe) {
-        alert("Esse email já está cadastrado!");
+        alert("Esse e-mail já está cadastrado!");
         return;
     }
 
+    const urlFake = 'https://futura-api.com/api/usuarios';
 
-    usuarios.push(novoUsuario);
+    fetch(urlFake, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(novoUsuario)
+    })
+    .then(response => {
+        console.log("Dados enviados para a API com sucesso!");
+        
+        usuarios.push(novoUsuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
+        alert("Cadastro realizado com sucesso!");
+        window.location.href = "../html/login.html";
+    })
+    .catch(error => {
+        console.error("Erro ao conectar com a API:", error);
+        
+        usuarios.push(novoUsuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-    alert("Cadastro realizado com sucesso!");
-
-
-    window.location.href = "../html/login.html";
+        alert("Cadastro realizado com sucesso (Salvo localmente)!");
+        window.location.href = "../html/login.html";
+    });
 }
