@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fileInput.click();
     });
 
-    // transforma arquivo em texto
+    // transforma arquivo em texto!!
     fileInput.addEventListener('change', (event) => {
         if (fileInput.files.length > 0) {
             textoArquivo.textContent = "Arquivo selecionado: " + fileInput.files[0].name;

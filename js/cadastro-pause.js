@@ -1,17 +1,17 @@
 async function cadastro(event) {
     if (event) event.preventDefault();
 
-    const usuario = document.getElementById('usuario').value;
+    const cpf = document.getElementById('cpf').value;
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
 
-    if (usuario === "" || email === "" || senha === "") {
+    if (cpf === "" || email === "" || senha === "") {
         alert("Por favor, preencha todos os campos!");
         return;
     }
 
     const dadosUsuario = {
-        name: usuario,
+        name: cpf,
         email: email,
         password: senha,
         job: "Programador"

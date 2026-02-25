@@ -8,9 +8,9 @@
 
 /* ===== MODO ESCURO ===== */
 body.dark {
-    --fundo: #714C27;   /* fundo escuro */
-    --texto: #FFFFFF;   /* texto branco */
-    --card: #7e5f44;    /* card levemente mais claro */
+    --fundo: #714C27;
+    --texto: #FFFFFF;
+    --card: #7e5f44;
     --linha: #ffffff;
 }
 
@@ -164,19 +164,19 @@ body {
     color: var(--texto);        
 }
 
-.linha-bottom{
+footer {
+    color: #8d6e63;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 1%;
+    margin-top: auto;
+    margin-bottom: -80px;
+}
+
+.linha-bottom {
     border-bottom: 5px solid rgb(255, 255, 255);
     width: 100%;
-    margin: 20px 0px;
+    margin: 20px auto;
     border-radius: 30px;
     margin-top: 80px;
-   
-  }
-
-footer{
-    color: #8d6e63;
-    margin-left: 40%;
-    margin-right: 30%;
-    margin-bottom: 1%;
-    align-items: center;
 }
