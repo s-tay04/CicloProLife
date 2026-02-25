@@ -1,22 +1,49 @@
-function cadastro() {
+function login(event) {
+    if (event) event.preventDefault();
 
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
-    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-    const usuarioEncontrado = usuarios.find(u => 
-        u.email === email && u.senha === senha
-    );
-
-    if (!usuarioEncontrado) {
-        alert("Email ou senha inválidos!");
+    if (!email || !senha) {
+        alert("Preencha todos os campos!");
         return;
     }
 
-    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
+    const credenciais = {
+        email: email,
+        senha: senha
+    };
 
-    alert("Login realizado!");
+    const url = 'https://futura-api.com/api/login';
 
-    window.location.href = "../html/home.html";
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credenciais)
+    })
+    .then(response => {
+        console.log("Login feito na API com sucesso!");
+        
+        localStorage.setItem("usuarioLogado", JSON.stringify(credenciais));
+        
+        alert("Login realizado com sucesso!");
+        window.location.href = "../html/home.html";
+    })
+    .catch(error => {
+        console.error("API não encontrada, verificando LocalStorage...");
+
+        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        const usuarioValido = usuarios.find(u => u.email === email && u.senha === senha);
+
+        if (usuarioValido) {
+            localStorage.setItem("usuarioLogado", JSON.stringify(usuarioValido));
+            
+            alert("Login realizado com sucesso!");
+            window.location.href = "../html/home.html";
+        } else {
+            alert("E-mail ou senha incorretos!");
+        }
+    });
 }

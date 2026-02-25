@@ -4,7 +4,7 @@ function cadastro(event) {
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
 
-    if (!usuario || !email || !senha) {
+    if (!email || !senha) {
         alert("Preencha todos os campos!");
         return;
     }
@@ -28,9 +28,9 @@ function cadastro(event) {
         return;
     }
 
-    const urlFake = 'https://futura-api.com/api/usuarios';
+    const url = 'https://futura-api.com/api/usuarios';
 
-    fetch(urlFake, {
+    fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
