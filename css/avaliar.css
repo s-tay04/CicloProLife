@@ -1,5 +1,31 @@
+/* ===== MODO ESCURO ===== */
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #946135;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+}
+
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+
+
+
 body{
-    background-color: #E3C4A6 ;
+    background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
 
     margin: 0%;
@@ -65,7 +91,7 @@ body{
 
 .menu a {
     text-decoration: none;
-    color: #3F3F3F;
+    color:var(--texto);
     font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
@@ -135,7 +161,7 @@ body{
 }
 
 label {
-    color: #3F3F3F;
+    color: var(--texto);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 32px;
     font-weight: 600;
@@ -145,11 +171,13 @@ label {
     margin-left: 8.5%;
     margin-bottom: 5px;
 }
+
+
 .resposta{
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: #fce0c4;
+    background-color: var(--card);
     border-color: #f8b97b;
     border-radius: 20px;
     width: 80%;
@@ -160,8 +188,10 @@ label {
     font-family: inherit; 
     resize: none;
 }
+
 .resposta::placeholder {
     font-size: 20px;
+    color: var(--texto);
 }
 
 button {
@@ -169,7 +199,7 @@ button {
     max-width: 250px;
     border-radius: 30px;
     border: none;
-    background-color: #ff8c8c;
+    background-color: var(--card);
     color: #f0f0f0;
     padding: 15px;
     font-size: 18px;
@@ -182,7 +212,7 @@ button {
 }
 
 button:hover {
-    background-color: #FFA6A6;
+    background-color: var(--transparecer);
 }
 
 .linha-bottom{
@@ -195,7 +225,7 @@ button:hover {
   }
 
 footer{
-    color: #8d6e63;
+    color: var(--strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-bottom: 1%;

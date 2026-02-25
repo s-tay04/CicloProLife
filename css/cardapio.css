@@ -1,5 +1,26 @@
+/* ===== MODO ESCURO ===== */
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+    --botao:#FF8080;
+    --strong: #8d6e63;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #946135;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+    --botao:#946135;
+}
+
 body{
-    background-color: #E3C4A6 ;
+    background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
 
     margin: 0%;
@@ -65,7 +86,7 @@ body{
 
 .menu a {
     text-decoration: none;
-    color: #3F3F3F;
+    color: var(--texto);
     font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
@@ -87,7 +108,7 @@ body{
 .btn-controle {
     padding: 10px 20px;
     border: none;
-    background-color: #FFA6A6;
+    background-color: var(--botao);
     color: white;
     border-radius: 20px;
     cursor: pointer;
@@ -98,7 +119,7 @@ body{
 }
 
 .btn-controle.ativo {
-    background-color: #FF8080;
+    background-color: var(--botao);
     color: white;
     border-color: #FF8080;
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
@@ -115,7 +136,7 @@ body{
 }
 
 .card {
-    background-color: white;
+    background-color: var(--card);
     border-radius: 15px;
     padding: 10px;
     transition: transform 0.2s;
@@ -139,7 +160,7 @@ body{
 .card h3, .card p {
     margin: 10px 0 5px 0;
     font-size: 1.7rem;
-    color: #333;
+    color: var(--texto);
     text-align: left;
     padding-left: 5px;
 }
@@ -154,7 +175,7 @@ body{
   }
 
 footer{
-    color: #8d6e63;
+    color: var(--strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-bottom: 1%;
