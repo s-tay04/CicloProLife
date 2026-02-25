@@ -68,10 +68,40 @@ function exibirReceitas(lista){
     });
 }
 
-function sim(){
-    alert ('A receita será adicionada ao cardápio.')
+function sim(botao) {
+    const cardRight = botao.closest('.card-right');
+    
+    const texto = cardRight.querySelector('p');
+    const imagem = cardRight.querySelector('img');
+    const divBotoes = cardRight.querySelector('.botoes');
+
+    texto.textContent = 'Receita Aprovada!';
+    imagem.src = '../imagem/aprovada.png'; 
+
+    imagem.style.width = '200px'; // Ajuste esse número para o tamanho que achar melhor
+    imagem.style.height = '180px'; // Mantenha a altura igual à largura
+    imagem.style.objectFit = 'contain'; // Garante que a imagem não fique esticada ou amassada
+    
+    
+    // Esconde os botões (opcional, mas recomendado)
+    divBotoes.style.display = 'none';
 }
 
-function nao(){
-    alert ('A receita será excluída.')
+function nao(botao) {
+    const cardRight = botao.closest('.card-right');
+    
+    const texto = cardRight.querySelector('p');
+    const imagem = cardRight.querySelector('img');
+    const divBotoes = cardRight.querySelector('.botoes');
+
+    // Altera o texto e a imagem
+    texto.textContent = 'Receita Excluída!';
+    imagem.src = '../imagem/excluida.png'; // Coloque o nome da sua imagem de exclusão aqui
+
+    imagem.style.width = '350px'; // Ajuste esse número para o tamanho que achar melhor
+    imagem.style.height = '300px'; // Mantenha a altura igual à largura
+    imagem.style.objectFit = 'contain'; // Garante que a imagem não fique esticada ou amassada
+    
+    // Esconde os botões
+    divBotoes.style.display = 'none';
 }
