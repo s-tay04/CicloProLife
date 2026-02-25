@@ -36,6 +36,7 @@ body{
     gap: 100px;
     padding: 40px 10%;
     min-height: 70vh;
+    margin-top: -140px;
 }
 
 .perfil-header {
@@ -84,12 +85,43 @@ body{
     margin-bottom: 0;
 }
 
+.area-voltar {
+    padding: 20px 30px 0px 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-voltar {
+    color: #ffff;
+    display: flex;
+    background-color: #ff8c8c;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 40px;
+    margin-top: 30px;
+    display: block; /* Muda de flex para block */
+    text-align: center;
+    line-height: 52px;
+}
+
+.btn-voltar:hover {
+    background-color: #FFA6A6;
+}
+
 .container-botoes {
     display: flex;
     justify-content: center;
-    gap: 20px;  
+    gap: 50px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: -40px;
 }
 
 .btn-edit {
@@ -108,7 +140,7 @@ body{
     align-items: center;  
 }
 
-.btn-voltar {
+.btn-logout {
     background-color: #8f8f8f;
     color: white;
     width: 50%;
@@ -125,12 +157,12 @@ body{
     text-align: center;      
 }
 
-.btn-edit:hover, .salvar:hover {
+.btn-edit:hover {
     background-color: #FFA6A6;
     color: white;
 }
 
-.btn-voltar:hover {
+.btn-logout:hover {
     background-color: #aaaaaa;
     color: white;
 }

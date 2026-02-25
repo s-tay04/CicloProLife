@@ -18,7 +18,7 @@ async function cadastro(event) {
     };
 
     try {
-        const resposta = await fetch('https://reqres.in/api/users', {
+        const resposta = await fetch('', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
