@@ -10,7 +10,7 @@ const receitas = [
 const container = document.getElementById('lista-receitas');
 
 function exibirReceitas(lista) {
-    if (!container) return; // evita erro fora da home
+    if (!container) return; 
 
     container.innerHTML = '';
 
@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function aplicarTema(modo) {
         if (modo === "dark") {
             document.body.classList.add("dark");
-            iconeTema.src = "../imagem/lua2.png"; // imagem nova
+            iconeTema.src = "../imagem/lua2.png"; 
         } else {
             document.body.classList.remove("dark");
-            iconeTema.src = "../imagem/lua.png"; // imagem original
+            iconeTema.src = "../imagem/lua.png"; 
         }
     }
 

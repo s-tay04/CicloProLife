@@ -84,7 +84,15 @@ body{
     margin-bottom: 0;
 }
 
-.btn-edit{
+.container-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;  
+    width: 100%;
+    margin-top: 30px;
+}
+
+.btn-edit {
     width: 50%;
     max-width: 180px;
     border-radius: 30px;
@@ -95,16 +103,39 @@ body{
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
-    display: block;
-    margin: -60px auto;
-    text-align: center;
-}
-    
-.btn-edit:hover{
-background-color: #FFA6A6;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
 }
 
-a{
+.btn-voltar {
+    background-color: #8f8f8f;
+    color: white;
+    width: 50%;
+    max-width: 180px;
+    border-radius: 30px;
+    border: none;
+    padding: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;      
+}
+
+.btn-edit:hover, .salvar:hover {
+    background-color: #FFA6A6;
+    color: white;
+}
+
+.btn-voltar:hover {
+    background-color: #aaaaaa;
+    color: white;
+}
+
+a {
     text-decoration: none;
 }
 
