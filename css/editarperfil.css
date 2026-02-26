@@ -1,3 +1,28 @@
+/* ===== MODO claro ===== */
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+    --botao:#FF8080;
+    --strong: #8d6e63;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #946135;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+    --botao:#ca803e;
+}
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
 html, body{
     height: 100%;
     margin: 0;
@@ -5,7 +30,7 @@ html, body{
 }
 
 body{
-    background-color: #E3C4A6;
+    background-color: var(--fundo);
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
@@ -30,10 +55,11 @@ body{
     justify-content: center;
     align-items: center;
     padding: 20px;
+    color: var(--texto);
 }
 
 .form-card{
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: var(--card);
     backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 25px;
@@ -47,7 +73,7 @@ body{
 
 label{
     font-weight: bold;
-    color: #5d4037;
+    color: var(--texto);
     margin-bottom: 8px;
     font-size: 18px;
 }
@@ -83,8 +109,8 @@ input{
 }
 
 .salvar{
-    background-color: #ff8c8c;
-    color: white;
+    background-color: var(--botao);
+    color: var(--texto);
 }
 
 .cancelar{
@@ -112,7 +138,7 @@ input{
   }
 
 footer{
-    color: #8d6e63;
+    color: var(--strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-bottom: 1%;

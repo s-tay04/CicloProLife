@@ -1,4 +1,4 @@
-/* ===== MODO ESCURO ===== */
+/* ===== MODO claro ===== */
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
@@ -17,6 +17,10 @@ body.dark {
     --strong: #FFFFFF;
     --transparecer: #5c3d23d0;
     --botao:#946135;
+}
+
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
 }
 
 body{
