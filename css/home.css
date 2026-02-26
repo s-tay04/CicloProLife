@@ -164,7 +164,7 @@ body{
 }
 
 footer {
-    color: var(--footer); 
+    color: var(--strong); 
     text-align: center;
     width: 100%;
     padding-bottom: 1%;

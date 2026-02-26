@@ -98,7 +98,7 @@ body{
 }
 
 .menu a:hover{
-    color:var(--botao) ;
+    color: #FF8080 ;
     border-bottom:3px solid #FF8080;
 }
 

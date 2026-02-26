@@ -1,5 +1,31 @@
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+    --botao:#FF8080;
+    --strong: #8d6e63;
+    --transparecer: #ffead4;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #946135;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+    --botao:#ca803e;
+}
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+
 body{
-    background-color: #E3C4A6 ;
+    background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
 
     margin: 0%;
