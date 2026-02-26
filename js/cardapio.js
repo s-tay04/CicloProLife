@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
         aplicarTema(novoModo);
     });
 
-    // mantém salvo ao atualizar
+    // mantém salvo 
     const temaSalvo = localStorage.getItem("tema") || "light";
     aplicarTema(temaSalvo);
 

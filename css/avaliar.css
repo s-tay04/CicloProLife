@@ -194,6 +194,10 @@ label {
     color: var(--texto);
 }
 
+.resposta{
+    color: var(--texto);
+}
+
 button {
     width: 100%;
     max-width: 250px;
