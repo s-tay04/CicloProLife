@@ -1,5 +1,3 @@
-
-
 const receitas = [
     { id: 'empada', garantiaNome: 'Empada', nome: 'Empada', img: '../imagem/empada.png' },
     { id: 'coxinha', nome: 'Coxinha', img: '../imagem/coxinhanormal.png' },
@@ -40,7 +38,6 @@ function exibirReceitas(lista) {
     });
 }
 
-// só executa se estiver na HOME
 if (container) {
     exibirReceitas(receitas);
 }
@@ -71,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         aplicarTema(novoModo);
     });
 
-    // mantém salvo ao atualizar
+
     const temaSalvo = localStorage.getItem("tema") || "light";
     aplicarTema(temaSalvo);
 

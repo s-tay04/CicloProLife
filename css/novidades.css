@@ -131,19 +131,19 @@ body{
     
     }
 
-    .linha-bottom{
-        border-bottom: 5px solid rgb(255, 255, 255);
-        width: 100%;
-        margin: 20px 0px;
-        border-radius: 30px;
-        margin-top: 80px;
-       
-      }
+
+.linha-bottom{
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 20px 0px;
+    border-radius: 30px;
+    margin-top: 80px;
+}
     
-    footer{
-        color: #8d6e63;
-        margin-left: 40%;
-        margin-right: 30%;
-        margin-bottom: 1%;
-        align-items: center;
-    }
+footer{
+    color: #8d6e63;
+    margin-left: 40%;
+    margin-right: 30%;
+    margin-bottom: 1%;
+    align-items: center;
+}

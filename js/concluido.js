@@ -6,7 +6,7 @@ function exibirReceitas(lista){
         const card = document.createElement('div');
         card.className = 'card';
 
-        /* -------- ESQUERDA -------- */
+        /* ESQUERDA */
         const left = document.createElement('div');
         left.className = 'card-left';
 
@@ -32,7 +32,7 @@ function exibirReceitas(lista){
         left.appendChild(imagem);
         left.appendChild(info);
 
-        /* -------- DIREITA -------- */
+        /* DIREITA */
         const right = document.createElement('div');
         right.className = 'card-right';
 
@@ -60,7 +60,7 @@ function exibirReceitas(lista){
         right.appendChild(chef);
         right.appendChild(botoes);
 
-        /* -------- MONTA CARD -------- */
+        /* CARD */
         card.appendChild(left);
         card.appendChild(right);
 
@@ -78,12 +78,10 @@ function sim(botao) {
     texto.textContent = 'Receita Aprovada!';
     imagem.src = '../imagem/aprovada.png'; 
 
-    imagem.style.width = '200px'; // Ajuste esse número para o tamanho que achar melhor
-    imagem.style.height = '180px'; // Mantenha a altura igual à largura
-    imagem.style.objectFit = 'contain'; // Garante que a imagem não fique esticada ou amassada
+    imagem.style.width = '200px';
+    imagem.style.height = '180px';
+    imagem.style.objectFit = 'contain';
     
-    
-    // Esconde os botões (opcional, mas recomendado)
     divBotoes.style.display = 'none';
 }
 
@@ -94,14 +92,12 @@ function nao(botao) {
     const imagem = cardRight.querySelector('img');
     const divBotoes = cardRight.querySelector('.botoes');
 
-    // Altera o texto e a imagem
     texto.textContent = 'Receita Excluída!';
-    imagem.src = '../imagem/excluida.png'; // Coloque o nome da sua imagem de exclusão aqui
+    imagem.src = '../imagem/excluida.png';
 
-    imagem.style.width = '350px'; // Ajuste esse número para o tamanho que achar melhor
-    imagem.style.height = '300px'; // Mantenha a altura igual à largura
-    imagem.style.objectFit = 'contain'; // Garante que a imagem não fique esticada ou amassada
+    imagem.style.width = '350px';
+    imagem.style.height = '300px';
+    imagem.style.objectFit = 'contain';
     
-    // Esconde os botões
     divBotoes.style.display = 'none';
 }

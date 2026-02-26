@@ -2,8 +2,9 @@
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
-    --card: #EDEDED;
+    --card: #ffffff;
     --linha: #FFFFFF;
+    --footer: #7e5f44
 }
 
 /* ===== MODO ESCURO ===== */
@@ -163,7 +164,7 @@ body{
 }
 
 footer {
-    color: var(--texto); 
+    color: var(--footer); 
     text-align: center;
     width: 100%;
     padding-bottom: 1%;

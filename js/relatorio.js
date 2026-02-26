@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fileInput.click();
     });
 
-    // transforma arquivo em texto!!
     fileInput.addEventListener('change', (event) => {
         if (fileInput.files.length > 0) {
             textoArquivo.textContent = "Arquivo selecionado: " + fileInput.files[0].name;
@@ -44,10 +43,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function enviarRelatorio() {
     const fileInput = document.getElementById('input-arquivo');
+    const textoArquivo = document.getElementById('texto-arquivo');
+
     if(fileInput.files.length === 0) {
         alert("Por favor, selecione um arquivo primeiro!");
-    } else {
+        return;
+    } 
+
+    const formData = new FormData();
+    formData.append("arquivo", fileInput.files[0]);
+
+    fetch('https://futura-api.com/api//posts', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Erro na comunicação com o servidor.");
+        }
+        return response.json();
+    })
+    .then(dadosDoServidor => {
+        console.log("Simulação de envio do arquivo feita com sucesso:", dadosDoServidor);
+        
         alert(`Relatório "${fileInput.files[0].name}" enviado com sucesso!`);
-        // back-end
-    }
+        
+        fileInput.value = "";
+        textoArquivo.textContent = "Arraste e solte o arquivo aqui ou clique para selecionar";
+        textoArquivo.style.fontWeight = "normal";
+        textoArquivo.style.color = "inherit";
+    })
+    .catch(erro => {
+        console.error("Erro no fetch:", erro);
+        alert("Ocorreu um erro ao enviar o relatório. Tente novamente.");
+    });
 }

@@ -28,23 +28,34 @@
     </nav>
 
     <form class="formulario">
-        <div class="campo"></div>
-          <label for="text">Digite o nome e o modo de preparo da receita: </label><br>
-          <input class="resposta" id="receita" for="text"><br><br>
-        </div>
+      <div class="campo">
+        <label for="nome">Digite o nome da receita: </label><br>
+        <input class="resposta" id="nome" for="text" placeholder="Ex: Coxinha de jaca"><br><br>
+      </div>
 
-        <div class="campo"></div>
-          <label for="text">Quanto custa para produzir esta receita? </label><br>
-          <input class="resposta" id="custo" for="text"><br><br>
-        </div>
+      <div class="campo">
+        <label for="ingredientes">Digite os ingerdientes necessários e suas medidas: </label><br>
+        <input class="resposta" id="ingredientes" for="text" placeholder="Ex: 300 gramas de farinha"><br><br>
+      </div>
+      
+      <div class="campo">
+        <label for="receita">Digite o modo de preparo da receita: </label><br>
+        <input class="resposta" id="receita" for="text" placeholder="Ex: Ponha a farinha em um pote"><br><br>
+      </div>
 
-        <div class="campo"></div>
-          <label for="text">Quantas porções rendem? </label><br>
-          <input class="resposta" id="porcoes" for="text"><br><br>
-        </div>
+      <div class="campo">
+        <label for="custo">Quanto custa para produzir esta receita? </label><br>
+        <input class="resposta" id="custo" for="text" placeholder="Ex: Farinha: R$10,00"><br><br>
+      </div>
 
-        <button onclick="enviar()">Enviar receita</button>
+      <div class="campo">
+        <label for="porcoes">Quantas porções rendem? </label><br>
+        <input class="resposta" id="porcoes" for="text" placeholder="Ex: Rende 20 porções"><br><br>
+      </div>
+
     </form>
+     
+      <button onclick="enviar()">Enviar receita</button>
 
     <div class="linha-bottom"></div>
 
