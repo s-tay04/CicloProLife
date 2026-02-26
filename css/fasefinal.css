@@ -1,5 +1,33 @@
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+    --botao:#FF8080;
+    --strong: #8d6e63;
+    --transparecer: #ffead4;
+    --ativo: #FF8080;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #946135;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+    --botao:#a37043;
+    --ativo: #ca803e;
+}
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+
 body{
-    background-color: #E3C4A6 ;
+    background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
     
     margin: 0%;
@@ -64,7 +92,7 @@ body{
     
     .menu a {
     text-decoration: none;
-    color: #3F3F3F;
+    color: var(--texto);
     font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
@@ -94,7 +122,7 @@ body{
 }
 
 button {
-    background-color: #fccea0; 
+    background-color: var(--botao); 
     color: #ffff;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
@@ -112,16 +140,16 @@ button {
 }
 
 button.ativo {
-    background-color: #ff8c8c;
+    background-color: var(--ativo);
     color: white;
 }
 
 button:hover:not(.ativo) {
-    background-color: #ffe3c7;
+    background-color: var(--transparecer);
 }
 
 .ativo button:hover {
-    background-color: #FFA6A6;
+    background-color: var(--transparecer);
 }
 
 .cadeado{
@@ -143,12 +171,13 @@ button:hover:not(.ativo) {
 }
 
 .card{
-    background-color: #EDEDED;
+    background-color: var(--card);
     border-radius: 18px;
     padding: 20px;
     width: 340px;        
     margin-top: 30px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--texto);
     
 }
 
@@ -167,7 +196,7 @@ button:hover:not(.ativo) {
 .concluir{
     display: block;   
     margin: 0 auto;
-    background-color: #FF8080; 
+    background-color: var(--ativo); 
     color: white;
     border-radius: 30px;
     padding: 15px 20px;
@@ -213,7 +242,7 @@ background-color: #9D9696 !important;
   }
 
 footer{
-    color: #8d6e63;
+    color: var(-8d6e63-strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-bottom: 1%;

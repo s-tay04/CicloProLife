@@ -1,3 +1,4 @@
+
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
@@ -17,8 +18,8 @@ body.dark {
     --linha: #FFFFFF33;
     --strong: #FFFFFF;
     --transparecer: #5c3d23d0;
-    --botao:#ca803e;
-    --ativo: #a37043;
+    --botao:#a37043;
+    --ativo: #ca803e;
 }
 /* ===== TRANSIÇÃO SUAVE ===== */
 body, .card, .menu a, .destaques, .linha {
