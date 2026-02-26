@@ -68,9 +68,36 @@ function exibirReceitas(lista){
     });
 }
 
-function sim(botao) {
+function enviarParaServidor(nomeDaReceita, status) {
+    const url = 'https://futura-api.com/api/receita';
+
+    const dadosParaEnviar = {
+        receitaNome: nomeDaReceita,
+        statusDaReceita: status
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dadosParaEnviar)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(`Sucesso! Receita "${nomeDaReceita}" foi ${status} no servidor:`, data);
+        alert(`Status enviado ao servidor: ${status}! Abra o console (F12) para ver a resposta.`);
+    })
+    .catch(error => {
+        console.error('Erro ao enviar para o servidor:', error);
+    });
+}
+
+function aprovar(botao) {
+    const cardPrincipal = botao.closest('.card');
+    const nomeDaReceita = cardPrincipal.querySelector('.card-left h2').textContent;
+
     const cardRight = botao.closest('.card-right');
-    
     const texto = cardRight.querySelector('p');
     const imagem = cardRight.querySelector('img');
     const divBotoes = cardRight.querySelector('.botoes');
@@ -83,11 +110,15 @@ function sim(botao) {
     imagem.style.objectFit = 'contain';
     
     divBotoes.style.display = 'none';
+
+    enviarParaServidorFalso(nomeDaReceita, 'Aprovada');
 }
 
-function nao(botao) {
+function rejeitar(botao) {
+    const cardPrincipal = botao.closest('.card');
+    const nomeDaReceita = cardPrincipal.querySelector('.card-left h2').textContent;
+
     const cardRight = botao.closest('.card-right');
-    
     const texto = cardRight.querySelector('p');
     const imagem = cardRight.querySelector('img');
     const divBotoes = cardRight.querySelector('.botoes');
@@ -100,4 +131,6 @@ function nao(botao) {
     imagem.style.objectFit = 'contain';
     
     divBotoes.style.display = 'none';
+
+    enviarParaServidorFalso(nomeDaReceita, 'Excluída');
 }

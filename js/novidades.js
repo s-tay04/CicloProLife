@@ -19,7 +19,7 @@ function enviar() {
         data: new Date().toLocaleDateString()
     };
 
-    fetch("https://futura-api.com/api/logout", {
+    fetch("https://futura-api.com/api/adicionar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
