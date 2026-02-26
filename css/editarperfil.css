@@ -2,7 +2,7 @@
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
-    --card: #EDEDED;
+    --card: rgb(255,255,255,0.6);
     --linha: #FFFFFF;
     --botao:#FF8080;
     --strong: #8d6e63;

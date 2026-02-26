@@ -1,5 +1,30 @@
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+    --botao:#FF8080;
+    --strong: #8d6e63;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #946135;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+    --botao:#ca803e;
+}
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+
 body{
-    background-color: #E3C4A6 ;
+    background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
 
     margin: 0%;
@@ -65,7 +90,7 @@ body{
 
 .menu a {
     text-decoration: none;
-    color: #3F3F3F;
+    color: var(--texto);
     font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
@@ -73,7 +98,7 @@ body{
 }
 
 .menu a:hover{
-    color:#FF8080 ;
+    color:var(--botao) ;
     border-bottom:3px solid #FF8080;
 }
 
@@ -101,7 +126,7 @@ body{
 }
 
 .badge-titulo {
-    background-color: #FF8080;
+    background-color: var(--botao);
     color: #ffff;
     padding: 8px 20px;
     border-radius: 20px;
@@ -122,6 +147,7 @@ body{
     font-size: 1.5rem;
     margin-bottom: 20px;
     font-weight: 500;
+    color: var(--texto);
 }
 
 .bolinha {
@@ -145,6 +171,7 @@ body{
 .area-upload h3 {
     font-weight: normal;
     margin-bottom: 10px;
+    color: var(--texto);
 }
 
 .caixa-upload {
@@ -171,7 +198,7 @@ body{
     right: 20px;
     background: transparent;
     border: 2px solid white;
-    color: white;
+    color: var(--texto);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -183,12 +210,12 @@ body{
 }
 
 #texto-arquivo {
-    color: #555;
+    color: var(--texto);
     font-style: italic;
 }
 
 .btn-adicionar {
-    background-color: #FF8080;
+    background-color: var(--botao);
     color: white;
     border: none;
     padding: 12px 30px;
@@ -222,7 +249,7 @@ body{
   }
 
 footer{
-    color: #8d6e63;
+    color: var(--strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-bottom: 1%;
