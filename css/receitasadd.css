@@ -6,6 +6,7 @@
     --botao:#FF8080;
     --strong: #8d6e63;
     --transparecer: #ffead4;
+    --ativo: #FF8080;
 }
 
 /* ===== MODO ESCURO ===== */
@@ -17,6 +18,7 @@ body.dark {
     --strong: #FFFFFF;
     --transparecer: #5c3d23d0;
     --botao:#ca803e;
+    --ativo: #a37043;
 }
 /* ===== TRANSIÇÃO SUAVE ===== */
 body, .card, .menu a, .destaques, .linha {
@@ -120,7 +122,7 @@ body{
 }
 
 button {
-    background-color: #fccea0; 
+    background-color: var(--botao); 
     color: #ffff;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
@@ -138,7 +140,7 @@ button {
 }
 
 button.ativo {
-    background-color: var(--botao);
+    background-color: var(--ativo);
     color: white;
 }
 

@@ -6,6 +6,7 @@
     --botao:#FF8080;
     --strong: #8d6e63;
     --transparecer: #ffead4;
+    --ativo: #FF8080;
 }
 
 /* ===== MODO ESCURO ===== */
@@ -17,6 +18,7 @@ body.dark {
     --strong: #FFFFFF;
     --transparecer: #5c3d23d0;
     --botao:#ca803e;
+    --ativo: #a37043;
 }
 /* ===== TRANSIÇÃO SUAVE ===== */
 body, .card, .menu a, .destaques, .linha {
@@ -91,7 +93,7 @@ body{
 
 .menu a {
     text-decoration: none;
-    color: #3F3F3F;
+    color: var(--texto);
     font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
@@ -121,7 +123,7 @@ body{
 }
 
 button {
-    background-color: #fccea0; 
+    background-color: var(--botao); 
     color: #ffff;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
@@ -139,16 +141,16 @@ button {
 }
 
 button.ativo {
-    background-color: #ff8c8c;
+    background-color:var(--ativo) ;
     color: white;
 }
 
 button:hover:not(.ativo) {
-    background-color: #ffe3c7;
+    background-color: var(--transparecer);
 }
 
 .ativo button:hover {
-    background-color: #FFA6A6;
+    background-color: var(--transparecer);
 }
 
 .cadeado{
@@ -175,12 +177,13 @@ a{
 }
 
 .card{
-    background-color: #EDEDED;
+    background-color: var(--card);
     border-radius: 18px;
     padding: 20px;
     width: 340px;   
     margin-top: 30px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--texto);
     
 }
 
@@ -199,7 +202,7 @@ a{
 .avaliar{
     display: block;   
     margin: 0 auto;
-    background-color: #FF8080; 
+    background-color: var(--botao); 
     color: white;
     border-radius: 30px;
     padding: 15px 70px;
@@ -224,7 +227,7 @@ a{
   }
 
 footer{
-    color: #8d6e63;
+    color: var(--strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-bottom: 1%;
