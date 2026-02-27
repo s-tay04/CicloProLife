@@ -1,5 +1,34 @@
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+    --botao:#FF8080;
+    --strong: #8d6e63;
+    --transparecer: #ffead4;
+    --ativo: #FF8080;
+    --mulher: #e7e7e7;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #c48751;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+    --botao:#a37043;
+    --ativo: #ca803e;
+    --mulher: #e69f62;
+}
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
 body{
-    background-color: #E3C4A6 ;
+    background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
 
     margin: 0%;
@@ -65,7 +94,7 @@ body{
 
 .menu a {
     text-decoration: none;
-    color: #3F3F3F;
+    color: var(--texto);
     font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
@@ -95,7 +124,7 @@ body{
 }
 
 button {
-    background-color: #fccea0; 
+    background-color: var(--botao); 
     color: #ffff;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
@@ -113,16 +142,16 @@ button {
 }
 
 button.ativo {
-    background-color: #ff8c8c;
+    background-color: var(--ativo);
     color: white;
 }
 
 button:hover:not(.ativo) {
-    background-color: #ffe3c7;
+    background-color: var(--transparecer);
 }
 
 .ativo button:hover {
-    background-color: #FFA6A6;
+    background-color: var(--transparecer);
 }
 
 .cadeado{
@@ -144,7 +173,7 @@ a{
 .card {
     display: flex;
     justify-content: space-between;
-    background: #f3f3f3;
+    background: var(--card);
     border-radius: 18px;
     padding: 40px;
     width: 1000px;
@@ -174,7 +203,7 @@ a{
 }
 
 .card-info h2 {
-    background: #f27d7d;
+    background: var(--transparecer);
     color: white;
     padding: 8px 20px;
     border-radius: 20px;
@@ -185,14 +214,14 @@ a{
 
 .card-info p {
     font-size: 18px;
-    color: #333;
+    color: var(--texto);
     margin: 8px 0;
     line-height: 1.4;
 }
 
 /* LADO DIREITO */
 .card-right {
-    background: #e7e7e7;
+    background: var(--mulher);
     border-radius: 18px;
     padding: 20px;
     width: 220px;
@@ -201,6 +230,7 @@ a{
     align-items: center;
     justify-content: center;
     gap: 15px;
+    color: var(--texto);
 }
 
 .card-right p {
@@ -258,7 +288,7 @@ a{
   }
 
 footer{
-    color: #8d6e63;
+    color: var(--strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-bottom: 1%;

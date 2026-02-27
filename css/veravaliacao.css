@@ -1,5 +1,33 @@
+
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+    --botao:#FF8080;
+    --strong: #8d6e63;
+    --transparecer: #ffead4;
+    --ativo: #FF8080;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #c48751;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+    --botao:#5c3d23d0;
+    --ativo: #ca803e;
+}
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
 body{
-    background-color: #E3C4A6 ;
+    background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
 
     margin: 0%;
@@ -65,7 +93,7 @@ body{
 
 .menu a {
     text-decoration: none;
-    color: #3F3F3F;
+    color: var(--texto);
     font-size: 230%;
     font-weight: 500;
     padding-bottom: 6px;
@@ -147,7 +175,7 @@ a {
 }
 
 .card{
-    background-color: #ffffff;
+    background-color: var(--card);
     border-radius: 18px;
     padding: 80px;
     width: 75%;  
@@ -170,6 +198,7 @@ a {
     flex-direction: column;
     gap: 20px;
     width: 100%;
+    color: var(--texto);
 }
 
 .card-cabecalho {
@@ -184,7 +213,7 @@ a {
     font-size: 1rem;
 }
 .titulo {
-    background-color: #FF8080;
+    background-color: var(--botao);
     color: #ffff;
     padding: 15px 25px;
     border-radius: 30px;
@@ -195,7 +224,7 @@ a {
 .descricao {
     font-size: 1.15rem;
     line-height: 1.8;
-    color: #000;
+    color: text;
     font-weight: 600;
     margin: 0;
 }
