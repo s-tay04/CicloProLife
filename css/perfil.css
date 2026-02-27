@@ -1,5 +1,32 @@
+:root {
+    --fundo: #E3C4A6;
+    --texto: #3F3F3F;
+    --card: #EDEDED;
+    --linha: #FFFFFF;
+    --botao:#FF8080;
+    --strong: #8d6e63;
+    --transparecer: #ffead4;
+    --ativo: #FF8080;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark {
+    --fundo: #714C27;   
+    --texto: #FFFFFF;   
+    --card: #946135;
+    --linha: #FFFFFF33;
+    --strong: #FFFFFF;
+    --transparecer: #5c3d23d0;
+    --botao:#a37043;
+    --ativo: #ca803e;
+}
+/* ===== TRANSIÇÃO SUAVE ===== */
+body, .card, .menu a, .destaques, .linha {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
 body{
-    background-color: #E3C4A6 ;
+    background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
 
     margin: 0%;
@@ -94,7 +121,7 @@ body{
 .btn-voltar {
     color: #ffff;
     display: flex;
-    background-color: #ff8c8c;
+    background-color: var(--botao);
     justify-content: center;
     align-items: center;
     border-radius: 50%;
@@ -113,7 +140,7 @@ body{
 }
 
 .btn-voltar:hover {
-    background-color: #FFA6A6;
+    background-color: var(--transparecer);
 }
 
 .container-botoes {
@@ -129,7 +156,7 @@ body{
     max-width: 180px;
     border-radius: 30px;
     border: none;
-    background-color: #ff8c8c;
+    background-color: var(--botao);
     color: #FFFFFF;
     padding: 15px;
     font-size: 17px;
@@ -158,7 +185,7 @@ body{
 }
 
 .btn-edit:hover {
-    background-color: #FFA6A6;
+    background-color: var(--transparecer);
     color: white;
 }
 
@@ -181,7 +208,7 @@ a {
   }
 
 footer{
-    color: #8d6e63;
+    color: var(--strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-top: 26px;

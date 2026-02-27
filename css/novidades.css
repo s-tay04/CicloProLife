@@ -5,8 +5,10 @@
     --linha: #FFFFFF;
     --botao:#FF8080;
     --strong: #8d6e63;
-    --transparecer: #ffead4;
+    --transparecer: #ffaeae;
     --ativo: #FF8080;
+    --barra: #ffd1a3;
+    --barra2: #fce0c4;
 }
 
 /* ===== MODO ESCURO ===== */
@@ -19,6 +21,8 @@ body.dark {
     --transparecer: #5c3d23d0;
     --botao:#a37043;
     --ativo: #ca803e;
+    --barra: #e6bc92;
+    --barra2: #d8a471;
 }
 /* ===== TRANSIÇÃO SUAVE ===== */
 body, .card, .menu a, .destaques, .linha {
@@ -133,10 +137,10 @@ body{
     
     
     label {
-        color: #3F3F3F;
+        color: var(--texto);
         font-family: Arial, Helvetica, sans-serif;
         font-size: 32px;
-        background-color: #ffd1a3;
+        background-color: var(--barra);
         padding: 8px 25px;
         border-radius: 20px;
         display: inline-block;
@@ -148,14 +152,19 @@ body{
         margin-left: 20px;
         margin-top: 10px;
         margin-bottom: 10px;
-        background-color: #fce0c4;
+        background-color: var(--barra2);
         border-color: #f8b97b;
         border-radius: 20px;
         width: 80%;
         padding: 30px;
         display: block;
         margin: 20px auto;
+        color: var(--texto);
+        
     
+    }
+    .resposta::placeholder{
+        color: var(--texto);
     }
 
 
