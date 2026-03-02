@@ -6,7 +6,7 @@
     --linha: #FFFFFF;
     --botao:#FF8080;
     --strong: #8d6e63;
-    --transparecer: #ffead4;
+    --transparecer: #FFA6A6;
     --ativo: #FF8080;
 }
 
@@ -215,7 +215,7 @@ a{
 }
 
 .avaliar:hover{
-    background-color: #FFA6A6 !important;
+    background-color: #FFA6A6;
 }
 
 .linha-bottom{
