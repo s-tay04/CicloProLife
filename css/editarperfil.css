@@ -5,6 +5,7 @@
     --card: rgb(255,255,255,0.6);
     --linha: #FFFFFF;
     --botao:#FF8080;
+    --transparecer: #ff9e9e;
     --strong: #8d6e63;
 }
 
@@ -110,7 +111,7 @@ input{
 
 .salvar{
     background-color: var(--botao);
-    color: var(--texto);
+    color: white
 }
 
 .cancelar{
@@ -119,7 +120,7 @@ input{
 }
 
 .salvar:hover{
-    background-color: #FFA6A6;
+    background-color: var(--transparecer);
     color: white;
 }
 

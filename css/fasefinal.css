@@ -3,9 +3,9 @@
     --texto: #3F3F3F;
     --card: #EDEDED;
     --linha: #FFFFFF;
-    --botao:#FF8080;
+    --botao:#FFA6A6;
     --strong: #8d6e63;
-    --transparecer: #ffead4;
+    --transparecer: #ff9e9e;
     --ativo: #FF8080;
 }
 
@@ -212,7 +212,7 @@ a{
 }
 
 .concluir:hover{
-    background-color: #FFA6A6 !important;
+    background-color: var(--transparecer);
 }
 
 .requer{
@@ -242,7 +242,7 @@ background-color: #9D9696 !important;
   }
 
 footer{
-    color: var(-8d6e63-strong);
+    color: var(--strong);
     margin-left: 40%;
     margin-right: 30%;
     margin-bottom: 1%;

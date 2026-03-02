@@ -4,7 +4,7 @@
     --texto: #3F3F3F;
     --card: #ffffff;
     --linha: #FFFFFF;
-    --footer: #7e5f44
+    --footer: #7e5f44;
 }
 
 /* ===== MODO ESCURO ===== */
@@ -13,7 +13,7 @@ body.dark {
     --texto: #FFFFFF;   
     --card: #7e5f44;
     --linha: #ffffff;
-    --strong: #FFFFFF;
+    --footer: #FFFFFF;
 }
 
 /* ===== TRANSIÇÃO SUAVE ===== */
@@ -164,7 +164,7 @@ body{
 }
 
 footer {
-    color: var(--strong); 
+    color: var(--footer); 
     text-align: center;
     width: 100%;
     padding-bottom: 1%;

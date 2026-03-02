@@ -4,7 +4,8 @@
     --texto: #3F3F3F;
     --card: #EDEDED;
     --linha: #FFFFFF;
-    --botao:#FF8080;
+    --botao:#ff9e9e;
+    --ativo:#FF8080;
     --strong: #8d6e63;
 }
 
@@ -123,9 +124,9 @@ body{
 }
 
 .btn-controle.ativo {
-    background-color: var(--botao);
+    background-color: var(--ativo);
     color: white;
-    border-color: #FF8080;
+    border-color: var(--ativo);
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
 }
 

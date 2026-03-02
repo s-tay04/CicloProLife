@@ -4,6 +4,7 @@
     --card: #EDEDED;
     --linha: #FFFFFF;
     --botao:#FF8080;
+    --transparecer:#ff9e9e;
     --strong: #8d6e63;
 }
 
@@ -228,7 +229,7 @@ body{
 }
 
 .btn-adicionar:hover {
-    background-color: #FFA6A6;
+    background-color: var(--transparecer);
 }
 
 @media (max-width: 768px) {

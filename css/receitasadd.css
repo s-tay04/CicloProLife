@@ -3,9 +3,9 @@
     --texto: #3F3F3F;
     --card: #EDEDED;
     --linha: #FFFFFF;
-    --botao:#FF8080;
+    --botao:#FFA6A6;
     --strong: #8d6e63;
-    --transparecer: #ffead4;
+    --transparecer: #ff9e9e;
     --ativo: #FF8080;
 }
 
@@ -227,7 +227,7 @@ button:hover:not(.ativo) {
 }
 
 .botao-novo:hover {
-    background-color: #FFA6A6 !important;
+    background-color: var(--transparecer);
 }
 
 a {
