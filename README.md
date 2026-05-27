@@ -3,7 +3,6 @@
 Projeto desenvolvido para a disciplina de tecnico em informaica no SENAI CETAF turma APT 005.001.
 
 ## Integrantes
-- eshilen
 - tayna
 - geovana
 - thiago
