@@ -2,12 +2,12 @@
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
-    --card: #EDEDED;
+    --card: #ffffff;
     --linha: #FFFFFF;
     --botao:#FFA6A6;
     --strong: #8d6e63;
-    --transparecer: #ff9e9e;
-    --ativo: #FF8080;
+    --transparecer: #f88d8d;
+    --ativo: #fa7373;
 }
 
 /* ===== MODO ESCURO ===== */
@@ -17,9 +17,9 @@ body.dark {
     --card: #946135;
     --linha: #FFFFFF33;
     --strong: #FFFFFF;
-    --transparecer: #5c3d23d0;
-    --botao:#a37043;
-    --ativo: #ca803e;
+    --transparecer: #6d4f37d0;
+    --botao:#815d40d0;
+    --ativo: #5c3d23d0;
 }
 /* ===== TRANSIÇÃO SUAVE ===== */
 body, .card, .menu a, .destaques, .linha {

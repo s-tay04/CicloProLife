@@ -1,8 +1,8 @@
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
-    --card: #EDEDED;
-    --linha: #FFFFFF;
+    --card: #ffffff;
+    --linha: #ffffff;
     --botao:#FF8080;
     --strong: #8d6e63;
     --transparecer: #FF8080;
@@ -14,7 +14,7 @@
 body.dark {
     --fundo: #714C27;   
     --texto: #FFFFFF;   
-    --card: #c48751;
+    --card: #946135;
     --linha: #FFFFFF33;
     --strong: #FFFFFF;
     --transparecer: #5c3d23d0;

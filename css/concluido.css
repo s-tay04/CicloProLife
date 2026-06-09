@@ -1,7 +1,7 @@
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
-    --card: #EDEDED;
+    --card: #ffffff;
     --linha: #FFFFFF;
     --botao:#FF8080;
     --strong: #8d6e63;
@@ -14,12 +14,12 @@
 body.dark {
     --fundo: #714C27;   
     --texto: #FFFFFF;   
-    --card: #c48751;
+    --card: #946135;
     --linha: #FFFFFF33;
     --strong: #FFFFFF;
-    --transparecer: #5c3d23d0;
-    --botao:#a37043;
-    --ativo: #ca803e;
+    --transparecer: #6d4f37d0;
+    --botao:#815d40d0;
+    --ativo: #5c3d23d0;
     --mulher: #e69f62;
 }
 /* ===== TRANSIÇÃO SUAVE ===== */

@@ -2,7 +2,7 @@
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
-    --card: #EDEDED;
+    --card: #ffffff;
     --linha: #FFFFFF;
     --botao:#FF8080;
     --strong: #8d6e63;
@@ -14,7 +14,7 @@
 body.dark {
     --fundo: #714C27;   
     --texto: #FFFFFF;   
-    --card: #c48751;
+    --card: #946135;
     --linha: #FFFFFF33;
     --strong: #FFFFFF;
     --transparecer: #5c3d23d0;
@@ -29,7 +29,6 @@ body, .card, .menu a, .destaques, .linha {
 body{
     background-color: var(--fundo) ;
     font-family: Arial, Helvetica, sans-serif;
-
     margin: 0%;
 }
 
@@ -227,4 +226,22 @@ a {
     color: text;
     font-weight: 600;
     margin: 0;
+}
+
+.linha-bottom{
+    border-bottom: 5px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 20px 0px;
+    border-radius: 30px;
+    margin-top: 30px;
+   
+  }
+
+  footer{
+    text-align: center;
+    color: var(--strong);
+    padding: 20px;
+    margin-top: 50px;
+
+    border-top: 5px solid white;
 }
