@@ -3,8 +3,8 @@
 Projeto desenvolvido para o curso de técnico em informática no SENAI CETAF turma APT 005.001.
 
 ## Integrantes
-- Tayná Leite
 - Geovana Moreira
+- Tayná Leite
 - Thiago Aragão
 
 ## Objetivo
