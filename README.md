@@ -1,20 +1,21 @@
-# cicloprolife
+# CicloProLife
 
-Projeto desenvolvido para a disciplina de tecnico em informaica no SENAI CETAF turma APT 005.001.
+Projeto desenvolvido para o curso de técnico em informática no SENAI CETAF turma APT 005.001.
 
 ## Integrantes
-- tayna
-- geovana
-- thiago
+- Tayná Leite
+- Geovana Moreira
+- Thiago Aragão
 
 ## Objetivo
-app que ajuda nos problemas da empresa m.a.f de souza e  cia ltda.
+Solução que ajuda nos problemas da empresa m.a.f de souza e cia ltda.
 
 
 ## Tecnologias utilizadas
 - HTML
 - CSS
 - JavaScript
+- C#
   
 
 ## Como executar
