@@ -1,88 +1,149 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const ctx = document.getElementById('graficoConsumo');
+let meuGrafico = null;
 
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Coxinha', 'Joelho', 'Brownie'], 
-            datasets: [{
-                data: [45, 30, 25],
-                backgroundColor: [
-                    '#E85D04',
-                    '#FAA307',
-                    '#FFD2B6'
-                ],
-                borderWidth: 0 
-            }]
-        },
-        options: {
-            plugins: {
-                legend: {
-                    display: false
-                }
-            }
-        }
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    carregarDadosDoGrafico();
 
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('input-arquivo');
     const textoArquivo = document.getElementById('texto-arquivo');
 
-    dropZone.addEventListener('click', () => {
-        fileInput.click();
-    });
+    if (dropZone) {
+        dropZone.addEventListener('click', () => {
+            fileInput.click();
+        });
+    }
 
-    fileInput.addEventListener('change', (event) => {
-        if (fileInput.files.length > 0) {
-            textoArquivo.textContent = "Arquivo selecionado: " + fileInput.files[0].name;
-            textoArquivo.style.fontWeight = "bold";
-            textoArquivo.style.color = "#333";
-        }
-    });
+    if (fileInput) {
+        fileInput.addEventListener('change', (event) => {
+            if (fileInput.files.length > 0) {
+                textoArquivo.textContent = "Arquivo selecionado: " + fileInput.files[0].name;
+                textoArquivo.style.fontWeight = "bold";
+                textoArquivo.style.color = "#333";
+                
+                enviarRelatorio(); 
+            }
+        });
+    }
 });
 
+// BUSCA OS DADOS DO BANCO, RENDERIZA O GRÁFICO E CRIA AS LEGENDAS
+function carregarDadosDoGrafico() {
+    const ctx = document.getElementById('graficoConsumo');
+    const listaLegendaContainer = document.getElementById('lista-legenda-dinamica');
+    if (!ctx) return;
+
+    // ROTA CORRIGIDA: Mudado de /Venda/grafico para /Venda/resumo-grafico
+    fetch('https://localhost:7108/Venda/grafico') 
+        .then(response => {
+            if (!response.ok) throw new Error("Erro ao buscar dados do servidor.");
+            return response.json();
+        })
+        .then(dados => {
+            // Se o banco estiver vazio, avisa o usuário na legenda
+            if (dados.length === 0) {
+                if (listaLegendaContainer) listaLegendaContainer.innerHTML = "<li>Nenhum dado encontrado</li>";
+                return;
+            }
+
+            // Mapeia o resultado vindo do C#
+            const labelsProdutos = dados.map(item => item.produto);
+            const valoresQuantidades = dados.map(item => item.quantidade);
+
+            // Paleta de cores baseada no design do seu front-end
+            const cores = ['#E85D04', '#FAA307', '#FFD2B6', '#FF9F1C', '#FFBF69'];
+
+            // === 1. COMPONENTE DO CHART.JS ===
+            if (meuGrafico) {
+                // Se o gráfico já existe, só injeta os novos valores e atualiza
+                meuGrafico.data.labels = labelsProdutos;
+                meuGrafico.data.datasets[0].data = valoresQuantidades;
+                meuGrafico.data.datasets[0].backgroundColor = cores.slice(0, labelsProdutos.length);
+                meuGrafico.update();
+            } else {
+                // Se for a primeira inicialização, monta o gráfico do zero
+                meuGrafico = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labelsProdutos, 
+                        datasets: [{
+                            data: valoresQuantidades,
+                            backgroundColor: cores.slice(0, labelsProdutos.length),
+                            borderWidth: 0 
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false // Mantém oculta a legenda padrão quadrada do Chart.js
+                            }
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            }
+
+            // === 2. MONTAGEM DA LEGENDA TEXTUAL DINÂMICA ===
+            if (listaLegendaContainer) {
+                listaLegendaContainer.innerHTML = ""; // Limpa os itens antigos estáticos
+
+                dados.forEach((item, index) => {
+                    // Seleciona uma cor da paleta para este item específico
+                    const corItem = cores[index % cores.length];
+
+                    // Cria o elemento <li> idêntico ao padrão estruturado no seu CSS original
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span class="bolinha" style="background-color: ${corItem};"></span> ${item.produto}`;
+                    
+                    listaLegendaContainer.appendChild(li);
+                });
+            }
+        })
+        .catch(erro => console.error("Erro ao buscar dados do gráfico:", erro));
+}
+
+// FUNÇÃO DE UPLOAD ADAPTADA PARA SUA API C#
 function enviarRelatorio() {
     const fileInput = document.getElementById('input-arquivo');
     const textoArquivo = document.getElementById('texto-arquivo');
 
-    if(fileInput.files.length === 0) {
+    if (!fileInput || fileInput.files.length === 0) {
         alert("Por favor, selecione um arquivo primeiro!");
         return;
     } 
 
     const formData = new FormData();
-    formData.append("arquivo", fileInput.files[0]);
+    formData.append("file", fileInput.files[0]); 
 
-    fetch('https://futura-api.com/api//posts', {
+    fetch('https://localhost:7108/Relatorio/upload', { 
         method: 'POST',
         body: formData
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error("Erro na comunicação com o servidor.");
+            throw new Error("Erro na comunicação com o servidor ao processar o arquivo.");
         }
-        return response.json();
+        return response.text();
     })
-    .then(dadosDoServidor => {
-        console.log("Simulação de envio do arquivo feita com sucesso:", dadosDoServidor);
-        
-        alert(`Relatório "${fileInput.files[0].name}" enviado com sucesso!`);
+    .then(mensagem => {
+        alert("Relatório processado e salvo no Banco de Dados com sucesso!");
         
         fileInput.value = "";
-        textoArquivo.textContent = "Arraste e solte o arquivo aqui ou clique para selecionar";
+        textoArquivo.textContent = "Clique aqui para selecionar o arquivo";
         textoArquivo.style.fontWeight = "normal";
         textoArquivo.style.color = "inherit";
+
+        // Atualiza o gráfico e a lista lateral de forma síncrona imediatamente após o upload bem-sucedido
+        carregarDadosDoGrafico();
     })
     .catch(erro => {
-        console.error("Erro no fetch:", erro);
-        alert("Ocorreu um erro ao enviar o relatório. Tente novamente.");
+        console.error("Erro no upload:", erro);
+        alert("Ocorreu um erro ao enviar o relatório. Verifique a estrutura do arquivo.");
     });
 }
 
-//modo escuro
-
+// MODO ESCURO
 document.addEventListener("DOMContentLoaded", function () {
-
     const botaoTema = document.getElementById("toggle-tema");
     const iconeTema = document.getElementById("icone-tema");
 
@@ -91,10 +152,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function aplicarTema(modo) {
         if (modo === "dark") {
             document.body.classList.add("dark");
-            iconeTema.src = "../imagem/lua2.png"; 
+            if(iconeTema) iconeTema.src = "../imagem/lua2.png"; 
         } else {
             document.body.classList.remove("dark");
-            iconeTema.src = "../imagem/lua.png"; 
+            if(iconeTema) iconeTema.src = "../imagem/lua.png"; 
         }
     }
 
@@ -104,8 +165,6 @@ document.addEventListener("DOMContentLoaded", function () {
         aplicarTema(novoModo);
     });
 
-    // mantém salvo 
     const temaSalvo = localStorage.getItem("tema") || "light";
     aplicarTema(temaSalvo);
-
 });
