@@ -1,21 +1,21 @@
 function enviar() {
-    let textoNome = document.getElementById("nome").value;
+    let textoTitulo = document.getElementById("titulo").value;
     let textoIngredientes = document.getElementById("ingredientes").value;
-    let textoReceita = document.getElementById("receita").value;
+    let textoModoPreparo = document.getElementById("modoPreparo").value;
     let textoCusto = document.getElementById("custo").value;
-    let textoPorcoes = document.getElementById("porcoes").value;
+    let textoPorcao = document.getElementById("porcao").value;
 
-    if (textoNome.trim() === "" || textoIngredientes.trim() === "" || textoReceita.trim() === "" || textoCusto.trim() === "" || textoPorcoes.trim() === "") {
+    if (textoTitulo.trim() === "" || textoIngredientes.trim() === "" || textoModoPreparo.trim() === "" || textoCusto.trim() === "" || textoPorcao.trim() === "") {
         alert("Preencha todos os campos antes de enviar a receita!");
         return; 
     }
 
     const novaReceita = {
-        nome: textoNome,
+        titulo: textoTitulo,
         ingredientes: textoIngredientes,
-        receita: textoReceita,
+        modoPreparo: textoModoPreparo,
         custo: textoCusto,
-        porcoes: textoPorcoes,
+        porcao: textoPorcao,
         data: new Date().toLocaleDateString()
     };
 
@@ -41,11 +41,11 @@ function enviar() {
 
         alert("Receita salva no navegador com sucesso!");
 
-        document.getElementById("nome").value = "";
+        document.getElementById("titulo").value = "";
         document.getElementById("ingredientes").value = "";
-        document.getElementById("receita").value = "";
+        document.getElementById("modoPreparo").value = "";
         document.getElementById("custo").value = "";
-        document.getElementById("porcoes").value = "";
+        document.getElementById("porcao").value = "";
     })
     .catch(erro => {
         console.error("Erro no fetch:", erro);
