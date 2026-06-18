@@ -10,21 +10,19 @@ function enviar() {
         return; 
     }
 
-    const novaReceita = {
-        titulo: textoTitulo,
-        ingredientes: textoIngredientes,
-        modoPreparo: textoModoPreparo,
-        custo: textoCusto,
-        porcao: textoPorcao,
-        data: new Date().toLocaleDateString()
-    };
+    const formData = new FormData(); 
+        formData.append("titulo", textoTitulo);
+        formData.append("ingredientes", textoIngredientes);
+        formData.append("modoPreparo", textoModoPreparo);
+        formData.append("custo", textoCusto);
+        formData.append("porcao", textoPorcao);
+        let arquivo = document.getElementById("imagem").files[0];
+        formData.append("ArquivoImagem", arquivo);
+    
 
     fetch("https://futura-api.com/api/adicionar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(novaReceita)
+    method: "POST",
+    body: formData
     })
     .then(response => {
         if (!response.ok) {
@@ -36,7 +34,10 @@ function enviar() {
         console.log("Simulação de envio feita com sucesso! ID gerado:", dadosDoServidor.id);
 
         let receitasSalvas = JSON.parse(localStorage.getItem("listaReceitas")) || [];
-        receitasSalvas.push(novaReceita);
+        receitasSalvas.push({
+            titulo: textoTitulo,
+            modoPreparo: textoModoPreparo
+        });
         localStorage.setItem("listaReceitas", JSON.stringify(receitasSalvas));
 
         alert("Receita salva no navegador com sucesso!");
