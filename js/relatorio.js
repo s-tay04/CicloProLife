@@ -32,35 +32,28 @@ function carregarDadosDoGrafico() {
     const listaLegendaContainer = document.getElementById('lista-legenda-dinamica');
     if (!ctx) return;
 
-    // ROTA CORRIGIDA: Mudado de /Venda/grafico para /Venda/resumo-grafico
     fetch('https://localhost:7108/Venda/grafico') 
         .then(response => {
             if (!response.ok) throw new Error("Erro ao buscar dados do servidor.");
             return response.json();
         })
         .then(dados => {
-            // Se o banco estiver vazio, avisa o usuário na legenda
             if (dados.length === 0) {
                 if (listaLegendaContainer) listaLegendaContainer.innerHTML = "<li>Nenhum dado encontrado</li>";
                 return;
             }
 
-            // Mapeia o resultado vindo do C#
             const labelsProdutos = dados.map(item => item.produto);
             const valoresQuantidades = dados.map(item => item.quantidade);
 
-            // Paleta de cores baseada no design do seu front-end
             const cores = ['#E85D04', '#FAA307', '#FFD2B6', '#FF9F1C', '#FFBF69'];
 
-            // === 1. COMPONENTE DO CHART.JS ===
             if (meuGrafico) {
-                // Se o gráfico já existe, só injeta os novos valores e atualiza
                 meuGrafico.data.labels = labelsProdutos;
                 meuGrafico.data.datasets[0].data = valoresQuantidades;
                 meuGrafico.data.datasets[0].backgroundColor = cores.slice(0, labelsProdutos.length);
                 meuGrafico.update();
             } else {
-                // Se for a primeira inicialização, monta o gráfico do zero
                 meuGrafico = new Chart(ctx, {
                     type: 'pie',
                     data: {
@@ -74,7 +67,7 @@ function carregarDadosDoGrafico() {
                     options: {
                         plugins: {
                             legend: {
-                                display: false // Mantém oculta a legenda padrão quadrada do Chart.js
+                                display: false
                             }
                         },
                         responsive: true,
@@ -83,15 +76,12 @@ function carregarDadosDoGrafico() {
                 });
             }
 
-            // === 2. MONTAGEM DA LEGENDA TEXTUAL DINÂMICA ===
             if (listaLegendaContainer) {
-                listaLegendaContainer.innerHTML = ""; // Limpa os itens antigos estáticos
+                listaLegendaContainer.innerHTML = "";
 
                 dados.forEach((item, index) => {
-                    // Seleciona uma cor da paleta para este item específico
                     const corItem = cores[index % cores.length];
 
-                    // Cria o elemento <li> idêntico ao padrão estruturado no seu CSS original
                     const li = document.createElement('li');
                     li.innerHTML = `<span class="bolinha" style="background-color: ${corItem};"></span> ${item.produto}`;
                     
@@ -102,7 +92,6 @@ function carregarDadosDoGrafico() {
         .catch(erro => console.error("Erro ao buscar dados do gráfico:", erro));
 }
 
-// FUNÇÃO DE UPLOAD ADAPTADA PARA SUA API C#
 function enviarRelatorio() {
     const fileInput = document.getElementById('input-arquivo');
     const textoArquivo = document.getElementById('texto-arquivo');
@@ -133,7 +122,6 @@ function enviarRelatorio() {
         textoArquivo.style.fontWeight = "normal";
         textoArquivo.style.color = "inherit";
 
-        // Atualiza o gráfico e a lista lateral de forma síncrona imediatamente após o upload bem-sucedido
         carregarDadosDoGrafico();
     })
     .catch(erro => {
