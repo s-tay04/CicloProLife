@@ -80,6 +80,16 @@ input {
     width: 100%
 }
 
+select {
+    width: 100%;
+    background-color: #ffffff;
+    color: #3F3F3F;
+    border: 2px solid #9D9696;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+}
+
 button {
     width: 100%;
     max-width: 250px;

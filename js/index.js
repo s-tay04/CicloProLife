@@ -1,25 +1,31 @@
 function cadastro(event) {
     if (event) event.preventDefault();
 
+    const nome = document.getElementById("nome").value;
     const email = document.getElementById("email").value;
     const senha = document.getElementById("senha").value;
+    const cargo = document.getElementById("cargo").value;
 
-    if (!email || !senha) {
+    if (!nome || !email || !senha || !cargo) {
         alert("Preencha todos os campos!");
         return;
     }
 
+    // Validação do formato do e-mail
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         alert("Por favor, insira um e-mail válido (ex: seuemail@gmail.com).");
         return;
     }
 
-    const novoUsuario = {
-        email: email,
-        senha: senha
+    const novoUsuarioAPI = {
+        Nome: nome,
+        Email: email,
+        Senha: senha,
+        Cargo: cargo
     };
 
+    // LocalStorage
     let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
     const existe = usuarios.find(u => u.email === email);
 
@@ -28,31 +34,32 @@ function cadastro(event) {
         return;
     }
 
-    const url = 'https://futura-api.com/api/usuarios';
+    const url = 'https://localhost:7108/Usuario/cadastrar'; 
 
     fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(novoUsuario)
+        body: JSON.stringify(novoUsuarioAPI)
     })
-    .then(response => {
-        console.log("Dados enviados para a API com sucesso!");
-        
-        usuarios.push(novoUsuario);
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    .then(async response => {
+        const dados = await response.json();
 
-        alert("Cadastro realizado com sucesso!");
-        window.location.href = "../html/login.html";
+        if (response.ok) {
+            console.log("Dados enviados para a API com sucesso!");
+
+            usuarios.push({ nome, email, senha, cargo });
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+            alert(dados.mensagem || "Cadastro realizado com sucesso!");
+            window.location.href = "../html/login.html";
+        } else {
+            alert(dados.mensagem || "Erro ao realizar o cadastro no servidor.");
+        }
     })
     .catch(error => {
         console.error("Erro ao conectar com a API:", error);
-        
-        usuarios.push(novoUsuario);
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-        alert("Cadastro realizado com sucesso (Salvo localmente)!");
-        window.location.href = "../html/login.html";
+        alert("Não foi possível conectar ao servidor Back-end.");
     });
 }
