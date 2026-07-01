@@ -1,58 +1,101 @@
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('nome-exibicao')) {
-        const dados = JSON.parse(localStorage.getItem('usuarioPerfil'));
-        
-        if (dados) {
-            document.getElementById('nome-exibicao').innerText = dados.nome;
-            document.getElementById('email-exibicao').innerText = dados.email;
-            document.getElementById('cargo-exibicao').innerText = dados.cargo;
+document.addEventListener('DOMContentLoaded', async () => {
+
+    const API_URL = 'https://localhost:7108/Usuario/perfil';
+
+    const nomeExibicao = document.getElementById('nome-exibicao');
+    const emailExibicao = document.getElementById('email-exibicao');
+    const cargoExibicao = document.getElementById('cargo-exibicao');
+
+    async function buscarPerfil() {
+
+        const response = await fetch(API_URL, {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        const dados = await response.json();
+
+        if (!response.ok) {
+            throw new Error(dados.mensagem);
+        }
+
+        return dados;
+    }
+
+    if (nomeExibicao && emailExibicao && cargoExibicao) {
+
+        try {
+
+            const usuario = await buscarPerfil();
+
+            nomeExibicao.innerText = usuario.nome;
+            emailExibicao.innerText = usuario.email;
+            cargoExibicao.innerText = usuario.cargo;
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(error.message);
         }
     }
 
     const form = document.getElementById('form-perfil');
+
     if (form) {
-        const dadosExistentes = JSON.parse(localStorage.getItem('usuarioPerfil'));
-        
-        if (dadosExistentes) {
-            document.getElementById('input-nome').value = dadosExistentes.nome;
-            document.getElementById('input-email').value = dadosExistentes.email;
-            document.getElementById('input-cargo').value = dadosExistentes.cargo;
+
+        try {
+
+            const usuario = await buscarPerfil();
+
+            document.getElementById('input-nome').value = usuario.nome;
+            document.getElementById('input-email').value = usuario.email;
+            document.getElementById('input-cargo').value = usuario.cargo;
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(error.message);
         }
 
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
+
             e.preventDefault();
 
-            const novoPerfil = {
+            const usuarioAtualizado = {
                 nome: document.getElementById('input-nome').value,
                 email: document.getElementById('input-email').value,
                 cargo: document.getElementById('input-cargo').value
             };
 
-            fetch('https://jsonplaceholder.typicode.com/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(novoPerfil)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro na comunicação com o servidor.');
-                }
-                return response.json();
-            })
-            .then(dadosDoServidor => {
-                console.log('Perfil atualizado no servidor fake:', dadosDoServidor);
+            try {
 
-                localStorage.setItem('usuarioPerfil', JSON.stringify(novoPerfil));
-                
-                alert('Dados atualizados com sucesso!');
+                const response = await fetch(API_URL, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify(usuarioAtualizado)
+                });
+
+                const dados = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(dados.mensagem);
+                }
+
+                alert(dados.mensagem);
+
                 window.location.href = 'perfil.html';
-            })
-            .catch(erro => {
-                console.error('Erro no fetch:', erro);
-                alert('Ocorreu um erro ao tentar atualizar o perfil. Tente novamente.');
-            });
+
+            } catch (error) {
+
+                console.error(error);
+
+                alert(error.message);
+            }
         });
     }
 });
