@@ -79,7 +79,7 @@ label{
     font-size: 18px;
 }
 
-input{
+input, select{
     width: 100%;
     box-sizing: border-box;
     background-color: #ffffff;
