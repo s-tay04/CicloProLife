@@ -33,39 +33,71 @@
         <a href="../html/relatorio.html" class="ativo">Relatórios</a>
     </nav>
 
-    <div class="container-principal">
-        
-        <div class="painel-grafico">
-            <div class="legenda-container">
-                <span class="badge-titulo">Mais consumidos</span>
-                
-                <ul class="lista-legenda" id="lista-legenda-dinamica">
-                    </ul>
-            </div>
+    <!-- ÁREA RELATÓRIOS -->
+<section class="lista-relatorios-container">
 
-            <div class="area-chart">
-                <canvas id="graficoConsumo"></canvas>
-            </div>
-        </div>
+    <!-- BOTÃO MOSTRAR -->
+    <div class="topo-relatorios">
+
+        <button id="toggle-relatorios" class="btn-toggle">
+            Mostrar Relatórios
+        </button>
+
+        <select id="ordenacao">
+
+            <option value="desc">
+                Mais recentes
+            </option>
+
+            <option value="asc">
+                Mais antigos
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- CONTEÚDO OCULTO -->
+    <div id="conteudo-relatorios" class="oculto">
+
+        <div id="lista-relatorios"></div>
+
+    </div>
+
+</section>
+
+    <div class="container-principal">
 
         <div class="area-upload">
-            <h3>Adicione os relatórios em Word ou Excel:</h3>
-            
+            <h3>
+                Adicione os relatórios em Word ou Excel:
+            </h3>
+
             <div class="caixa-upload" id="drop-zone">
-                <p id="texto-arquivo">Clique aqui para selecionar o arquivo</p>
+
+                <p id="texto-arquivo"> Clique aqui para selecionar o arquivo </p>
+
                 <div class="icone-mais">+</div>
+
                 <input type="file" id="input-arquivo" accept=".doc,.docx,.xls,.xlsx" hidden>
+
             </div>
 
-            <button class="btn-adicionar" onclick="enviarRelatorio()">Adicionar relatório</button>
+            <button class="btn-adicionar" onclick="enviarRelatorio()">
+                Adicionar relatório
+            </button>
+
         </div>
 
     </div>
 
     <div class="linha-bottom"></div>
 
-    <footer><strong>Contato: cicloprolife@gmail.com</strong></footer>
+    <footer>
+        <strong> Contato: cicloprolife@gmail.com</strong>
+    </footer>
 
     <script src="../js/relatorio.js"></script>
+
 </body>
 </html>
