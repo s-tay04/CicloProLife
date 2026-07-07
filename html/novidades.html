@@ -31,48 +31,121 @@
       <a href="../html/relatorio.html">Relatórios</a>
     </nav>
 
-    <form class="formulario">
-      <div class="campo">
-        <label for="titulo">Digite o nome da receita: </label><br>
-        <input class="resposta" id="titulo" type="text" placeholder="Ex: Coxinha de jaca"><br><br>
-      </div>
+<form class="formulario">
 
-      <div class="campo">
-        <label for="ingredientes">Digite os ingerdientes necessários e suas medidas: </label><br>
-        <input class="resposta" id="ingredientes" type="text" placeholder="Ex: 300 gramas de farinha"><br><br>
-      </div>
-      
-      <div class="campo">
-        <label for="modoPreparo">Digite o modo de preparo da receita: </label><br>
-        <input class="resposta" id="modoPreparo" type="text" placeholder="Ex: Ponha a farinha em um pote"><br><br>
-      </div>
+    <h2>Adicionar Nova Receita</h2>
 
-      <div class="campo">
-        <label for="custo">Quanto custa para produzir esta receita? </label><br>
-        <input class="resposta" id="custo" type="text" placeholder="Ex: Farinha: R$10,00"><br><br>
-      </div>
+    <p class="descricao-form">
+        Preencha as informações abaixo para cadastrar sua receita.
+    </p>
 
-      <div class="campo">
-        <label for="porcao">Quantas porções rendem? </label><br>
-        <input class="resposta" id="porcao" type="number" min="1" placeholder="Ex: Rende 20 porções"><br><br>
-      </div>
+    <div class="campo">
 
-      <div class="campo">
-        <label>Imagem da receita:
-          <div class="botao-upload">Anexar arquivo</div>
-          <input id="imagem" type="file" hidden>
-        </label><br> 
-    
+        <label for="titulo">Nome da receita</label>
+
+        <input
+            class="resposta"
+            id="titulo"
+            type="text"
+            placeholder="Ex: Coxinha de jaca"
+            required
+        >
+
     </div>
 
-    </form>
-     
-      <button onclick="enviar()">Enviar receita</button>
+    <div class="campo">
 
-    <div class="linha-bottom"></div>
+        <label for="ingredientes">Ingredientes</label>
 
-    <footer><strong>Contato: cicloprolife@gmail.com</strong></footer>
+        <textarea
+            class="resposta"
+            id="ingredientes"
+            rows="6"
+            placeholder="Digite um ingrediente por linha.
+            Ex:
+            300g de farinha
+            1 xícara de leite
+            2 colheres de manteiga"
+            required
+        ></textarea>
+
+    </div>
+
+    <div class="campo">
+
+        <label for="modoPreparo">Modo de preparo</label>
+
+        <textarea
+            class="resposta"
+            id="modoPreparo"
+            rows="8"
+            placeholder="Explique o passo a passo da receita..."
+            required
+        ></textarea>
+
+    </div>
+
+    <div class="campo">
+
+        <label for="custo">Custo estimado</label>
+
+        <input
+            class="resposta"
+            id="custo"
+            type="number"
+            placeholder="Informe o custo total aproximado.
+            Ex: R$ 25,00"
+        >
+
+    </div>
+
+    <div class="campo">
+
+        <label for="porcao">Quantidade de porções</label>
+
+        <div class="controle-numero">
+        
+            <button type="button" id="btnDiminuir">-</button>
+        
+            <input class="input-numero" id="porcao" type="number" value="1" min="1">
+        
+            <button type="button" id="btnAumentar">+</button>
+        
+        </div>
+        
+    </div>
+
+    <div class="campo">
+
+        <label for="imagem">Imagem da receita</label>
+
+        <label class="botao-upload" for="imagem">
+            Escolher imagem
+        </label>
+
+        <input
+            id="imagem"
+            type="file"
+            accept="image/*"
+            hidden
+        >
+
+        <img src="https://localhost:7108/uploads/NOME_DA_IMAGEM" />
+
+    </div>
+
+    <button type="button" class="btn-enviar" onclick="enviar()">Enviar Receita</button>
     
-    <script src="../js/novidades.js"></script>
+
+</form>
+
+<div class="linha-bottom"></div>
+
+<footer>
+    <strong>Contato: cicloprolife@gmail.com</strong>
+</footer>
+
+<script src="../js/novidades.js"></script>
+
 </body>
 </html>
