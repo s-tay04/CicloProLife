@@ -238,6 +238,115 @@ small{
     color: var(--texto);
 }
 
+/* ==========================
+   INGREDIENTES
+========================== */
+
+#listaIngredientes{
+    width:80%;
+    margin:20px auto;
+}
+
+.linha-ingrediente{
+    display:grid;
+    grid-template-columns:120px 170px 1fr 60px;
+    gap:15px;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.linha-ingrediente input,
+.linha-ingrediente select{
+    padding:15px;
+    border-radius:18px;
+    border:2px solid var(--barra);
+    background:var(--barra2);
+    color:var(--texto);
+    font-size:18px;
+    outline:none;
+    box-sizing:border-box;
+}
+
+.linha-ingrediente input::placeholder{
+    color:var(--texto);
+    opacity:.7;
+}
+
+.linha-ingrediente select{
+    cursor:pointer;
+}
+
+.btn-remover{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    margin:0;
+    padding:0;
+    background:#d9534f;
+    color:#fff;
+    font-size:22px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.btn-remover:hover{
+    background:#b52b27;
+}
+
+.btn-add-ingrediente{
+    display:block;
+    width:fit-content;
+    margin:25px auto;
+    padding:14px 30px;
+    background:var(--botao);
+    color:#fff;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.btn-add-ingrediente:hover{
+    background:var(--transparecer);
+}
+
+/* CAMPO CUSTO */
+
+.campo-custo{
+    width: 80%;
+    margin: 20px auto;
+    position: relative;
+}
+
+.simbolo-moeda{
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--texto);
+}
+
+.resposta-custo{
+    width: 100%;
+    padding-left: 70px !important;
+    margin: 0;
+}
+
+.resposta-custo::-webkit-inner-spin-button,
+.resposta-custo::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.resposta-custo{
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
 /* BOTÃO DE UPLOAD */
 
 .botao-upload{
