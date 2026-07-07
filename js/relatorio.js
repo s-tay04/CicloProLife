@@ -108,6 +108,17 @@ async function carregarRelatorios() {
 
             botao.textContent = "Baixar";
 
+            // BOTÃO EXCLUIR
+            const botaoExcluir = document.createElement('button');
+
+            botaoExcluir.classList.add('btn-excluir');
+
+            botaoExcluir.textContent = "Excluir";
+
+            botaoExcluir.addEventListener('click', () => {
+                excluirRelatorio(relatorio.idRelatorio);
+            });
+
             // ORGANIZAÇÃO
             info.appendChild(nome);
 
@@ -116,6 +127,8 @@ async function carregarRelatorios() {
             item.appendChild(info);
 
             item.appendChild(botao);
+
+            item.appendChild(botaoExcluir);
 
             lista.appendChild(item);
         });
@@ -319,21 +332,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function toggleRelatorios() {
+// EXCLUIR RELATÓRIO
+async function excluirRelatorio(id) {
 
-    const lista = document.getElementById("lista-relatorios");
+    const confirmar = confirm(
+        "Deseja realmente excluir este relatório?"
+    );
 
-    const botao = document.querySelector(".btn-toggle-relatorios");
+    if (!confirmar) {
+        return;
+    }
 
-    lista.classList.toggle("oculto");
+    try {
 
-    if(lista.classList.contains("oculto")){
+        const response = await fetch(
+            `https://localhost:7108/Relatorio/${id}`,
+            {
+                method: 'DELETE',
+                credentials: 'include'
+            }
+        );
 
-        botao.textContent = "Mostrar Relatórios";
 
-    } else {
+        if (!response.ok) {
 
-        botao.textContent = "Ocultar Relatórios";
+            throw new Error(
+                "Erro ao excluir relatório."
+            );
 
+        }
+
+
+        const dados = await response.json();
+
+        alert(dados.mensagem);
+
+
+        // atualiza a lista depois de excluir
+        carregarRelatorios();
+
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao excluir:",
+            erro
+        );
+
+        alert(
+            "Não foi possível excluir o relatório."
+        );
     }
 }
