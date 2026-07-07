@@ -215,6 +215,91 @@ body{
     font-style: italic;
 }
 
+.btn-toggle {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--botao);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-left: 30px;
+    margin-bottom: 25px;
+}
+
+.btn-toggle:hover {
+    background-color: var(--transparecer);
+}
+
+#lista-relatorios {
+    margin-left: 30px;
+}
+
+#ordenacao {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--botao);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#ordenacao:hover {
+    background-color: var(--transparecer);
+}
+
+.btn-download,
+.btn-excluir {
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-download {
+    background-color: var(--botao);
+}
+
+.btn-download:hover {
+    background-color: var(--transparecer);
+}
+
+.btn-excluir {
+    background-color: #ff5c5c;
+}
+
+.btn-excluir:hover {
+    background-color: #e04444;
+}
+
+.btn-download,
+.btn-excluir {
+    margin-right: 10px;
+}
+.btn-excluir:hover {
+    background-color: #e04444;
+}
+
+.btn-download:hover {
+    background-color: var(--transparecer);
+}
+
+.btn-download,
+.btn-excluir {
+    margin-right: 10px;
+}
+
 .btn-adicionar {
     background-color: var(--botao);
     color: white;
@@ -247,6 +332,10 @@ body{
     margin: 20px 0px;
     border-radius: 30px;
     margin-top: 30px;
+  }
+
+  .oculto {
+    display: none;
   }
 
 footer{

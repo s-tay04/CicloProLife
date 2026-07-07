@@ -8,6 +8,7 @@
     --transparecer: #ffead4;
     --ativo: #FF8080;
     --mulher: #e7e7e7;
+    --bug: #FF8080;
 }
 
 /* ===== MODO ESCURO ===== */
@@ -21,6 +22,7 @@ body.dark {
     --botao:#815d40d0;
     --ativo: #5c3d23d0;
     --mulher: #e69f62;
+    --bug: #6d4f37d0;
 }
 /* ===== TRANSIÇÃO SUAVE ===== */
 body, .card, .menu a, .destaques, .linha {
@@ -203,7 +205,7 @@ a{
 }
 
 .card-info h2 {
-    background: var(--transparecer);
+    background: var(--bug);
     color: white;
     padding: 8px 20px;
     border-radius: 20px;
