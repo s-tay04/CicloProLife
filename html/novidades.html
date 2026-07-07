@@ -1,151 +1,238 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar receitas</title>
     <link rel="stylesheet" href="../css/novidades.css">
 </head>
-<body>
-    <header class = "cabeca">
-     <div class="logo">       <img src="../imagem/logo.png" alt="logo"></div>
-      <input class="pesquisa"   type="text" placeholder="Digite aqui...">
-     
-      <div class="tema" id="toggle-tema">
-    <img id="icone-tema" src="../imagem/lua.png" alt="tema"></div>
 
-     <div class="perfil"> 
-      <a href="perfil.html">
-          <img src="../imagem/perfil.png" alt="perfil">
-      </a>
-  </div>
-    
+<body>
+
+    <header class="cabeca">
+
+        <div class="logo">
+            <img src="../imagem/logo.png" alt="logo">
+        </div>
+
+        <input
+            class="pesquisa"
+            type="text"
+            placeholder="Digite aqui...">
+
+        <div class="tema" id="toggle-tema">
+            <img id="icone-tema" src="../imagem/lua.png" alt="tema">
+        </div>
+
+        <div class="perfil">
+            <a href="perfil.html">
+                <img src="../imagem/perfil.png" alt="perfil">
+            </a>
+        </div>
+
     </header>
 
     <div class="linha"></div>
 
     <nav class="menu">
-      <a href="../html/home.html">Início</a>
-      <a href="../html/cardapio.html">Cardápio</a>
-      <a href="../html/receitasadd.html" class="ativo">Adicionar</a>
-      <a href="../html/relatorio.html">Relatórios</a>
+        <a href="../html/home.html">Início</a>
+        <a href="../html/cardapio.html">Cardápio</a>
+        <a href="../html/receitasadd.html" class="ativo">Adicionar</a>
+        <a href="../html/relatorio.html">Relatórios</a>
     </nav>
 
-<form class="formulario">
+    <form class="formulario">
 
-    <h2>Adicionar Nova Receita</h2>
+        <h2>Adicionar Nova Receita</h2>
 
-    <p class="descricao-form">
-        Preencha as informações abaixo para cadastrar sua receita.
-    </p>
+        <p class="descricao-form">
+            Preencha as informações abaixo para cadastrar sua receita.
+        </p>
 
-    <div class="campo">
+        <!-- NOME -->
 
-        <label for="titulo">Nome da receita</label>
+        <div class="campo">
 
-        <input
-            class="resposta"
-            id="titulo"
-            type="text"
-            placeholder="Ex: Coxinha de jaca"
-            required
-        >
+            <label for="titulo">Nome da receita</label>
 
-    </div>
+            <input
+                class="resposta"
+                id="titulo"
+                type="text"
+                placeholder="Ex: Coxinha de jaca"
+                required>
 
-    <div class="campo">
+        </div>
 
-        <label for="ingredientes">Ingredientes</label>
+        <!-- INGREDIENTES -->
 
-        <textarea
-            class="resposta"
-            id="ingredientes"
-            rows="6"
-            placeholder="Digite um ingrediente por linha.
-            Ex:
-            300g de farinha
-            1 xícara de leite
-            2 colheres de manteiga"
-            required
-        ></textarea>
+        <div class="campo">
 
-    </div>
+            <label>Ingredientes</label>
 
-    <div class="campo">
+            <div id="listaIngredientes">
 
-        <label for="modoPreparo">Modo de preparo</label>
+                <div class="linha-ingrediente">
 
-        <textarea
-            class="resposta"
-            id="modoPreparo"
-            rows="8"
-            placeholder="Explique o passo a passo da receita..."
-            required
-        ></textarea>
+                    <input
+                        type="number"
+                        class="quantidade"
+                        placeholder="Qtd"
+                        step="0.01"
+                        min="0">
 
-    </div>
+                    <select class="unidade">
 
-    <div class="campo">
+                        <option value="">Unidade</option>
+                        <option value="g">g</option>
+                        <option value="kg">kg</option>
+                        <option value="ml">ml</option>
+                        <option value="L">L</option>
+                        <option value="un">un</option>
+                        <option value="colher">colher</option>
+                        <option value="xícara">xícara</option>
+                        <option value="pitada">pitada</option>
 
-        <label for="custo">Custo estimado</label>
+                    </select>
 
-        <input
-            class="resposta"
-            id="custo"
-            type="number"
-            placeholder="Informe o custo total aproximado.
-            Ex: R$ 25,00"
-        >
+                    <input
+                        type="text"
+                        class="ingrediente"
+                        placeholder="Nome do ingrediente">
 
-    </div>
+                    <button
+                        type="button"
+                        class="btn-remover">
+                        ✕
+                    </button>
 
-    <div class="campo">
+                </div>
 
-        <label for="porcao">Quantidade de porções</label>
+            </div>
 
-        <div class="controle-numero">
+            <button
+                type="button"
+                id="btnAdicionarIngrediente"
+                class="btn-add-ingrediente">
+
+                + Adicionar ingrediente
+
+            </button>
+
+        </div>
+
+        <!-- MODO DE PREPARO -->
+
+        <div class="campo">
+
+            <label for="modoPreparo">Modo de preparo</label>
+
+            <textarea
+                class="resposta"
+                id="modoPreparo"
+                rows="8"
+                placeholder="Explique o passo a passo da receita..."
+                required></textarea>
+
+        </div>
+
+        <!-- CUSTO -->
+
+        <div class="campo">
+
+            <label for="custo">Custo estimado</label>
         
-            <button type="button" id="btnDiminuir">-</button>
+            <div class="campo-custo">
+                <span class="simbolo-moeda">R$</span>
         
-            <input class="input-numero" id="porcao" type="number" value="1" min="1">
-        
-            <button type="button" id="btnAumentar">+</button>
+                <input
+                    class="resposta resposta-custo"
+                    id="custo"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    placeholder="0,00">
+            </div>
         
         </div>
-        
-    </div>
 
-    <div class="campo">
+        <!-- PORÇÕES -->
 
-        <label for="imagem">Imagem da receita</label>
+        <div class="campo">
 
-        <label class="botao-upload" for="imagem">
-            Escolher imagem
-        </label>
+            <label for="porcao">Quantidade de porções</label>
 
-        <input
-            id="imagem"
-            type="file"
-            accept="image/*"
-            hidden
-        >
+            <div class="controle-numero">
 
-        <img src="https://localhost:7108/uploads/NOME_DA_IMAGEM" />
+                <button
+                    type="button"
+                    id="btnDiminuir">
+                    -
+                </button>
 
-    </div>
+                <input
+                    class="input-numero"
+                    id="porcao"
+                    type="number"
+                    value="1"
+                    min="1">
 
-    <button type="button" class="btn-enviar" onclick="enviar()">Enviar Receita</button>
-    
+                <button
+                    type="button"
+                    id="btnAumentar">
+                    +
+                </button>
 
-</form>
+            </div>
 
-<div class="linha-bottom"></div>
+        </div>
 
-<footer>
-    <strong>Contato: cicloprolife@gmail.com</strong>
-</footer>
+        <!-- IMAGEM -->
 
-<script src="../js/novidades.js"></script>
+        <div class="campo">
+
+            <label for="imagem">Imagem da receita</label>
+
+            <label
+                class="botao-upload"
+                for="imagem">
+
+                Escolher imagem
+
+            </label>
+
+            <input
+                id="imagem"
+                type="file"
+                accept="image/*"
+                hidden>
+
+        </div>
+
+        <!-- ENVIAR -->
+
+        <button
+            type="button"
+            class="btn-enviar"
+            onclick="enviar()">
+
+            Enviar Receita
+
+        </button>
+
+    </form>
+
+    <div class="linha-bottom"></div>
+
+    <footer>
+
+        <strong>Contato: cicloprolife@gmail.com</strong>
+
+    </footer>
+
+    <script src="../js/novidades.js"></script>
 
 </body>
+
 </html>
