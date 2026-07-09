@@ -1,3 +1,10 @@
+const API_URL = 'https://futura-api.com/api/receita';
+
+const parametros = new URLSearchParams(window.location.search);
+const idReceita = parametros.get('id') || 1; // Valor padrão caso não haja parâmetro
+
+
+
 // idLogado
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -97,15 +104,8 @@ function exibirReceitas(lista){
     });
 }
 
-function enviarParaServidor(nomeDaReceita, status) {
-    const url = 'https://futura-api.com/api/receita';
 
-    const dadosParaEnviar = {
-        receitaNome: nomeDaReceita,
-        statusDaReceita: status
-    };
-
-    fetch(url, {
+    fetch(url, { // Substitua 'url' pela URL real do seu endpoint
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -120,7 +120,6 @@ function enviarParaServidor(nomeDaReceita, status) {
     .catch(error => {
         console.error('Erro ao enviar para o servidor:', error);
     });
-}
 
 function aprovar(botao) {
     const cardPrincipal = botao.closest('.card');
@@ -140,7 +139,21 @@ function aprovar(botao) {
     
     divBotoes.style.display = 'none';
 
-    enviarParaServidorFalso(nomeDaReceita, 'Aprovada');
+    fetch(`${API_URL}/aprovar/${idReceita}`, { // Substitua pelo ID real da receita
+    method: "PUT",
+    credentials: "include"
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error("Erro ao aprovar receita");
+    }
+
+    alert("Receita aprovada com sucesso!");
+})
+.catch(error => {
+    console.error("Erro ao aprovar:", error);
+    alert("Erro ao aprovar receita.");
+});
 }
 
 function rejeitar(botao) {
@@ -161,8 +174,21 @@ function rejeitar(botao) {
     
     divBotoes.style.display = 'none';
 
-    enviarParaServidorFalso(nomeDaReceita, 'Excluída');
-}
+fetch(`${API_URL}/reprovar/${idReceita}`, { // Substitua pelo ID real da receita
+    method: "DELETE",
+    credentials: "include"
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error("Erro ao reprovar receita");
+    }
+
+    alert("Receita reprovada e deletada com sucesso!");
+})
+.catch(error => {
+    console.error("Erro ao reprovar:", error);
+    alert("Erro ao reprovar receita.");
+});
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -191,4 +217,5 @@ document.addEventListener("DOMContentLoaded", function () {
     const temaSalvo = localStorage.getItem("tema") || "light";
     aplicarTema(temaSalvo);
 
-});
+    });
+}
