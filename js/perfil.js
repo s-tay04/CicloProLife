@@ -1,7 +1,8 @@
-document.addEventListener('DOMContentLoaded', async () => {
-
     const API_PERFIL = 'https://localhost:7108/Usuario/perfil';
     const API_EDITAR = 'https://localhost:7108/Usuario/alterarPerfil';
+    const API_EXCLUIR = "https://localhost:7108/Usuario/excluir";
+    
+    document.addEventListener('DOMContentLoaded', async () => {
 
     const nomeExibicao = document.getElementById('nome-exibicao');
     const emailExibicao = document.getElementById('email-exibicao');
@@ -124,6 +125,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
+
+            const btnDelete = document.getElementById("btn-delete");
+
+            if (btnDelete) {
+              btnDelete.addEventListener("click", excluirConta);
+            }
 });
 
 // LOGOUT
@@ -155,6 +162,46 @@ async function fazerLogout(event) {
         console.error("ERRO LOGOUT:", error);
 
         alert('Erro ao realizar logout.');
+    }
+}
+
+ //EXCLUIR CONTA
+ async function excluirConta() {
+
+    const confirmar = confirm("Tem certeza que deseja excluir sua conta?");
+
+    if (!confirmar) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(API_EXCLUIR, {
+            method: "DELETE",
+            credentials: "include"
+        });
+
+        let dados = {};
+
+        try {
+            dados = await response.json();
+        } catch {
+            dados = {};
+        }
+
+        if (!response.ok) {
+            throw new Error(dados.mensagem || "Erro ao excluir conta.");
+        }
+
+        alert(dados.mensagem || "Conta excluída com sucesso!");
+
+        window.location.href = "login.html";
+
+    } catch (error) {
+
+        console.error("ERRO:", error);
+
+        alert(error.message);
     }
 }
 

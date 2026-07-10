@@ -25,15 +25,6 @@ function cadastro(event) {
         Cargo: cargo
     };
 
-    // LocalStorage
-    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    const existe = usuarios.find(u => u.email === email);
-
-    if (existe) {
-        alert("Esse e-mail já está cadastrado!");
-        return;
-    }
-
     const url = 'https://localhost:7108/Usuario/cadastrar'; 
 
     fetch(url, {
@@ -48,9 +39,6 @@ function cadastro(event) {
 
         if (response.ok) {
             console.log("Dados enviados para a API com sucesso!");
-
-            usuarios.push({ nome, email, senha, cargo });
-            localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
             alert(dados.mensagem || "Cadastro realizado com sucesso!");
             window.location.href = "../html/login.html";

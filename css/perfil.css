@@ -184,6 +184,23 @@ body{
     text-align: center;      
 }
 
+.btn-delete {
+    background-color: #e73a3a;
+    color: white;
+    width: 50%;
+    max-width: 180px;
+    border-radius: 30px;
+    border: none;
+    padding: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+}
+
 .btn-edit:hover {
     background-color: var(--transparecer);
     color: white;
@@ -191,6 +208,11 @@ body{
 
 .btn-logout:hover {
     background-color: #aaaaaa;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #f75f5f;
     color: white;
 }
 
