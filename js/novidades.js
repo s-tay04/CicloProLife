@@ -267,6 +267,26 @@ console.log("JSON:", JSON.stringify(ingredientes));
 
 }
 
+async function aprovarReceita(id) {
+
+    const resposta = await fetch(
+        `https://localhost:7108/Receita/aprovar/${id}`,
+        {
+            method: "PUT",
+            credentials: "include"
+        }
+    );
+
+    if (resposta.ok) {
+
+        alert("Receita enviada para o chefe!");
+
+        location.reload();
+
+    }
+
+}
+
 // MODO ESCURO
 
 document.addEventListener("DOMContentLoaded", function () {
