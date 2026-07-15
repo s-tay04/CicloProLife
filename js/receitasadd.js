@@ -17,7 +17,37 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error(dados.mensagem);
         }
 
-        console.log('Usuário logado:', dados.nome);
+        console.log("Nome:", dados.nome);
+        console.log("Cargo:", dados.cargo);
+
+        const cargo = dados.cargo;
+
+    const linkFaseTeste = document.getElementById("link-fase-teste");
+    const linkFaseFinal = document.getElementById("link-fase-final");
+
+    if (cargo === "Colaborador" && linkFaseTeste) {
+
+    linkFaseTeste.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        alert("Apenas Chefes de Cozinha e Gestores podem acessar a Fase de Teste.");
+
+    });
+
+}
+
+if (cargo !== "Gestor" && linkFaseFinal) {
+
+    linkFaseFinal.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        alert("Apenas Gestores podem acessar a Fase Final.");
+
+    });
+
+}
 
     } catch (error) {
 
