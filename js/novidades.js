@@ -1,3 +1,5 @@
+let timeoutPesquisa;
+
 document.addEventListener('DOMContentLoaded', async () => {
 
     try {
@@ -55,17 +57,38 @@ btnDiminuir.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const listaIngredientes = document.getElementById("listaIngredientes");
-    const botaoAdicionarIngrediente = document.getElementById("btnAdicionarIngrediente");
+    const listaIngredientes =
+        document.getElementById("listaIngredientes");
 
-    botaoAdicionarIngrediente.addEventListener("click", adicionarLinhaIngrediente);
+    const botaoAdicionar =
+        document.getElementById("btnAdicionarIngrediente");
 
-    function adicionarLinhaIngrediente() {
+    configurarAutocomplete(
+        document.querySelector(".linha-ingrediente")
+    );
+
+    const primeiraLinha = document.querySelector(".linha-ingrediente");
+
+primeiraLinha.querySelector(".btn-remover").onclick = () => {
+
+    if (listaIngredientes.children.length > 1) {
+
+        primeiraLinha.remove();
+
+    }
+
+};
+
+    botaoAdicionar.addEventListener("click", adicionarLinha);
+
+    function adicionarLinha() {
 
         const linha = document.createElement("div");
+
         linha.className = "linha-ingrediente";
 
         linha.innerHTML = `
+
             <input
                 type="number"
                 class="quantidade"
@@ -85,80 +108,171 @@ document.addEventListener("DOMContentLoaded", () => {
                 <option value="pitada">pitada</option>
             </select>
 
-            <input
-                type="text"
-                class="ingrediente"
-                placeholder="Nome do ingrediente">
+            <div class="autocomplete">
+
+                <input
+                    type="text"
+                    class="ingrediente"
+                    placeholder="Digite um ingrediente"
+                    autocomplete="off">
+
+                <div class="lista-sugestoes"></div>
+
+            </div>
 
             <button
                 type="button"
                 class="btn-remover">
                 ✕
             </button>
+
         `;
 
-        linha.querySelector(".btn-remover").addEventListener("click", () => {
+        configurarAutocomplete(linha);
+
+        linha.querySelector(".btn-remover").onclick = () => {
 
             if (listaIngredientes.children.length > 1) {
+
                 linha.remove();
+
             }
 
-        });
+        };
 
         listaIngredientes.appendChild(linha);
 
     }
 
-    // Faz o botão remover da primeira linha funcionar
-    document.querySelector(".btn-remover").addEventListener("click", function () {
+});
 
-        if (listaIngredientes.children.length > 1) {
-            this.parentElement.remove();
+async function configurarAutocomplete(linha) {
+
+    const input =
+        linha.querySelector(".ingrediente");
+
+    const lista =
+        linha.querySelector(".lista-sugestoes");
+
+    input.addEventListener("input", async () => {
+
+        input.dataset.id = "";
+
+        const texto = input.value.trim();
+
+        lista.innerHTML = "";
+
+        if (texto.length < 2) {
+
+            lista.style.display = "none";
+
+            return;
+
+        }
+
+        clearTimeout(timeoutPesquisa);
+
+        timeoutPesquisa = setTimeout(async () => {
+
+            const resposta = await fetch(
+                `https://localhost:7108/Ingrediente/buscar?nome=${encodeURIComponent(texto)}`,
+                {
+                    credentials: "include"
+                }
+            );
+
+            if (!resposta.ok)
+                return;
+
+            const ingredientes =
+                await resposta.json();
+
+            lista.innerHTML = "";
+
+            ingredientes.forEach(ingrediente => {
+
+                const item =
+                    document.createElement("div");
+
+                item.className = "item-sugestao";
+
+                item.textContent =
+                    ingrediente.nomeIngrediente;
+
+                item.onclick = () => {
+
+                    input.value =
+                        ingrediente.nomeIngrediente;
+
+                    input.dataset.id =
+                        ingrediente.idIngrediente;
+
+                    lista.innerHTML = "";
+
+                    lista.style.display = "none";
+
+                };
+
+                lista.appendChild(item);
+
+            });
+
+            lista.style.display =
+                ingredientes.length ? "block" : "none";
+
+        }, 250);
+
+    });
+
+    document.addEventListener("click", e => {
+
+        if (!linha.contains(e.target)) {
+
+            lista.style.display = "none";
+
         }
 
     });
 
-});
+}
 
 // ENVIAR RECEITA
 
 async function enviar() {
 
     const textoTitulo = document.getElementById("titulo").value;
-
     const textoModoPreparo = document.getElementById("modoPreparo").value;
-
     const textoCusto = document.getElementById("custo").value;
-
     const textoPorcao = document.getElementById("porcao").value;
-
     const arquivo = document.getElementById("imagem").files[0];
 
     const ingredientes = [];
 
-    document.querySelectorAll(".linha-ingrediente").forEach(linha => {
+    const linhas = document.querySelectorAll(".linha-ingrediente");
+
+    for (const linha of linhas) {
 
         const quantidade = linha.querySelector(".quantidade").value;
-
         const unidade = linha.querySelector(".unidade").value;
 
-        const nome = linha.querySelector(".ingrediente").value;
+        const inputIngrediente = linha.querySelector(".ingrediente");
+        const idIngrediente = inputIngrediente.dataset.id;
 
-        if (nome.trim() !== "") {
+        if (!idIngrediente) {
 
-            ingredientes.push({
-
-                quantidade: quantidade,
-
-                unidade: unidade,
-
-                nome: nome
-
-            });
+            alert("Selecione um ingrediente da lista.");
+            inputIngrediente.focus();
+            return;
 
         }
 
-    });
+        ingredientes.push({
+            idIngrediente: parseInt(idIngrediente),
+            quantidade: quantidade,
+            unidade: unidade
+        });
+
+    }
 
     if (
 
@@ -181,7 +295,7 @@ async function enviar() {
     formData.append("Titulo", textoTitulo);
 
     console.log("Ingredientes:", ingredientes);
-console.log("JSON:", JSON.stringify(ingredientes));
+    console.log("JSON:", JSON.stringify(ingredientes));
 
     formData.append("Ingredientes", JSON.stringify(ingredientes));
 
@@ -247,7 +361,10 @@ console.log("JSON:", JSON.stringify(ingredientes));
 
                 linha.querySelector(".unidade").selectedIndex = 0;
 
-                linha.querySelector(".ingrediente").value = "";
+                const input = linha.querySelector(".ingrediente");
+
+                    input.value = "";
+                    input.dataset.id = "";
 
             } else {
 
