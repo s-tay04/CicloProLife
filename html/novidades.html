@@ -65,60 +65,69 @@
 
         </div>
 
-        <!-- INGREDIENTES -->
+    <!-- INGREDIENTES -->
 
-        <div class="campo">
+<div class="campo">
 
-            <label>Ingredientes</label>
+    <label>Ingredientes</label>
 
-            <div id="listaIngredientes">
+    <div id="listaIngredientes">
 
-                <div class="linha-ingrediente">
+        <div class="linha-ingrediente">
 
-                    <input
-                        type="number"
-                        class="quantidade"
-                        placeholder="Qtd"
-                        step="0.01"
-                        min="0">
+            <input
+                type="number"
+                class="quantidade"
+                placeholder="Qtd"
+                step="0.01"
+                min="0">
 
-                    <select class="unidade">
+            <select class="unidade">
 
-                        <option value="">Unidade</option>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="ml">ml</option>
-                        <option value="L">L</option>
-                        <option value="un">un</option>
-                        <option value="colher">colher</option>
-                        <option value="xícara">xícara</option>
-                        <option value="pitada">pitada</option>
+                <option value="">Unidade</option>
+                <option value="g">g</option>
+                <option value="kg">kg</option>
+                <option value="ml">ml</option>
+                <option value="L">L</option>
+                <option value="un">un</option>
+                <option value="colher">colher</option>
+                <option value="xícara">xícara</option>
+                <option value="pitada">pitada</option>
 
-                    </select>
+            </select>
 
-                    <input
-                        type="text"
-                        class="ingrediente"
-                        placeholder="Nome do ingrediente">
+            <div class="autocomplete">
 
-                    <button
-                        type="button"
-                        class="btn-remover">
-                        ✕
-                    </button>
+                <input
+                    type="text"
+                    class="ingrediente"
+                    placeholder="Digite um ingrediente"
+                    autocomplete="off">
 
-                </div>
+                <div class="lista-sugestoes"></div>
 
             </div>
 
             <button
                 type="button"
-                id="btnAdicionarIngrediente"
-                class="btn-add-ingrediente">
-
-                + Adicionar ingrediente
-
+                class="btn-remover">
+                ✕
             </button>
+
+        </div>
+
+    </div>
+
+    <button
+        type="button"
+        id="btnAdicionarIngrediente"
+        class="btn-add-ingrediente">
+
+        + Adicionar ingrediente
+
+    </button>
+
+</div>
 
         </div>
 
@@ -219,10 +228,6 @@
 
             Enviar Receita
 
-        </button>
-
-        <button onclick="aprovarReceita(id)">
-            Enviar para o chefe
         </button>
 
     </form>
