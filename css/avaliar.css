@@ -2,8 +2,10 @@
 :root {
     --fundo: #E3C4A6;
     --texto: #3F3F3F;
-    --card: #ffffff;
+    --card: #e6bc92d1;
     --linha: #FFFFFF;
+    --bug: #ff9e9e;
+    --texto1: #281400;
 }
 
 /* ===== MODO ESCURO ===== */
@@ -14,6 +16,8 @@ body.dark {
     --linha: #FFFFFF33;
     --strong: #FFFFFF;
     --transparecer: #5c3d23d0;
+    --bug: #946135;
+    --texto1: #ffffff;
 }
 
 /* ===== TRANSIÇÃO SUAVE ===== */
@@ -191,7 +195,7 @@ label {
 
 .resposta::placeholder {
     font-size: 20px;
-    color: var(--texto);
+    color: var(--texto1);
 }
 
 .resposta{
@@ -217,6 +221,11 @@ button {
 
 button:hover {
     background-color: var(--transparecer);
+}
+
+.botao{
+    background-color: var(--bug);
+    
 }
 
 .linha-bottom{
