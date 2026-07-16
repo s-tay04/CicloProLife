@@ -268,7 +268,7 @@ async function enviar() {
 
         ingredientes.push({
             idIngrediente: parseInt(idIngrediente),
-            quantidade: quantidade,
+            quantidade: parseFloat(quantidade),
             unidade: unidade
         });
 
@@ -294,8 +294,7 @@ async function enviar() {
 
     formData.append("Titulo", textoTitulo);
 
-    console.log("Ingredientes:", ingredientes);
-    console.log("JSON:", JSON.stringify(ingredientes));
+    formData.append("Ingredientes", JSON.stringify(ingredientes));
 
     formData.append("Ingredientes", JSON.stringify(ingredientes));
 
