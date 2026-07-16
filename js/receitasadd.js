@@ -21,6 +21,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("Cargo:", dados.cargo);
 
         const cargo = dados.cargo;
+    
+    const botaoTeste = document.querySelector("#link-fase-teste button");
+    const botaoFinal = document.querySelector("#link-fase-final button");
+
+    // Chefe de Cozinha
+    if (cargo === "Chefe de cozinha") {
+
+    botaoTeste.classList.remove("cadeado");
+    botaoTeste.classList.add("comum");
+
+    }
+
+    // Gestor
+    if (cargo === "Gestor") {
+
+    botaoTeste.classList.remove("cadeado");
+    botaoFinal.classList.remove("cadeado");
+
+    botaoTeste.classList.add("comum");
+    botaoFinal.classList.add("comum");
+
+    }
 
     const linkFaseTeste = document.getElementById("link-fase-teste");
     const linkFaseFinal = document.getElementById("link-fase-final");

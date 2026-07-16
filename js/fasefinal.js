@@ -34,19 +34,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         botaoFinal.classList.remove("cadeado");
         }
 
-        const linkFaseFinal = document.getElementById("link-fase-final");
+        if (cargo !== "Gestor") {
 
-    if (cargo !== "Gestor" && linkFaseFinal) {
-
-    linkFaseFinal.addEventListener("click", function(event) {
-
-        event.preventDefault();
-
-        alert("Apenas Gestores podem acessar a Fase Final.");
-
-    });
-
-}
+            alert("Apenas Gestores podem acessar esta página.");
+        
+            window.location.href = "receitasadd.html";
+        
+        }
 
     } catch (error) {
 
