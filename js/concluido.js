@@ -1,9 +1,8 @@
-const API_URL = 'https://futura-api.com/api/receita';
+const idReceita = new URLSearchParams(window.location.search).get("id");
 
-const parametros = new URLSearchParams(window.location.search);
-const idReceita = parametros.get('id') || 1; // Valor padrão caso não haja parâmetro
+let container;
 
-
+const API_URL = "https://localhost:7108/Receita";
 
 // idLogado
 document.addEventListener('DOMContentLoaded', async () => {
@@ -26,6 +25,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log('Usuário logado:', dados.nome);
 
+        container = document.getElementById("detalhes-receita");
+
+        await carregarReceita();
+
     } catch (error) {
 
         alert('Você precisa estar logado.');
@@ -34,92 +37,102 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-function exibirReceitas(lista){
-    container.innerHTML = '';
+async function carregarReceita() {
 
-    lista.forEach(item => {
+    const response = await fetch(
+        `https://localhost:7108/Receita/${idReceita}`,
+        {
+            method: "GET",
+            credentials: "include"
+        }
+    );
 
-        const card = document.createElement('div');
-        card.className = 'card';
+    if (!response.ok) {
+        alert("Receita não encontrada.");
+        return;
+    }
 
-        /* ESQUERDA */
-        const left = document.createElement('div');
-        left.className = 'card-left';
+    const receita = await response.json();
 
-        const imagem = document.createElement('img');
-        imagem.src = item.img;
+    mostrarReceita(receita);
 
-        const info = document.createElement('div');
-        info.className = 'card-info';
-
-        const titulo = document.createElement('h2');
-        titulo.textContent = item.nome;
-
-        const avaliacao = document.createElement('p');
-        avaliacao.textContent = "Avaliação do Chef: ⭐ 4.3";
-
-        const descricao = document.createElement('p');
-        descricao.textContent = "Sabor equilibrado, tempero marcante e massa leve.";
-
-        info.appendChild(titulo);
-        info.appendChild(avaliacao);
-        info.appendChild(descricao);
-
-        left.appendChild(imagem);
-        left.appendChild(info);
-
-        /* DIREITA */
-        const right = document.createElement('div');
-        right.className = 'card-right';
-
-        const pergunta = document.createElement('p');
-        pergunta.textContent = "Receita Aprovada?";
-
-        const chef = document.createElement('img');
-        chef.src = "../imagem/chef.png"; 
-
-        const botoes = document.createElement('div');
-        botoes.className = 'botoes';
-
-        const sim = document.createElement('button');
-        sim.className = 'btn-sim';
-        sim.textContent = "Sim ✓";
-
-        const nao = document.createElement('button');
-        nao.className = 'btn-nao';
-        nao.textContent = "Não ✗";
-
-        botoes.appendChild(sim);
-        botoes.appendChild(nao);
-
-        right.appendChild(pergunta);
-        right.appendChild(chef);
-        right.appendChild(botoes);
-
-        /* CARD */
-        card.appendChild(left);
-        card.appendChild(right);
-
-        container.appendChild(card);
-    });
 }
 
+function mostrarReceita(receita) {
 
-    fetch(url, { // Substitua 'url' pela URL real do seu endpoint
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dadosParaEnviar)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(`Sucesso! Receita "${nomeDaReceita}" foi ${status} no servidor:`, data);
-        alert(`Status enviado ao servidor: ${status}! Abra o console (F12) para ver a resposta.`);
-    })
-    .catch(error => {
-        console.error('Erro ao enviar para o servidor:', error);
+    let ingredientes = "";
+
+    receita.ingredientes.forEach(i => {
+
+        ingredientes += `
+            <p>${i.nomeIngrediente} - ${i.quantidade} ${i.unidade}</p>
+        `;
+
     });
+
+    container.innerHTML = `
+        <div class="card">
+
+            <div class="card-left">
+
+                <img src="https://localhost:7108/uploads/${receita.imagem}" alt="">
+
+                <div class="card-info">
+
+                    <h2>${receita.titulo}</h2>
+
+                    <p><strong>Feedback do Chef:</strong></p>
+
+                    <p>${receita.feedbackChefe || "Sem feedback."}</p>
+
+                    <br>
+
+                    <p><strong>Modo de preparo:</strong></p>
+
+                    <p>${receita.modoPreparo}</p>
+
+                    <br>
+
+                    <p><strong>Porções:</strong> ${receita.porcao}</p>
+
+                    <p><strong>Custo:</strong> R$ ${receita.custo}</p>
+
+                    <br>
+
+                    <p><strong>Ingredientes:</strong></p>
+
+                    ${ingredientes}
+
+                </div>
+
+            </div>
+
+            <div class="card-right">
+
+                <p>Receita Aprovada?</p>
+
+                <img id="resultado" src="../imagem/mulher.png">
+
+                <div class="botoes">
+
+                    <button class="btn-sim"
+                        onclick="aprovar(this)">
+                        Sim ✓
+                    </button>
+
+                    <button class="btn-nao"
+                        onclick="rejeitar(this)">
+                        Não ✗
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+}
 
 function aprovar(botao) {
     const cardPrincipal = botao.closest('.card');
@@ -139,10 +152,11 @@ function aprovar(botao) {
     
     divBotoes.style.display = 'none';
 
-    fetch(`${API_URL}/aprovar/${idReceita}`, { // Substitua pelo ID real da receita
-    method: "PUT",
-    credentials: "include"
-})
+    fetch(`${API_URL}/aprovar-final/${idReceita}`, {
+        method: "PUT",
+        credentials: "include"
+    })
+
 .then(response => {
     if (!response.ok) {
         throw new Error("Erro ao aprovar receita");
@@ -174,10 +188,11 @@ function rejeitar(botao) {
     
     divBotoes.style.display = 'none';
 
-fetch(`${API_URL}/reprovar/${idReceita}`, { // Substitua pelo ID real da receita
-    method: "DELETE",
+fetch(`${API_URL}/reprovar-final/${idReceita}`, {
+    method: "PUT",
     credentials: "include"
 })
+
 .then(response => {
     if (!response.ok) {
         throw new Error("Erro ao reprovar receita");
@@ -189,6 +204,9 @@ fetch(`${API_URL}/reprovar/${idReceita}`, { // Substitua pelo ID real da receita
     console.error("Erro ao reprovar:", error);
     alert("Erro ao reprovar receita.");
 });
+}
+
+//modo escuro
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -218,4 +236,3 @@ document.addEventListener("DOMContentLoaded", function () {
     aplicarTema(temaSalvo);
 
     });
-}
