@@ -454,3 +454,20 @@ document.addEventListener("DOMContentLoaded", function () {
     aplicarTema(temaSalvo);
 
 });
+
+const inputImagem = document.getElementById("imagem");
+const previewImagem = document.getElementById("previewImagem");
+const botaoImagem = document.getElementById("botaoImagem");
+
+inputImagem.addEventListener("change", function () {
+
+    const arquivo = inputImagem.files[0];
+
+    if (arquivo) {
+        previewImagem.src = URL.createObjectURL(arquivo);
+        previewImagem.style.display = "block";
+
+        botaoImagem.textContent = "Alterar imagem";
+    }
+
+});
