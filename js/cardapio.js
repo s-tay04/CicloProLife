@@ -1,5 +1,10 @@
-// idLogado
+// receitas
+let receitas = [];
+let container;
+
 document.addEventListener('DOMContentLoaded', async () => {
+
+    container = document.getElementById("lista-receitas");
 
     try {
 
@@ -19,62 +24,81 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log('Usuário logado:', dados.nome);
 
+        await carregarReceitas();
+
     } catch (error) {
 
         alert('Você precisa estar logado.');
 
-        window.location.href = 'login.html';
     }
+
 });
 
-const receitas = [
-    { id: 'empada', nome: 'Empada', img: '../imagem/empada.png' },
-    { id: 'coxinha', nome: 'Coxinha', img: '../imagem/coxinhanormal.png' },
-    { id: 'joelho', nome: 'Joelho', img: '../imagem/joelho.png' },
-    { id: 'enroladinho', nome: 'Enroladinho', img: '../imagem/enroladinho.png' },
-    { id: 'bem-casado', nome: 'Bem casado', img: '../imagem/bemcasado.png' },
-    { id: 'bolo-vulcao', nome: 'Bolo vulcão', img: '../imagem/bolo.png' },
-    { id: 'pudim', nome: 'Pudim', img: '../imagem/pudim.png' },
-    { id: 'donut', nome: 'Donut', img: '../imagem/donut.png' }
-];
+async function carregarReceitas() {
 
-const container = document.getElementById('lista-receitas');
+    try {
+
+        const response = await fetch(
+            "https://localhost:7108/Receita/cardapio",
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Erro ao buscar receitas.");
+        }
+
+        receitas = await response.json();
+
+        exibirReceitas(receitas);
+
+    } catch (err) {
+
+        console.log(err);
+
+    }
+
+}
 
 function exibirReceitas(lista) {
 
-    container.innerHTML = '';
+    container.innerHTML = "";
 
     lista.forEach(item => {
-        const link = document.createElement('a');
-        link.href = `receita.html?id=${item.id}`;
-        link.className = 'card-link';
 
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
+        const link = document.createElement("a");
+        link.href = `receita.html?id=${item.idReceita}`;
+        link.className = "card-link";
 
-        const card = document.createElement('div');
-        card.className = 'card';
+        const card = document.createElement("div");
+        card.className = "card";
 
-        const imagem = document.createElement('img');
-        imagem.src = item.img;
-        imagem.alt = item.nome;
+        const imagem = document.createElement("img");
+        imagem.src = `https://localhost:7108/uploads/${item.imagem}`;
+        imagem.alt = item.titulo;
 
-        const titulo = document.createElement('h3');
-        titulo.textContent = item.nome;
+        const titulo = document.createElement("h3");
+        titulo.textContent = item.titulo;
 
         card.appendChild(imagem);
         card.appendChild(titulo);
-        link.appendChild(card);
 
+        link.appendChild(card);
         container.appendChild(link);
+
     });
+
 }
 
 const botaoOrdenar = document.getElementById('btn-ordenar');
 const botaoLimpar = document.getElementById('btn-limpar');
 
 function ordenarReceitas() {
-    const listaOrdenada = [...receitas].sort((a, b) => a.nome.localeCompare(b.nome));
+    const listaOrdenada = [...receitas].sort((a, b) =>
+    a.titulo.localeCompare(b.titulo)
+);
     exibirReceitas(listaOrdenada);
 
     botaoOrdenar.classList.add('ativo');
@@ -85,8 +109,6 @@ function restaurarOrdem() {
     exibirReceitas(receitas);
 }
 
-exibirReceitas(receitas);
-
 function limparFiltro() {
     exibirReceitas(receitas);
 
@@ -94,27 +116,28 @@ function limparFiltro() {
     botaoOrdenar.classList.remove('ativo');
 }
 
-const input = document.getElementById("pesquisa");
-const cards = document.querySelectorAll("grid-receitas");
-
 const campoPesquisa = document.getElementById("pesquisar");
 
-campoPesquisa.addEventListener("input", function () {
-    const textoDigitado = campoPesquisa.value.toLowerCase();
+if (campoPesquisa) {
 
-    // pesquisar
-    const receitas = document.querySelectorAll("#lista-receitas > *");
+    campoPesquisa.addEventListener("input", function () {
 
-    receitas.forEach(function(receita) {
-        const conteudo = receita.innerText.toLowerCase();
+        const textoDigitado = campoPesquisa.value.toLowerCase();
 
-        if (conteudo.includes(textoDigitado)) {
-            receita.style.display = ""; 
-        } else {
-            receita.style.display = "none"; 
-        }
+        const receitas = document.querySelectorAll("#lista-receitas > *");
+
+        receitas.forEach(function(receita) {
+
+            const conteudo = receita.innerText.toLowerCase();
+
+            receita.style.display =
+                conteudo.includes(textoDigitado) ? "" : "none";
+
+        });
+
     });
-});
+
+}
 
 //modo escuro
 

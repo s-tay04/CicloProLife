@@ -1,3 +1,7 @@
+const parametros = new URLSearchParams(window.location.search);
+
+const idReceita = parametros.get("id");
+
 // idLogado
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -27,36 +31,50 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-function enviar(event) {
+async function enviar(event) {
 
     event.preventDefault();
 
-    let textoAvaliacao = document.getElementById("receita").value;
+    const textoAvaliacao = document.getElementById("receita").value.trim();
 
-    if (textoAvaliacao.trim() === "") {
-        alert("Escreva uma avaliação primeiro!");
+    if (textoAvaliacao === "") {
+        alert("Digite uma avaliação.");
         return;
     }
 
-    fetch("https://futura-api.com/api/posts", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            avaliacao: textoAvaliacao,
-            data: new Date()
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
+    try {
+
+        const response = await fetch(
+            `https://localhost:7108/Receita/feedback/${idReceita}`,
+            {
+                method: "PUT",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    feedbackChefe: textoAvaliacao
+                })
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Erro ao enviar avaliação.");
+        }
+
         alert("Avaliação enviada com sucesso!");
-        document.getElementById("receita").value = "";
-        console.log(data);
-    })
-    .catch(error => {
-        console.error("Erro:", error);
-    });
+
+        window.location.href = "fasedeteste.html";
+
+    }
+    catch (erro) {
+
+        console.log(erro);
+
+        alert("Não foi possível enviar a avaliação.");
+
+    }
+
 }
 
 //modo escuro

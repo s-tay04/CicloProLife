@@ -178,7 +178,11 @@ body{
     border-radius: 30px;
     margin-top: 80px;
    
-  }
+}
+
+a{
+    text-decoration: none;
+}
 
 footer{
     color: var(--strong);

@@ -1,3 +1,6 @@
+let receitas = [];
+let container;
+
 // idLogado
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -19,6 +22,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log("Nome:", dados.nome);
         console.log("Cargo:", dados.cargo);
+
+        container = document.getElementById("lista-receitas");
+
+        await carregarReceitas();
 
         const cargo = dados.cargo;
     
@@ -79,67 +86,64 @@ if (cargo !== "Gestor" && linkFaseFinal) {
     }
 });
 
-const container = document.getElementById('lista-receitas');
+async function carregarReceitas() {
 
-const receitas = [
-    { id: 'brownie', nome: 'Brownie de sorvete', img: '../imagem/brownie.png' },
-    { id: 'coxinha_jaca', nome: 'Coxinha de jaca', img: '../imagem/coxinhajaca.png' },
-    { id: 'cookie_pistache', nome: 'Cookie de pistache', img: '../imagem/cookie.png' },
-];
+    try {
 
-function mockFetch() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve({
-                ok: true,
-                json: () => Promise.resolve(receitas)
-            });
-        }, 500); 
-    });
-}
+        const response = await fetch(
+            "https://localhost:7108/Receita/pendentes",
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
 
-function buscarReceitasFalso() {
+        if (!response.ok) {
+            throw new Error("Erro ao buscar receitas.");
+        }
 
-    mockFetch()
-        .then(response => response.json())
-        .then(dadosRecebidos => {
-            exibirReceitas(dadosRecebidos);
-        })
-        .catch(error => {
-            console.error("Erro ao simular o fetch:", error);
-        });
+        receitas = await response.json();
+
+        exibirReceitas(receitas);
+
+    } catch (err) {
+
+        console.log(err);
+
+    }
+
 }
 
 function exibirReceitas(lista) {
-    container.innerHTML = '';
+
+    container.innerHTML = "";
 
     lista.forEach(item => {
-        const link = document.createElement('a');
-        link.href = `receita.html?id=${item.id}`;
-        link.className = 'card-link';
 
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
+        const link = document.createElement("a");
+        link.href = `receita.html?id=${item.idReceita}`;
+        link.className = "card-link";
 
-        const card = document.createElement('div');
-        card.className = 'card';
+        const card = document.createElement("div");
+        card.className = "card";
 
-        const imagem = document.createElement('img');
-        imagem.src = item.img;
-        imagem.alt = item.nome;
+        const imagem = document.createElement("img");
+        imagem.src = `https://localhost:7108/uploads/${item.imagem}`;
+        imagem.alt = item.titulo;
 
-        const titulo = document.createElement('h3');
-        titulo.textContent = item.nome;
+        const titulo = document.createElement("h3");
+        titulo.textContent = item.titulo;
 
         card.appendChild(imagem);
         card.appendChild(titulo);
+
         link.appendChild(card);
 
         container.appendChild(link);
-    });
-}
 
-buscarReceitasFalso();
+    });
+
+}
 
 //modo escuro
 

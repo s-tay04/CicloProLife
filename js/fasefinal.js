@@ -1,3 +1,6 @@
+let receitas = [];
+let container;
+
 // idLogado
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -19,6 +22,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log("Nome:", dados.nome);
         console.log("Cargo:", dados.cargo);
+
+        container = document.getElementById("lista-receitas");
+
+        await carregarReceitas();
 
         const cargo = dados.cargo;
 
@@ -49,6 +56,60 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = 'login.html';
     }
 });
+
+async function carregarReceitas() {
+
+    try {
+
+        const response = await fetch(
+            "https://localhost:7108/Receita/fase-final",
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Erro ao buscar receitas.");
+        }
+
+        receitas = await response.json();
+
+        exibirReceitas(receitas);
+
+    } catch (err) {
+
+        console.log(err);
+
+    }
+
+}
+
+function exibirReceitas(lista) {
+
+    container.innerHTML = "";
+
+    lista.forEach(item => {
+
+        const card = document.createElement("div");
+        card.className = "card";
+        
+        card.innerHTML = `
+        <img src="https://localhost:7108/uploads/${item.imagem}" alt="${item.titulo}">
+        <h3>${item.titulo}</h3>
+    
+        <a href="concluido.html?id=${item.idReceita}">
+            <button class="concluir">
+                Concluir
+            </button>
+        </a>
+    `;
+
+        container.appendChild(card);
+
+    });
+
+}
 
 //modo escuro
 
