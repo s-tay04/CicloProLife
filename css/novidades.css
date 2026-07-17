@@ -59,7 +59,16 @@ body{
     cursor: pointer;
     
     }
-    
+
+    input,
+    select,
+    textarea,
+    button{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+ 
+
     .logo{
     cursor: pointer;
     }
@@ -149,9 +158,6 @@ body{
     }
     
     .resposta{
-        margin-left: 20px;
-        margin-top: 10px;
-        margin-bottom: 10px;
         background-color: var(--barra2);
         border-color: #f8b97b;
         border-radius: 20px;
@@ -160,9 +166,13 @@ body{
         display: block;
         margin: 20px auto;
         color: var(--texto);
-        
-    
     }
+
+    .resposta,
+    .campo-custo{
+    box-sizing: border-box;
+    }
+
     .resposta::placeholder{
         color: var(--texto);
     }
@@ -212,10 +222,12 @@ small{
 
 .controle-numero{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 15px;
     margin-top: 15px;
+    margin-left: 10%;
+    margin-bottom: 30px;
 }
 
 .controle-numero button{
@@ -297,7 +309,7 @@ small{
 .btn-add-ingrediente{
     display:block;
     width:fit-content;
-    margin:25px auto;
+    margin: 25px auto;
     padding:14px 30px;
     background:var(--botao);
     color:#fff;
@@ -306,6 +318,7 @@ small{
     cursor:pointer;
     font-size:18px;
     font-weight:bold;
+    white-space: nowrap;
 }
 
 .btn-add-ingrediente:hover{
@@ -316,8 +329,9 @@ small{
 
 .campo-custo{
     width: 80%;
-    margin: 20px auto;
+    margin: 20px auto 30px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .simbolo-moeda{
@@ -350,15 +364,19 @@ small{
 /* BOTÃO DE UPLOAD */
 
 .botao-upload{
+    display: block;
+    width: fit-content;
+    margin-top: 18px;
+    margin-bottom:30px;
+    margin-left: 8.5%;
+    padding: 15px 30px;
     background-color: var(--botao);
     color: white;
-    padding: 15px 25px;
     border-radius: 25px;
     cursor: pointer;
-    display: inline-block;
-    margin-left: 8.5%;
-    margin-top: 15px;
-    font-size: 22px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 .botao-upload:hover{
@@ -368,7 +386,7 @@ small{
 /* BOTÃO FINAL */
 
 .btn-enviar{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .input-numero::placeholder,
@@ -376,4 +394,85 @@ textarea::placeholder,
 input::placeholder{
     color: var(--texto);
     opacity: 0.7;
+}
+
+.autocomplete{
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete .ingrediente{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.lista-sugestoes{
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    background: var(--barra2);
+    border: 2px solid var(--barra);
+    border-radius: 18px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.12);
+    overflow: hidden;
+    z-index: 1000;
+
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.item-sugestao{
+    padding: 14px 18px;
+    color: var(--texto);
+    font-size: 17px;
+    transition: .2s;
+    user-select: none;
+    cursor: pointer;
+}
+
+.item-sugestao:hover{
+    background: var(--botao);
+    color: white;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.lista-sugestoes div:not(:last-child){
+    border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.lista-sugestoes::-webkit-scrollbar{
+    width:8px;
+}
+
+.lista-sugestoes::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.lista-sugestoes::-webkit-scrollbar-thumb{
+    background:var(--botao);
+    border-radius:20px;
+}
+
+.lista-sugestoes::-webkit-scrollbar-thumb:hover{
+    background:var(--transparecer);
+}
+
+#previewImagem{
+    display: none;
+    width: 250px;
+    height: 250px;
+    margin: 15px 0 15px 8.5%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid var(--barra);
+}
+
+#previewImagem{
+    transition: .3s;
+}
+
+#previewImagem:hover{
+    transform: scale(1.03);
 }
