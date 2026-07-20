@@ -67,8 +67,8 @@ body{
 }
 
 .perfil-header {
-    width: auto;
     display: flex;
+   align-items: center;
     justify-content: center;
 }
 
@@ -236,4 +236,39 @@ footer{
     margin-top: 26px;
     padding-bottom: 1px;
     align-items: center;
+}
+
+.perfil{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.botao-foto{
+
+    margin-top:20px;
+
+    padding:15px 30px;
+
+    background:var(--botao);
+
+    color:white;
+
+    border-radius:25px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    display:inline-block;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.12);
+
+    user-select:none;
+}
+
+.botao-foto:hover{
+    background:var(--transparecer);
 }

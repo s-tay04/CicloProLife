@@ -242,3 +242,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
     aplicarTema(temaSalvo);
 });
+
+//Foto de perfil
+document.addEventListener("DOMContentLoaded", function () {
+
+    const inputFoto = document.getElementById("fotoPerfil");
+    const foto = document.getElementById("foto-exibicao");
+
+if (!inputFoto || !foto) return;
+
+const fotoSalva = localStorage.getItem("fotoPerfil");
+
+if (fotoSalva) {
+    foto.src = fotoSalva;
+    document.querySelector(".botao-foto").textContent = "Trocar foto";
+}
+
+    inputFoto.addEventListener("change", function () {
+
+        const arquivo = inputFoto.files[0];
+
+        if (!arquivo) return;
+
+        foto.src = URL.createObjectURL(arquivo);
+
+        const leitor = new FileReader();
+
+        leitor.onload = function () {
+
+        localStorage.setItem("fotoPerfil", leitor.result);
+
+        };
+
+        leitor.readAsDataURL(arquivo);
+
+        const botaoFoto = document.querySelector(".botao-foto");
+        botaoFoto.textContent = "Trocar foto";
+    
+    });
+
+});

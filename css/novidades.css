@@ -476,3 +476,20 @@ input::placeholder{
 #previewImagem:hover{
     transform: scale(1.03);
 }
+
+#nomeImagem{
+    width: 80%;
+    margin: 10px auto 15px auto;
+    color: var(--texto);
+    font-size: 16px;
+    font-style: italic;
+    text-align: left;
+    word-break: break-word;
+}
+
+.perfil img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}

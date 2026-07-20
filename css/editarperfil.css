@@ -145,3 +145,10 @@ footer{
     margin-bottom: 1%;
     align-items: center;
 }
+
+.perfil img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}

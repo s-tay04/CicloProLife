@@ -179,3 +179,10 @@ footer {
     border-radius: 30px;
     margin-top: 80px;
 }
+
+.perfil img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}

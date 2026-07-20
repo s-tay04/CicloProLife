@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+
 async function carregarReceita() {
 
     const response = await fetch(
@@ -188,24 +189,33 @@ function rejeitar(botao) {
     
     divBotoes.style.display = 'none';
 
-fetch(`${API_URL}/reprovar-final/${idReceita}`, {
-    method: "PUT",
+fetch(`${API_URL}/delete/${idReceita}`, {
+    method: "DELETE",
     credentials: "include"
 })
 
-.then(response => {
+.then(async response => {
+
     if (!response.ok) {
-        throw new Error("Erro ao reprovar receita");
+
+        const erro = await response.text();
+
+        throw new Error(erro);
+
     }
 
     alert("Receita reprovada e deletada com sucesso!");
+
 })
 .catch(error => {
-    console.error("Erro ao reprovar:", error);
-    alert("Erro ao reprovar receita.");
-});
-}
 
+    console.error("Erro ao reprovar:", error);
+
+    alert(error.message);
+
+});
+
+}
 //modo escuro
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -458,6 +458,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const inputImagem = document.getElementById("imagem");
 const previewImagem = document.getElementById("previewImagem");
 const botaoImagem = document.getElementById("botaoImagem");
+const nomeImagem = document.getElementById("nomeImagem");
 
 inputImagem.addEventListener("change", function () {
 
@@ -466,6 +467,9 @@ inputImagem.addEventListener("change", function () {
     if (arquivo) {
         previewImagem.src = URL.createObjectURL(arquivo);
         previewImagem.style.display = "block";
+
+        nomeImagem.textContent = arquivo.name;
+        
 
         botaoImagem.textContent = "Alterar imagem";
     }
