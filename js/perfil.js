@@ -157,6 +157,8 @@ async function fazerLogout(event) {
 
         window.location.href = 'login.html';
 
+        localStorage.removeItem("fotoPerfil");
+
     } catch (error) {
 
         console.error("ERRO LOGOUT:", error);
@@ -244,18 +246,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //Foto de perfil
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
 
     const inputFoto = document.getElementById("fotoPerfil");
     const foto = document.getElementById("foto-exibicao");
+    const btnRemover = document.getElementById("removerFoto");
 
 if (!inputFoto || !foto) return;
 
-const fotoSalva = localStorage.getItem("fotoPerfil");
+const response = await fetch(API_PERFIL, {
+    method: "GET",
+    credentials: "include"
+});
+
+const usuario = await response.json();
+
+const fotoSalva = localStorage.getItem("fotoPerfil_" + usuario.email);
 
 if (fotoSalva) {
     foto.src = fotoSalva;
-    document.querySelector(".botao-foto").textContent = "Trocar foto";
+    btnRemover.style.display = "block";
+} else {
+    btnRemover.style.display = "none";
 }
 
     inputFoto.addEventListener("change", function () {
@@ -270,15 +282,25 @@ if (fotoSalva) {
 
         leitor.onload = function () {
 
-        localStorage.setItem("fotoPerfil", leitor.result);
-
+            localStorage.setItem("fotoPerfil_" + usuario.email, leitor.result);
+        
+            btnRemover.style.display = "block";
         };
 
         leitor.readAsDataURL(arquivo);
-
-        const botaoFoto = document.querySelector(".botao-foto");
-        botaoFoto.textContent = "Trocar foto";
     
+    });
+
+
+    btnRemover.addEventListener("click", function () {
+
+        if (!confirm("Deseja remover sua foto?")) return;
+    
+        foto.src = "../imagem/perfil2.jpg"; // sua foto padrão
+    
+        localStorage.removeItem("fotoPerfil_" + usuario.email);
+    
+        btnRemover.style.display = "none";
     });
 
 });
