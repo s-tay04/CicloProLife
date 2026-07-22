@@ -1,13 +1,16 @@
+let receitas = [];
+const container = document.getElementById("lista-receitas");
+
 // idLogado
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     try {
 
         const response = await fetch(
-            'https://localhost:7108/Usuario/inicial',
+            "https://localhost:7108/Usuario/inicial",
             {
-                method: 'GET',
-                credentials: 'include'
+                method: "GET",
+                credentials: "include"
             }
         );
 
@@ -17,61 +20,76 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error(dados.mensagem);
         }
 
-        console.log('Usuário logado:', dados.nome);
+        console.log("Usuário logado:", dados.nome);
+
+        await carregarDestaques();
 
     } catch (error) {
 
-        alert('Você precisa estar logado.');
+        alert("Você precisa estar logado.");
 
-        window.location.href = 'login.html';
+        window.location.href = "login.html";
+
     }
+
 });
 
-// card de receitas TEMPORÁRIO
-const receitas = [
-    { id: 'empada', garantiaNome: 'Empada', nome: 'Empada', img: '../imagem/empada.png' },
-    { id: 'coxinha', nome: 'Coxinha', img: '../imagem/coxinhanormal.png' },
-    { id: 'bolo-vulcao', nome: 'Bolo vulcão', img: '../imagem/bolo.png' },
-    { id: 'pudim', nome: 'Pudim', img: '../imagem/pudim.png' }
-];
+async function carregarDestaques() {
 
-const container = document.getElementById('lista-receitas');
+    try {
+
+        const response = await fetch(
+            "https://localhost:7108/Receita/destaques",
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Erro ao carregar destaques.");
+        }
+
+        receitas = await response.json();
+
+        exibirReceitas(receitas);
+
+    } catch (erro) {
+
+        console.error(erro);
+
+    }
+
+}
 
 function exibirReceitas(lista) {
-    if (!container) return; 
 
-    container.innerHTML = '';
+    container.innerHTML = "";
 
     lista.forEach(item => {
-        const link = document.createElement('a');
-        link.href = `receita.html?id=${item.id}`;
-        link.className = 'card-link';
 
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
+        const link = document.createElement("a");
+        link.href = `receita.html?id=${item.idReceita}`;
+        link.className = "card-link";
 
-        const card = document.createElement('div');
-        card.className = 'card';
+        link.style.textDecoration = "none";
+        link.style.color = "inherit";
 
-        const imagem = document.createElement('img');
-        imagem.src = item.img;
-        imagem.alt = item.nome;
+        const card = document.createElement("div");
+        card.className = "card";
 
-        const titulo = document.createElement('h3');
-        titulo.textContent = item.nome;
+        card.innerHTML = `
+            <img src="https://localhost:7108/uploads/${item.imagem}" alt="${item.titulo}">
+            <h3>${item.titulo}</h3>
+        `;
 
-        card.appendChild(imagem);
-        card.appendChild(titulo);
         link.appendChild(card);
 
         container.appendChild(link);
+
     });
-}
 
-if (container) {
-    exibirReceitas(receitas);
 }
-
 
 //modo escuro
 
