@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const botaoFinal = document.querySelector("#link-fase-final button");
 
     // Chefe de Cozinha
-    if (cargo === "Chefe de cozinha") {
+    if (cargo === "Chefe de Cozinha") {
 
     botaoTeste.classList.remove("cadeado");
     botaoTeste.classList.add("comum");

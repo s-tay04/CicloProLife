@@ -296,8 +296,6 @@ async function enviar() {
 
     formData.append("Ingredientes", JSON.stringify(ingredientes));
 
-    formData.append("Ingredientes", JSON.stringify(ingredientes));
-
     formData.append("ModoPreparo", textoModoPreparo);
 
     formData.append("Custo", textoCusto);
@@ -351,6 +349,13 @@ async function enviar() {
         document.getElementById("porcao").value = 1;
 
         document.getElementById("imagem").value = "";
+
+        previewImagem.src = "";
+        previewImagem.style.display = "none";
+
+        nomeImagem.textContent = "";
+
+        botaoImagem.textContent = "Selecionar imagem";
 
         document.querySelectorAll(".linha-ingrediente").forEach((linha, indice) => {
 
