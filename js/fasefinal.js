@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const botaoTeste = document.getElementById("botao-fase-teste");
         const botaoFinal = document.getElementById("botao-fase-final");
 
-        if (cargo === "Chefe de cozinha") {
+        if (cargo === "Chefe de Cozinha") {
         botaoTeste.classList.remove("cadeado");
         }
 
